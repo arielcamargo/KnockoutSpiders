@@ -17,7 +17,7 @@
       <div class="nav-bar flex ">
         <div class="logo flex">
           <div class="logo-container px-3">
-            <img src="https://static.nc-img.com/uxteam/lc.simple-pages/nclabs-logo-maker-2020/img/logo-maker-1.c27a66c4.svg" alt="">
+            <img src="https://www.vendia.net/images/logo/white.svg" alt="">
           </div>
         </div>
         <div class="search-bar flex">
@@ -28,11 +28,11 @@
         </div>
         <div class="utility flex">
           <div class="utility__share-btn btn btn-primary text-m">
-            Share
+            <span class="share-text ">Share</span>
             <i class="fa-solid fa-share-from-square"></i>
           </div>
           <div class="utility__create-new-btn btn btn-primary text-m">
-            Create new
+            <span class="create-text">Create New</span>
             <i class="fa-solid fa-plus"></i>
           </div>
           <div class="utility__bell-icon-wrapper px-1 py-1">
@@ -51,38 +51,45 @@
 
 
     <main class="main">
-      <!-------------------Greeting section------------------->
-      <div class="row">
-        <div class="main__greeting flex flex-row">
-          <div class="col col-8 greeting-main">
-              <div class="greeting-main__text">
-                <p>
-                  good morning ! <span> mr white</span>
-                </p>
-                <p>
-                  Have a nice day at work. 
-                </p>
-              </div>
-          </div>
-          <div class="col col-4 greeting-weather">
-
+      <!-------------------Banner section------------------->
+      <div class="main__header row flex flex-row">
+        <div class="col col-2 main__greeting">
+          <div class="main__greeting-text">
+            <p>
+              Good morning Mr <span>White</span>.  
+            </p>
+            <p>
+              Have a nice day at work...
+            </p>
+          </div> 
+          <div class="main__greeting-img">
+            <img src="" alt="">
           </div>
         </div>
-      </div>
-
-      <!-------------------End of Greeting section------------------->
-
-      <!-------------------Banner section------------------->
-      <div class="row">
-        <div class="main__banner flex flex-row text-m font-bold">
-          <div class="col col-4 flex main__banner-item">
-            Percentage of gender working more
-            than 40 hours a week</div>
-          <div class="col col-4 flex main__banner-item ">people that  workout more than x hours per week have More/less time off available</div>
-          <div class="col col-4 flex main__banner-item">people that  workout more than x hours per week have Lower/higher blood pressure</div>
-          <div class="col col-4 flex main__banner-item">people that  workout more than x hours per week have Lower/higher respiration
-            rate</div>
-
+        <div class="col col-2 main__banner flex flex-row text-m font-bold">
+          <div class="row  main__banner-wrapper">
+            <div class="col  flex main__banner-item">
+              <!-- Percentage of gender working more
+              than 40 hours a week -->
+              1
+            </div>
+            <div class="col  flex main__banner-item ">
+              <!-- people that  workout more than x hours per week have More/less time off available -->
+              2
+            </div>
+            
+          </div>
+          <div class=" row main__banner-wrapper">
+            <div class="col flex main__banner-item">
+              <!-- people that  workout more than x hours per week have Lower/higher blood pressure -->
+            3
+            </div>
+            <div class="col  flex main__banner-item">
+              <!-- people that  workout more than x hours per week have Lower/higher respiration
+              rate -->
+            4
+            </div>
+          </div>
         </div>
       </div>
       <!-------------------End of Banner section----------------- -->
@@ -114,15 +121,17 @@
 
       <!---------------------Employee data section HEADER------------------- --> 
           <div class="col col-1 flex text-m font-bold employee-data__header">
-            <div class="col col-12 employee-data__item">Employee</div>
+            <div class="col col-12 employee-data__item">No</div>
             <div class="col col-12 employee-data__item">Age</div>
             <div class="col col-12 employee-data__item">Gender</div>
             <div class="col col-12 employee-data__item">Height</div>
-            <div class="col col-12 employee-data__item">Weight</div>
             <div class="col col-12 employee-data__item">Body Temp</div>
             <div class="col col-12 employee-data__item">Pulse Rate</div>
             <div class="col col-12 employee-data__item">Blood Pressure</div>
-            <div class="col col-12 employee-data__item">Respiration Rate</div>
+            <div class="col col-12 
+            employee-data__item">Respiration Rate</div>
+            <div class="col col-12 
+            employee-data__item">Weight</div>
             <div class="col col-12 employee-data__item">Avg Hrs Exerc Per Wk</div>
             <div class="col col-12 employee-data__item">Vacation Balance</div>
             <div class="col col-12 employee-data__item">Avg hrs Work Per Wk</div>
@@ -133,8 +142,69 @@
       <!---------------------Employee data section MAIN------------------- --> 
           <div class="employee-data__main">
 
+              <!--Fake data for display purpose only, will be replaced with real data later-->
+            <div class="employee-data__item-wrapper flex">
+              <div class="col col-12 employee-data__item">1</div>
+              <div class="col col-12 employee-data__item">28</div>
+              <div class="col col-12 employee-data__item">Female</div>
+              <div class="col col-12 employee-data__item">61</div>
+              <div class="col col-12 employee-data__item">98.7</div>
+              <div class="col col-12 employee-data__item">80</div>
+              <div class="col col-12 employee-data__item">(120 80)</div>
+              <div class="col col-12 employee-data__item">12</div>
+              <div class="col col-12 employee-data__item">110</div>
+              <div class="col col-12 employee-data__item">8</div>
+              <div class="col col-12 employee-data__item">5</div>
+              <div class="col col-12 employee-data__item"> 50</div>
+            </div> 
+            <!--Fake data for display purpose only, will be replaced with real data later-->
+            <div class="employee-data__item-wrapper flex">
+              <div class="col col-12 employee-data__item">2</div>
+              <div class="col col-12 employee-data__item">28</div>
+              <div class="col col-12 employee-data__item">Female</div>
+              <div class="col col-12 employee-data__item">61</div>
+              <div class="col col-12 employee-data__item">98.7</div>
+              <div class="col col-12 employee-data__item">80</div>
+              <div class="col col-12 employee-data__item">(120 80)</div>
+              <div class="col col-12 employee-data__item">12</div>
+              <div class="col col-12 employee-data__item">110</div>
+              <div class="col col-12 employee-data__item">8</div>
+              <div class="col col-12 employee-data__item">5</div>
+              <div class="col col-12 employee-data__item"> 50</div>
+            </div> 
+            <!--Fake data for display purpose only, will be replaced with real data later-->
+            <div class="employee-data__item-wrapper flex">
+              <div class="col col-12 employee-data__item">3</div>
+              <div class="col col-12 employee-data__item">28</div>
+              <div class="col col-12 employee-data__item">Female</div>
+              <div class="col col-12 employee-data__item">61</div>
+              <div class="col col-12 employee-data__item">98.7</div>
+              <div class="col col-12 employee-data__item">80</div>
+              <div class="col col-12 employee-data__item">(120 80)</div>
+              <div class="col col-12 employee-data__item">12</div>
+              <div class="col col-12 employee-data__item">110</div>
+              <div class="col col-12 employee-data__item">8</div>
+              <div class="col col-12 employee-data__item">5</div>
+              <div class="col col-12 employee-data__item"> 50</div>
+            </div> 
+            <!--Fake data for display purpose only, will be replaced with real data later-->
+            <div class="employee-data__item-wrapper flex">
+              <div class="col col-12 employee-data__item">4</div>
+              <div class="col col-12 employee-data__item">28</div>
+              <div class="col col-12 employee-data__item">Female</div>
+              <div class="col col-12 employee-data__item">61</div>
+              <div class="col col-12 employee-data__item">98.7</div>
+              <div class="col col-12 employee-data__item">80</div>
+              <div class="col col-12 employee-data__item">(120 80)</div>
+              <div class="col col-12 employee-data__item">12</div>
+              <div class="col col-12 employee-data__item">110</div>
+              <div class="col col-12 employee-data__item">8</div>
+              <div class="col col-12 employee-data__item">5</div>
+              <div class="col col-12 employee-data__item"> 50</div>
+            </div> 
 
 
+            
           </div>
       <!---------------------End of Employee data section MAIN------------------- --> 
       
