@@ -53,19 +53,28 @@
     <main class="main">
       <!-------------------Banner section------------------->
       <div class="main__header row flex flex-row">
-        <div class="col col-2 main__greeting">
+
+              <!-------------------Greeting section------------------->
+        <div class="col col-2  main__greeting">
           <div class="main__greeting-text">
             <p>
-              Good morning Mr <span>White</span>.  
+              Good morning <span class="main__greeting-name">Mr White</span>
             </p>
-            <p>
+            <p class="main__greeting-info">
               Have a nice day at work...
+            </p>
+            <p class="main__greeting-info">
+              Your dashboard is up to date
             </p>
           </div> 
           <div class="main__greeting-img">
             <img src="" alt="">
           </div>
         </div>
+              <!-------------------End of Greeting section------------------->
+
+        
+              <!-------------------Banner section------------------->
         <div class="col col-2 main__banner flex flex-row text-m font-bold">
           <div class="row  main__banner-wrapper">
             <div class="col  flex main__banner-item">
@@ -93,9 +102,6 @@
         </div>
       </div>
       <!-------------------End of Banner section----------------- -->
-
-
-
 
       <!-------------------Filters section------------------->
       <div class="row">
@@ -228,11 +234,81 @@
       <!---------------------MODAL------------------- --> 
   <div class="modal flex">
     <div class="modal__overlay">
-
     </div>
-    <div class="modal__body">
+    <div class="row modal__body">
       <div class="modal__inner">
+        <div class="modal__inner-header flex text-xl ">
+          <div class="header__icon-wrapper">
+            <i class="fa-solid fa-people-group"></i>
+          </div>
+          <div class="header__tittle">
+            <p>
+              add new employee
+            </p>
+          </div>
+        </div>
+        <div class="modal__inner-form-wrapper">
+          <form action="#" class="text-m">
+            <div class="flex form__double-col ">
+              <div class="col-2 mx-1">
+                <label class="lh-3" >First name</label>
+                <input type="text" placeholder="John">
+              </div>
+              <div class="col-2  mx-1">
+                <label class="lh-3">Last Name</label>
+                <input type="text" placeholder="Doe">
+              </div>
+            </div>
+            <div class="flex">
+              <div class="col-2  mx-1">
+                <label class="lh-3">Age</label>
+                <input type="text" placeholder="18">
+              </div>
+              <div class="flex flex-col col-2  mx-1">
+                <label class="lh-3" for="cars">Gender:</label>
+                <select name="cars" id="cars">
+                  <option value="volvo">Male</option>
+                  <option value="saab">Femal</option>
+                  <option value="opel">Trans</option>
+                  <option value="audi">Prefer Not To Repsond</option>
+                </select>
+              </div>
+            </div>
 
+            <div class=" flex">
+              <div class="col-2  mx-1">
+                <label class="lh-3">Height(in inches)</label>
+                <input type="text" placeholder="70">
+              </div>
+              <div  class="col-2  mx-1">
+                <label class="lh-3">Body temp (in F)</label>
+                <input  type="text" placeholder="98">
+              </div>
+            </div>
+
+            <div class="flex flex-col form__info  mx-1">
+              <label class="lh-3">Pulse Rate(beats per minute)</label>
+              <input type="text" placeholder="80">
+              <label class="lh-3">Blood Pressure (number over number i.e. 120/80)</label>
+              <input type="text" placeholder="(120 80)">
+              <label class="lh-3">Respiration Rate (breaths per minute)</label>
+              <input type="text" placeholder="12">
+              <label class="lh-3">Weight (in pounds)</label>
+              <input type="text" placeholder="110">
+              <label class="lh-3">Average Hours of Exercise Per Week</label>
+              <input type="text" placeholder="8">
+              <label class="lh-3">Vacation Balance (in hours)</label>
+              <input type="text" placeholder="5">
+              <label class="lh-3">Average Hours of work Per Week</label>
+              <input type="text" placeholder="50">
+            </div>
+          </form> 
+          <!--Currently being disabled until valid  data entered -->
+          <button class="add-emp-btn btn btn-primary btn--disabled float-right text-m">
+            Add
+          </button>
+
+        </div>
       </div>
     </div>
   </div>
