@@ -8,21 +8,22 @@
   --text-regular: #8e8b8b;
   --text-dark: #0a0a0a;
   --text-white: #f8f9fa;
-  --background-white: #fff;
+  --background-white: #ffffff;
   --background-main: #f8f8f8;
-  --box-shadow: 0px 0px 50px 0px rgb(0 0 0 / 50%);
+  --box-shadow: 0px 0px 50px 0px rgb(0 0 0 / 20%);
   --primary-color: #a175fa;
   --disabled-color: rgb(160, 115, 250,0.5);
   --secondary-color: rgb(174, 139, 244);
   --border-color: #ecedef;
-  --alternate-primary: #62b761;
+  --alternate-primary: #17c214;
+  --banner-background: rgb(243, 241, 246);
 
   /*       Font family      */
   --font-poppins: "Roboto","sans-serif";
 
 
   /*       Gradient colors      */
-  --bg-gradient-indigo: linear-gradient(to right,#c8aff8 , #a175fa);
+  --bg-gradient-indigo: linear-gradient(to right,#bda0f4 , #a175fa);
   --bg-gradient-reverse:  linear-gradient(to right, #f77554,#fc9e87);
   --bg-gradient-peach: linear-gradient(to right, #fff7f3,#fff7f3);
 
@@ -219,6 +220,11 @@ select {
   flex: 1;
 }
 
+.flex-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
 .text-upper {
   text-transform: uppercase;
 }
@@ -305,6 +311,10 @@ select {
   float: right;
 }
 
+.alternate-color {
+  color: var(--alternate-primary);
+}
+
 
 .btn {
   border: none;
@@ -338,12 +348,14 @@ select {
   box-shadow: var(--box-shadow);
 }
 
+
 .app {
   background-image: url('../assets/img/banner-background.PNG');
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh; 
 }
+
 
 .header {
   position: fixed;
@@ -352,7 +364,7 @@ select {
   left: 0;
   height: 46px;
   max-width: 1240px;
-  min-height: 75px;
+  min-height: 60px;
   background-color: var(--background-white);
   border-bottom: 1px solid #f7f7f7;
   z-index: 9999;
@@ -361,7 +373,7 @@ select {
 .header .nav-bar {
   justify-content: space-around;
   align-items: center;
-  height:75px;
+  height:60px;
 }
 
 .logo img {
@@ -556,7 +568,7 @@ select {
 }
 
 .main {
-  margin: 75px auto 0;
+  margin: 60px auto 0;
   max-width: 1240px;
   /* background-color: var(--background-main) */
 }
@@ -599,14 +611,77 @@ select {
 }
 
 .main__banner .main__banner-item {
-  margin-top: 1em;
-  min-height: 10em;
-  max-height: 12em;
-  color: var(--text-white);
-  border-radius: 1em;
+  text-align: left;
+  margin-top: 1.1em;
+  height: 10.2em;
+  max-width: 20em;
+  color: black;
+  border-radius: 2em;
   text-transform: capitalize;
-  background: var(--bg-gradient-reverse);
+  border: 1px solid var(--regular-text);
+  box-shadow: var(--box-shadow);
 }
+
+.main__banner .main__banner-item > p {
+  padding-top: 0.4em;
+
+}
+
+.main__banner  .item-1 {
+  background-color: var(--banner-background);
+}
+
+
+.main__banner  .item-1:hover {
+  background: linear-gradient(to right, #a175fa ,#c9bbe6);
+  color: var(--background-white);
+}
+
+.item-1 .item-1-list-icon {
+  color: var(--alternate-primary);
+}
+
+
+.main__banner .item-2 {
+  background-color: var(--banner-background);
+}
+
+.main__banner .item-2:hover  {
+  color: var(--background-white);
+  background: linear-gradient(to right, #fe9061 ,#e6c5b7);
+}
+
+.item-2 .item-2-list {
+  margin-right: 2.6em;
+}
+
+.item-2 .item-2-list-icon-1 {
+  color: blue;
+  margin: 0.3em 0;
+}
+
+.item-2 .item-2-list-icon-2 {
+  color: rgb(248, 109, 199);
+}
+
+.main__banner .item-3 {
+  background-color: var(--banner-background);
+}
+
+.main__banner .item-3:hover {
+  color: var(--background-white);
+  background: linear-gradient(to right, #f4c424 ,#e5d9b0);
+}
+
+.main__banner .item-4 {
+  background-color: var(--banner-background);
+}
+
+.main__banner .item-4:hover {
+  color: var(--background-white);
+  background: linear-gradient(to right, #39cae7 ,#bae6ef);
+}
+
 
 .main .main__filters {
   padding: 0 0 2em;
@@ -625,14 +700,14 @@ select {
 
 
 .main__filters .main__filters-item--active {
-  background-color: var(--secondary-color);
+  background: var(--bg-gradient-indigo);
   border: none;
   outline: none;
   color: var(--background-white);
 }
 
 .main__filters .main__filters-item:hover {
-  background-color: var(--secondary-color);
+  background: var(--bg-gradient-indigo);
   cursor: pointer;
   box-shadow: var(--box-shadow);
   color: var(--background-white);

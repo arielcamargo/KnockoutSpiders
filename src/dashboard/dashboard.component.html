@@ -83,13 +83,12 @@
               </div>
 
             </div>
-            <img src="https://studyingbreakingbadcourse.files.wordpress.com/2016/02/walt-wearing-hat.jpg" alt="">
+            <img id="avatar-img" src="https://studyingbreakingbadcourse.files.wordpress.com/2016/02/walt-wearing-hat.jpg" alt="">
           </div>
         </div>
       </div>
     </header>
       <!---------------End of Header section----------------->
-
 
 
     <main class="main">
@@ -114,28 +113,59 @@
 
         
               <!-------------------Banner section------------------->
-        <div class="col col-2 main__banner flex flex-row text-m font-bold">
+        <div class="col col-2 main__banner flex flex-row text-s font-bold">
           <div class="row  main__banner-wrapper">
-            <div class="col  flex main__banner-item">
-              <!-- Percentage of gender working more
-              than 40 hours a week -->
-              Data added later. Have no idea what to put in yet
+            <div class="col main__banner-item item-1 px-3 ">
+              <p>
+                Working out more than <span>3 hours a week</span> helps: 
+              </p>
+              <div class="item-1-list float-right">
+                <div class="flex">
+                  <i class="fa-solid fa-arrow-down px-1 item-1-list-icon"></i>
+                  <p>Lower blood pressure</p>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-arrow-up px-1 item-1-list-icon"></i>
+                  <p> Higher respiratory rate</p>
+                </div>
+
+                <div class="flex">
+                  <i class="fa-solid fa-check px-1 item-1-list-icon "></i>
+                  <p>Have ideal BMI</p>
+                </div>
+              </div>
             </div>
-            <div class="col  flex main__banner-item ">
-              <!-- people that  workout more than x hours per week have More/less time off available -->
-              Data added later. Have no idea what to put in yet
+            <div class="col main__banner-item item-2 px-3">
+              <p>
+                 percentage of each gender  working more than <span>40</span> hours a week:
+              </p>
+              <div class="item-2-list float-right">
+                <div class="flex">
+                  <i class="fa-solid fa-mars px-1   text-m  item-2-list-icon-1"></i>
+                  <p>Male  <span class="alternate-color px-1"> 50.0%</span></p>
+                </div>
+                <div class="flex">
+                  <i class="fa-solid fa-venus px-1   text-m  item-2-list-icon-2"></i>
+                  <p>Female  <span class="alternate-color px-1"> 50.0% </span> </p>
+
+                </div>
+              </div>
             </div>
             
           </div>
           <div class=" row main__banner-wrapper">
-            <div class="col flex main__banner-item">
-              <!-- people that  workout more than x hours per week have Lower/higher blood pressure -->
-              Data added later. Have no idea what to put in yet
+            <div class="col flex main__banner-item  item-3  px-1 ">
+              <p>
+                Data added later. Have no idea what to put in yet
+
+              </p>
             </div>
-            <div class="col  flex main__banner-item">
-              <!-- people that  workout more than x hours per week have Lower/higher respiration
-              rate -->
-              Data added later. Have no idea what to put in yet
+            <div class="col flex main__banner-item item-4   px-1">
+
+              <p>
+                Data added later. Have no idea what to put in yet
+
+              </p>
             </div>
           </div>
         </div>
@@ -360,7 +390,7 @@
     const addNewElement = document.getElementById('create-new-btn');
     const modalElement = document.getElementById('modal');
     const formCloseElement = document.getElementById('form-close');
-    console.log(formCloseElement);
+    const avatarElement = document.getElementById('avatar-img');
 
     addNewElement.addEventListener('click',function() {
       modalElement.setAttribute('style','display: flex');
@@ -369,5 +399,7 @@
     formCloseElement.addEventListener('click',function() {
       modalElement.setAttribute('style','display: none');
     })
+
+
   </script>
 </body>
