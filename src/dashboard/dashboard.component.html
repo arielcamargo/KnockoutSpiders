@@ -31,8 +31,8 @@
             <span class="share-text ">Share</span>
             <i class="fa-solid fa-share-from-square"></i>
           </div>
-          <div class="utility__create-new-btn btn btn-primary text-m">
-            <span class="create-text">Create New</span>
+          <div id="create-new-btn" class="utility__create-new-btn btn btn-primary text-m">
+            <span class="create-text">New</span>
             <i class="fa-solid fa-plus"></i>
           </div>
           <div class="utility__bell-icon-wrapper px-1 py-1">
@@ -232,7 +232,7 @@
   </div>
 
       <!---------------------MODAL------------------- --> 
-  <div class="modal flex">
+  <div id="modal" class="modal flex">
     <div class="modal__overlay">
     </div>
     <div class="row modal__body">
@@ -314,4 +314,14 @@
   </div>
   <!---------------------End of MODAL------------------- --> 
 
+
+  <!--Js to simulate some features, waiting to be done by Angular-->
+  <script>
+    const addNewElement = document.getElementById('create-new-btn');
+    const modalElement = document.getElementById('modal');
+
+    addNewElement.addEventListener('click',function() {
+      modalElement.setAttribute('style','display: block');
+    })
+  </script>
 </body>
