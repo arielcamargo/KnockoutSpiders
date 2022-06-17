@@ -32,7 +32,7 @@
             <i class="fa-solid fa-share-from-square"></i>
           </div>
           <div id="create-new-btn" class="utility__create-new-btn btn btn-primary text-m">
-            <span class="create-text">New</span>
+            <span class="create-text text-upper">New</span>
             <i class="fa-solid fa-plus"></i>
           </div>
           <div class="utility__bell-icon-wrapper px-1 py-1">
@@ -41,6 +41,48 @@
             </div>
           </div>
           <div class="utility__avatar">
+            <div class="utility__avatar-panel">
+              <div class="avatar-panel__wrapper px-1 py-1">
+                <div class="avatar-panel__header">
+                  <p class="text-xl">
+                    John Doe
+                  </p>
+                </div>
+                <div class="avatar-panel__item flex py-1 text-l ">
+                  <div class="avatar-panel__item-icon">
+                    <i class="avatar-panel__icon fa-solid fa-gear"></i>
+                  </div>
+                  <div class="avatar-panel__item-title">
+                    settings & privacy
+                  </div>
+                </div>
+                <div class="avatar-panel__item flex py-1 text-l ">
+                  <div class="avatar-panel__item-icon">
+                    <i class="avatar-panel__icon fa-solid fa-circle-question"></i>
+                  </div>
+                  <div class="avatar-panel__item-title">
+                    help & support
+                  </div>
+                </div>
+                <div class="avatar-panel__item flex py-1 text-l ">
+                  <div class="avatar-panel__item-icon">
+                    <i class="avatar-panel__icon fa-solid fa-comment-dots"></i>
+                  </div>
+                  <div class="avatar-panel__item-title">
+                    give feedback
+                  </div>
+                </div>
+                <div class="avatar-panel__item flex py-1 text-l ">
+                  <div class="avatar-panel__item-icon">
+                    <i class="avatar-panel__icon fa-solid fa-arrow-right-from-bracket"></i>
+                  </div>
+                  <div class="avatar-panel__item-title">
+                    log out
+                  </div>
+                </div>
+              </div>
+
+            </div>
             <img src="https://studyingbreakingbadcourse.files.wordpress.com/2016/02/walt-wearing-hat.jpg" alt="">
           </div>
         </div>
@@ -58,18 +100,15 @@
         <div class="col col-2  main__greeting">
           <div class="main__greeting-text">
             <p>
-              Good morning <span class="main__greeting-name">Mr White</span>
+              Good morning <span class="main__greeting-name">Mr Doe</span>
             </p>
             <p class="main__greeting-info">
               Have a nice day at work...
             </p>
             <p class="main__greeting-info">
-              Your dashboard is up to date
+              Your dashboard is up to date !
             </p>
           </div> 
-          <div class="main__greeting-img">
-            <img src="" alt="">
-          </div>
         </div>
               <!-------------------End of Greeting section------------------->
 
@@ -80,23 +119,23 @@
             <div class="col  flex main__banner-item">
               <!-- Percentage of gender working more
               than 40 hours a week -->
-              1
+              Data added later. Have no idea what to put in yet
             </div>
             <div class="col  flex main__banner-item ">
               <!-- people that  workout more than x hours per week have More/less time off available -->
-              2
+              Data added later. Have no idea what to put in yet
             </div>
             
           </div>
           <div class=" row main__banner-wrapper">
             <div class="col flex main__banner-item">
               <!-- people that  workout more than x hours per week have Lower/higher blood pressure -->
-            3
+              Data added later. Have no idea what to put in yet
             </div>
             <div class="col  flex main__banner-item">
               <!-- people that  workout more than x hours per week have Lower/higher respiration
               rate -->
-            4
+              Data added later. Have no idea what to put in yet
             </div>
           </div>
         </div>
@@ -233,10 +272,11 @@
 
       <!---------------------MODAL------------------- --> 
   <div id="modal" class="modal flex">
-    <div class="modal__overlay">
-    </div>
     <div class="row modal__body">
       <div class="modal__inner">
+        <div id="form-close" class="modal__inner-close text-l">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
         <div class="modal__inner-header flex text-xl ">
           <div class="header__icon-wrapper">
             <i class="fa-solid fa-people-group"></i>
@@ -247,7 +287,7 @@
             </p>
           </div>
         </div>
-        <div class="modal__inner-form-wrapper">
+        <div class="modal__inner-form-wrapper font-bold">
           <form action="#" class="text-m">
             <div class="flex form__double-col ">
               <div class="col-2 mx-1">
@@ -307,9 +347,6 @@
           <button class="add-emp-btn btn btn-primary btn--disabled float-right text-m">
             Add
           </button>
-          <button class="add-emp-btn btn btn-primary btn--disabled float-right text-m">
-            Add
-          </button>
 
         </div>
       </div>
@@ -322,9 +359,15 @@
   <script>
     const addNewElement = document.getElementById('create-new-btn');
     const modalElement = document.getElementById('modal');
+    const formCloseElement = document.getElementById('form-close');
+    console.log(formCloseElement);
 
     addNewElement.addEventListener('click',function() {
-      modalElement.setAttribute('style','display: block');
+      modalElement.setAttribute('style','display: flex');
+    })
+
+    formCloseElement.addEventListener('click',function() {
+      modalElement.setAttribute('style','display: none');
     })
   </script>
 </body>
