@@ -8,10 +8,6 @@
   <link rel="stylesheet" href="dashboard.component.css">
 
 
-
-
-
-
 </head>
 <body>
   <div class="app">
@@ -111,17 +107,17 @@
             <p class="main__greeting-info">
               Your dashboard is up to date !
             </p>
-          </div> 
+          </div>
         </div>
               <!-------------------End of Greeting section------------------->
 
-        
+
               <!-------------------Banner section------------------->
         <div class="col col-2 main__banner flex flex-row text-s font-bold">
           <div class="row  main__banner-wrapper">
             <div class="col main__banner-item item-1 px-3 ">
               <p>
-                Working out more than <span>3 hours a week</span> helps: 
+                Working out more than <span>3 hours a week</span> helps:
               </p>
               <div class="item-1-list float-right">
                 <div class="flex">
@@ -155,7 +151,7 @@
                 </div>
               </div>
             </div>
-            
+
           </div>
           <div class=" row main__banner-wrapper">
             <div class="col flex main__banner-item  item-3  px-1 ">
@@ -198,7 +194,7 @@
       <div class="row">
         <div class="main__employee-data">
 
-      <!---------------------Employee data section HEADER------------------- --> 
+      <!---------------------Employee data section HEADER------------------- -->
           <div class="col col-1 flex text-m font-bold employee-data__header">
             <div class="col col-12 employee-data__item">No</div>
             <div class="col col-12 employee-data__item">Age</div>
@@ -207,18 +203,18 @@
             <div class="col col-12 employee-data__item">Body Temp</div>
             <div class="col col-12 employee-data__item">Pulse Rate</div>
             <div class="col col-12 employee-data__item">Blood Pressure</div>
-            <div class="col col-12 
+            <div class="col col-12
             employee-data__item">Respiration Rate</div>
-            <div class="col col-12 
+            <div class="col col-12
             employee-data__item">Weight</div>
             <div class="col col-12 employee-data__item">Avg Hrs Exerc Per Wk</div>
             <div class="col col-12 employee-data__item">Vacation Balance</div>
             <div class="col col-12 employee-data__item">Avg hrs Work Per Wk</div>
           </div>
-      <!---------------------End of Employee data section HEADER------------------- --> 
+      <!---------------------End of Employee data section HEADER------------------- -->
 
 
-      <!---------------------Employee data section MAIN------------------- --> 
+      <!---------------------Employee data section MAIN------------------- -->
           <div class="employee-data__main">
 
               <!--Fake data for display purpose only, will be replaced with real data later-->
@@ -235,7 +231,7 @@
               <div class="col col-12 employee-data__item">8</div>
               <div class="col col-12 employee-data__item">5</div>
               <div class="col col-12 employee-data__item"> 50</div>
-            </div> 
+            </div>
             <!--Fake data for display purpose only, will be replaced with real data later-->
             <div class="employee-data__item-wrapper flex">
               <div class="col col-12 employee-data__item">2</div>
@@ -250,7 +246,7 @@
               <div class="col col-12 employee-data__item">8</div>
               <div class="col col-12 employee-data__item">5</div>
               <div class="col col-12 employee-data__item"> 50</div>
-            </div> 
+            </div>
             <!--Fake data for display purpose only, will be replaced with real data later-->
             <div class="employee-data__item-wrapper flex">
               <div class="col col-12 employee-data__item">3</div>
@@ -265,7 +261,7 @@
               <div class="col col-12 employee-data__item">8</div>
               <div class="col col-12 employee-data__item">5</div>
               <div class="col col-12 employee-data__item"> 50</div>
-            </div> 
+            </div>
             <!--Fake data for display purpose only, will be replaced with real data later-->
             <div class="employee-data__item-wrapper flex">
               <div class="col col-12 employee-data__item">4</div>
@@ -280,13 +276,13 @@
               <div class="col col-12 employee-data__item">8</div>
               <div class="col col-12 employee-data__item">5</div>
               <div class="col col-12 employee-data__item"> 50</div>
-            </div> 
+            </div>
 
 
-            
+
           </div>
-      <!---------------------End of Employee data section MAIN------------------- --> 
-      
+      <!---------------------End of Employee data section MAIN------------------- -->
+
         </div>
       </div>
       <!---------------------End of Employee data section------------------- -->
@@ -295,16 +291,16 @@
     </main>
 
 
-      <!---------------------FOOTER------------------- --> 
+      <!---------------------FOOTER------------------- -->
 
     <footer class="footer">
 
     </footer>
-      <!---------------------End of FOOTER------------------- --> 
+      <!---------------------End of FOOTER------------------- -->
 
   </div>
 
-      <!---------------------MODAL------------------- --> 
+      <!---------------------MODAL------------------- -->
   <div id="modal" class="modal flex">
     <div class="row modal__body">
       <div class="modal__inner">
@@ -376,7 +372,7 @@
               <label class="lh-3">Average Hours of work Per Week</label>
               <input type="text" placeholder="50">
             </div>
-          </form> 
+          </form>
           <!--Currently being disabled until valid  data entered -->
           <button class="add-emp-btn btn btn-primary btn--disabled float-right text-m">
             Add
@@ -386,7 +382,7 @@
       </div>
     </div>
   </div>
-  <!---------------------End of MODAL------------------- --> 
+  <!---------------------End of MODAL------------------- -->
 
 
   <!--Js to simulate some features, waiting to be done by Angular-->
@@ -396,16 +392,13 @@
     const formCloseElement = document.getElementById('form-close');
     const avatarElement = document.getElementById('avatar-img');
 
-    function eventHandlers() {
-      addNewElement.addEventListener('click',function() {
-        modalElement.setAttribute('style','display: flex');
-      })
+    addNewElement.addEventListener('click',function() {
+      modalElement.setAttribute('style','display: flex');
+    })
 
-      formCloseElement.addEventListener('click',function() {
-        modalElement.setAttribute('style','display: none');
-      })
-    }
-    eventHandlers();
+    formCloseElement.addEventListener('click',function() {
+      modalElement.setAttribute('style','display: none');
+    })
 
 
   </script>
