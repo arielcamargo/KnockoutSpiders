@@ -3,13 +3,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"> -->
   <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css">
   <link rel="stylesheet" href="dashboard.component.css">
-
-
-
-
 
 
 </head>
@@ -25,7 +21,7 @@
           </div>
         </div>
         <div class="search-bar flex">
-          <input type="text" placeholder="Type to search ..." class="search-bar__input text-m">
+          <input type="text" placeholder="Type to search ..." class="search-bar__input text-m border-none">
         </div>
         <div class="search-icon text-xxl margin-auto">
           <i class="fa-solid fa-magnifying-glass"></i>
@@ -48,9 +44,9 @@
             <div class="utility__avatar-panel">
               <div class="avatar-panel__wrapper px-1 py-1">
                 <div class="avatar-panel__header">
-                  <p class="text-xl">
+                  <header class="text-xl">
                     John Doe
-                  </p>
+                  </header>
                 </div>
                 <div class="avatar-panel__item flex py-1 text-l ">
                   <div class="avatar-panel__item-icon">
@@ -101,17 +97,9 @@
 
               <!-------------------Greeting section------------------->
         <div class="col col-2  main__greeting">
-          <div class="main__greeting-text">
-            <p>
-              Good morning <span class="main__greeting-name">Mr Doe</span>
-            </p>
-            <p class="main__greeting-info">
-              Have a nice day at work...
-            </p>
-            <p class="main__greeting-info">
-              Your dashboard is up to date !
-            </p>
-          </div> 
+          <div style="color: transparent" class="greeting-flag text-m copy-none">
+           flag
+          </div>
         </div>
               <!-------------------End of Greeting section------------------->
 
@@ -120,37 +108,37 @@
         <div class="col col-2 main__banner flex flex-row text-s font-bold">
           <div class="row  main__banner-wrapper">
             <div class="col main__banner-item item-1 px-3 ">
-              <p>
+              <header>
                 Working out more than <span>3 hours a week</span> helps: 
-              </p>
+              </header>
               <div class="item-1-list float-right">
                 <div class="flex">
-                  <i class="fa-solid fa-arrow-down px-1 item-1-list-icon"></i>
+                  <i class="fa-solid fa-arrow-down px-1 item-1-list-icon-1"></i>
                   <p>Lower blood pressure</p>
                 </div>
                 <div class="flex">
-                  <i class="fa-solid fa-arrow-up px-1 item-1-list-icon"></i>
+                  <i class="fa-solid fa-arrow-up px-1 item-1-list-icon-2"></i>
                   <p> Higher respiratory rate</p>
                 </div>
 
                 <div class="flex">
-                  <i class="fa-solid fa-check px-1 item-1-list-icon "></i>
+                  <i class="fa-solid fa-check px-1 item-1-list-icon-3 "></i>
                   <p>Have ideal BMI</p>
                 </div>
               </div>
             </div>
             <div class="col main__banner-item item-2 px-3">
-              <p>
+              <header>
                  percentage of each gender  working more than <span>40</span> hours a week:
-              </p>
+              </header>
               <div class="item-2-list float-right">
                 <div class="flex">
                   <i class="fa-solid fa-mars px-1   text-m  item-2-list-icon-1"></i>
-                  <p>Male  <span class="alternate-color px-1"> 50.0%</span></p>
+                  <p>Male  <span class="alternate-color px-3"> 50.0%</span></p>
                 </div>
                 <div class="flex">
                   <i class="fa-solid fa-venus px-1   text-m  item-2-list-icon-2"></i>
-                  <p>Female  <span class="alternate-color px-1"> 50.0% </span> </p>
+                  <header>Female  <span class="alternate-color px-1"> 50.0% </span> </header>
 
                 </div>
               </div>
@@ -158,18 +146,16 @@
             
           </div>
           <div class=" row main__banner-wrapper">
-            <div class="col flex main__banner-item  item-3  px-1 ">
-              <p>
-                Data added later. Have no idea what to put in yet
-
-              </p>
+            <div class="col flex main__banner-item  item-3  px-3 ">
+              <header>
+                Means (probably)
+              </header>
             </div>
-            <div class="col flex main__banner-item item-4   px-1">
+            <div class="col flex main__banner-item item-4   px-3">
 
-              <p>
-                Data added later. Have no idea what to put in yet
-
-              </p>
+              <header>
+                standard deviation (probably)
+              </header>
             </div>
           </div>
         </div>
@@ -178,7 +164,7 @@
 
       <!-------------------Filters section------------------->
       <div class="row">
-        <div class="col col-1 main__filters flex text-m">
+        <div class="col col-1 main__filters flex text-m ">
           <div class="col col-9 main__filters-item font-bold btn">Employee</div>
           <div class="col col-9 main__filters-item font-bold btn">Age</div>
           <div class="col col-9 main__filters-item main__filters-item--active font-bold btn">Gender</div>
@@ -187,7 +173,7 @@
           <div class="col col-9 main__filters-item font-bold btn">Pulse Rate</div>
           <div class="col col-9 main__filters-item font-bold btn">Blood Pressure</div>
           <div class="col col-9 main__filters-item font-bold btn">Respiration Rate</div>
-          <div class="col col-9 main__filters-item font-bold btn">Filters
+          <div id="filters-btn" class="col col-9 main__filters-item font-bold btn">Filters
           </div>
         </div>
       </div>
@@ -195,100 +181,111 @@
 
 
       <!---------------------Employee data section------------------- -->
-      <div class="row">
-        <div class="main__employee-data">
-
-      <!---------------------Employee data section HEADER------------------- --> 
-          <div class="col col-1 flex text-m font-bold employee-data__header">
-            <div class="col col-12 employee-data__item">No</div>
-            <div class="col col-12 employee-data__item">Age</div>
-            <div class="col col-12 employee-data__item">Gender</div>
-            <div class="col col-12 employee-data__item">Height</div>
-            <div class="col col-12 employee-data__item">Body Temp</div>
-            <div class="col col-12 employee-data__item">Pulse Rate</div>
-            <div class="col col-12 employee-data__item">Blood Pressure</div>
-            <div class="col col-12 
-            employee-data__item">Respiration Rate</div>
-            <div class="col col-12 
-            employee-data__item">Weight</div>
-            <div class="col col-12 employee-data__item">Avg Hrs Exerc Per Wk</div>
-            <div class="col col-12 employee-data__item">Vacation Balance</div>
-            <div class="col col-12 employee-data__item">Avg hrs Work Per Wk</div>
+      <div class="main__employee-data text-m font-bold">
+          <div class="row flex employee-data-group box-shadow text-capitalize">
+            <div class="col col-6 employee-data__item">
+              <header>
+                Number of Employees
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
+            <div class="col col-6 employee-data__item">
+              <header>
+                Age
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
+            <div class="col col-6 employee-data__item">
+              <header>
+                gender
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
+            <div class="col col-6 employee-data__item">
+              <header>
+                height
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
+            <div class="col col-6 employee-data__item">
+              <header>
+                body Temp
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
+            <div class="col col-6 employee-data__item">
+              <header>
+                pulse Rate
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
           </div>
-      <!---------------------End of Employee data section HEADER------------------- --> 
-
-
-      <!---------------------Employee data section MAIN------------------- --> 
-          <div class="employee-data__main">
-
-              <!--Fake data for display purpose only, will be replaced with real data later-->
-            <div class="employee-data__item-wrapper flex">
-              <div class="col col-12 employee-data__item">1</div>
-              <div class="col col-12 employee-data__item">28</div>
-              <div class="col col-12 employee-data__item">Female</div>
-              <div class="col col-12 employee-data__item">61</div>
-              <div class="col col-12 employee-data__item">98.7</div>
-              <div class="col col-12 employee-data__item">80</div>
-              <div class="col col-12 employee-data__item">(120 80)</div>
-              <div class="col col-12 employee-data__item">12</div>
-              <div class="col col-12 employee-data__item">110</div>
-              <div class="col col-12 employee-data__item">8</div>
-              <div class="col col-12 employee-data__item">5</div>
-              <div class="col col-12 employee-data__item"> 50</div>
-            </div> 
-            <!--Fake data for display purpose only, will be replaced with real data later-->
-            <div class="employee-data__item-wrapper flex">
-              <div class="col col-12 employee-data__item">2</div>
-              <div class="col col-12 employee-data__item">28</div>
-              <div class="col col-12 employee-data__item">Female</div>
-              <div class="col col-12 employee-data__item">61</div>
-              <div class="col col-12 employee-data__item">98.7</div>
-              <div class="col col-12 employee-data__item">80</div>
-              <div class="col col-12 employee-data__item">(120 80)</div>
-              <div class="col col-12 employee-data__item">12</div>
-              <div class="col col-12 employee-data__item">110</div>
-              <div class="col col-12 employee-data__item">8</div>
-              <div class="col col-12 employee-data__item">5</div>
-              <div class="col col-12 employee-data__item"> 50</div>
-            </div> 
-            <!--Fake data for display purpose only, will be replaced with real data later-->
-            <div class="employee-data__item-wrapper flex">
-              <div class="col col-12 employee-data__item">3</div>
-              <div class="col col-12 employee-data__item">28</div>
-              <div class="col col-12 employee-data__item">Female</div>
-              <div class="col col-12 employee-data__item">61</div>
-              <div class="col col-12 employee-data__item">98.7</div>
-              <div class="col col-12 employee-data__item">80</div>
-              <div class="col col-12 employee-data__item">(120 80)</div>
-              <div class="col col-12 employee-data__item">12</div>
-              <div class="col col-12 employee-data__item">110</div>
-              <div class="col col-12 employee-data__item">8</div>
-              <div class="col col-12 employee-data__item">5</div>
-              <div class="col col-12 employee-data__item"> 50</div>
-            </div> 
-            <!--Fake data for display purpose only, will be replaced with real data later-->
-            <div class="employee-data__item-wrapper flex">
-              <div class="col col-12 employee-data__item">4</div>
-              <div class="col col-12 employee-data__item">28</div>
-              <div class="col col-12 employee-data__item">Female</div>
-              <div class="col col-12 employee-data__item">61</div>
-              <div class="col col-12 employee-data__item">98.7</div>
-              <div class="col col-12 employee-data__item">80</div>
-              <div class="col col-12 employee-data__item">(120 80)</div>
-              <div class="col col-12 employee-data__item">12</div>
-              <div class="col col-12 employee-data__item">110</div>
-              <div class="col col-12 employee-data__item">8</div>
-              <div class="col col-12 employee-data__item">5</div>
-              <div class="col col-12 employee-data__item"> 50</div>
-            </div> 
-
-
-            
+          <div class="row flex employee-data-group">
+            <div class="col col-6 employee-data__item">
+              <header>
+                Blood Pressure
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
+            <div class="col col-6 
+            employee-data__item">
+              <header>
+                Respiration Rate
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
+            <div class="col col-6 
+            employee-data__item">
+              <header>
+                Weight
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
+            <div class="col col-6 employee-data__item">
+              <header>
+                Hours Exercise Per Week
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
+            <div class="col col-6 employee-data__item">
+              <header>
+                Vacation Balance
+              </header>
+              <p>
+                50.0
+              </p>
+              </div>
+            <div class="col col-6 employee-data__item">
+              <header>
+                Hours Work Per Week
+              </header>
+              <p>
+                50.0
+              </p>
+            </div>
           </div>
-      <!---------------------End of Employee data section MAIN------------------- --> 
-      
-        </div>
       </div>
+
       <!---------------------End of Employee data section------------------- -->
 
 
@@ -304,11 +301,11 @@
 
   </div>
 
-      <!---------------------MODAL------------------- --> 
-  <div id="modal" class="modal flex">
+      <!---------------------MODAL FOR ADD NEW EMPLOYEE------------------- --> 
+  <div id="modal-add-new" class="modal  flex">
     <div class="row modal__body">
       <div class="modal__inner">
-        <div id="form-close" class="modal__inner-close text-l">
+        <div id="add-employee-form-close-btn" class="modal__inner-close text-l">
           <i class="fa-solid fa-xmark"></i>
         </div>
         <div class="modal__inner-header flex text-xl ">
@@ -316,9 +313,9 @@
             <i class="fa-solid fa-people-group"></i>
           </div>
           <div class="header__tittle">
-            <p>
+            <header>
               add new employee
-            </p>
+            </header>
           </div>
         </div>
         <div class="modal__inner-form-wrapper font-bold">
@@ -326,17 +323,17 @@
             <div class="flex form__double-col ">
               <div class="col-2 mx-1">
                 <label class="lh-3" >First name</label>
-                <input type="text" placeholder="John">
+                <input required="required" id="firstName" type="text" placeholder="John">
               </div>
               <div class="col-2  mx-1">
                 <label class="lh-3">Last Name</label>
-                <input type="text" placeholder="Doe">
+                <input required="required" id="lastName"  type="text" placeholder="Doe">
               </div>
             </div>
             <div class="flex">
               <div class="col-2  mx-1">
                 <label class="lh-3">Age</label>
-                <input type="text" placeholder="18">
+                <input required="required" id="age" type="number" placeholder="18">
               </div>
               <div class="flex flex-col col-2  mx-1">
                 <label class="lh-3" for="cars">Gender:</label>
@@ -352,33 +349,33 @@
             <div class=" flex">
               <div class="col-2  mx-1">
                 <label class="lh-3">Height(in inches)</label>
-                <input type="text" placeholder="70">
+                <input required="required" id="height"  type="number" placeholder="70">
               </div>
               <div  class="col-2  mx-1">
                 <label class="lh-3">Body temp (in F)</label>
-                <input  type="text" placeholder="98">
+                <input required="required"  id="bodyTemp"   type="number"  placeholder="98">
               </div>
             </div>
 
             <div class="flex flex-col form__info  mx-1">
               <label class="lh-3">Pulse Rate(beats per minute)</label>
-              <input type="text" placeholder="80">
+              <input required="required" id="pulseRate" type="number"  placeholder="80">
               <label class="lh-3">Blood Pressure (number over number i.e. 120/80)</label>
-              <input type="text" placeholder="(120 80)">
+              <input required="required" id="bloodPressure"  type="number"  placeholder="(120 80)">
               <label class="lh-3">Respiration Rate (breaths per minute)</label>
-              <input type="text" placeholder="12">
+              <input required="required"  id="respirationRate"  type="number"  placeholder="12">
               <label class="lh-3">Weight (in pounds)</label>
-              <input type="text" placeholder="110">
+              <input required="required"  id="weight"  type="number"  placeholder="110">
               <label class="lh-3">Average Hours of Exercise Per Week</label>
-              <input type="text" placeholder="8">
+              <input required="required" id="avgHoursExercise"   type="number"  placeholder="8">
               <label class="lh-3">Vacation Balance (in hours)</label>
-              <input type="text" placeholder="5">
+              <input required="required"  id="vacationBalance"  type="number"  placeholder="5">
               <label class="lh-3">Average Hours of work Per Week</label>
-              <input type="text" placeholder="50">
+              <input required="required"  id="avgHoursOfWo"  type="number"  placeholder="50">
             </div>
           </form> 
           <!--Currently being disabled until valid  data entered -->
-          <button class="add-emp-btn btn btn-primary btn--disabled float-right text-m">
+          <button id="form-add-btn" class="add-emp-btn btn btn-primary float-right text-m">
             Add
           </button>
 
@@ -386,24 +383,199 @@
       </div>
     </div>
   </div>
-  <!---------------------End of MODAL------------------- --> 
+  <!---------------------End of MODAL FOR ADD NEW EMPLOYE------------------- --> 
 
+        <!---------------------MODAL FOR FILTERS------------------- --> 
+  <div id="modal-filters" class="modal  flex">
+    <div class="row modal__body">
+      <div class="modal__inner">
+        <div id="close-filters-btn" class="modal__inner-close text-l">
+          <i class="fa-solid fa-xmark"></i>
+        </div>
+        <div class="modal__inner-header flex text-xl ">
+          <div class="header__tittle px-1">
+            <header>
+              Filters
+            </header>
+          </div>
+        </div>
+        <div class="modal__inner-form-wrapper  font-bold">
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-0  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Number Of Employees
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-1  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Age
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-2  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Gender
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-3  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Height
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-4  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              body temp
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-5  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Pulse Rate
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-6  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Blood Pressure
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-7  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Respiration Rate
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-8  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Weight
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-9  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Hours Exercise Per Week
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-10  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Vacation Balance
+            </div>
+          </label>
+          <label class="lh-3 flex ">
+            <div class="form-wrapper__checkbox text-center">
+              <i class="checkbox-icon index-11  fa-solid fa-check text-l"></i>
+            </div>
+            <div class="form-wrapper__title text-capitalize text-l">
+              Hours Work Per Week
+            </div>
+          </label>
+
+
+        </div>
+        <!--Currently being disabled until valid  data entered -->
+        <button id="" class="add-emp-btn btn btn-primary float-right text-m text-capitalize">
+          filter
+        </button>
+      </div>
+    </div>
+  </div>
+        <!---------------------End of MODAL FOR FILTERS------------------- --> 
 
   <!--Js to simulate some features, waiting to be done by Angular-->
   <script>
+
     const addNewElement = document.getElementById('create-new-btn');
-    const modalElement = document.getElementById('modal');
-    const formCloseElement = document.getElementById('form-close');
+
+
+    //Main page filters elements
+    const filterItemElements = document.querySelectorAll('.main__filters-item');
+
+
+    //FILTERS EMPLOYEE FROM elements
+    const filtersBtnElement = document.getElementById('filters-btn');
+    const closeFiltersBtnElement = document.getElementById('close-filters-btn');
+    const modalFiltersElement = document.getElementById('modal-filters');
+    const modalFiltersCheckboxItemsElements = document.querySelectorAll('#modal-filters .form-wrapper__checkbox');
+
+    //ADD EMPLOYEE FORM elements
+    const formAddBtnElement = document.getElementById('form-add-btn');
+    const modalAddNewElement = document.getElementById('modal-add-new');
+    const addEmployeeCloseBtnElement = document.getElementById('add-employee-form-close-btn');
     const avatarElement = document.getElementById('avatar-img');
 
+
     function eventHandlers() {
+
+      filterItemElements.forEach((item, index) => {
+        item.addEventListener('click', function() {
+          document.querySelector('.main__filters-item.main__filters-item--active').classList.remove('main__filters-item--active');
+          this.classList.add('main__filters-item--active');
+        });
+      });
+
+      //open add new employee modal
       addNewElement.addEventListener('click',function() {
-        modalElement.setAttribute('style','display: flex');
+        modalAddNewElement.setAttribute('style','display: flex');
       })
 
-      formCloseElement.addEventListener('click',function() {
-        modalElement.setAttribute('style','display: none');
+
+      //close add new employee modal
+      addEmployeeCloseBtnElement.addEventListener('click',function() {
+        modalAddNewElement.setAttribute('style','display: none');
       })
+
+      //add new employee
+      formAddBtnElement.addEventListener('click',function() {
+        //filled out later
+      })
+
+      //open filters modal 
+      filtersBtnElement.addEventListener('click',function() {
+        modalFiltersElement.setAttribute('style','display: flex');
+      })
+      //close add new employee modal
+      closeFiltersBtnElement.addEventListener('click',function() {
+        modalFiltersElement.setAttribute('style','display: none');
+      })
+
+      modalFiltersCheckboxItemsElements.forEach((checkbox,index) => {
+        checkbox.addEventListener('click', function() {
+          checkboxItemActive = document.querySelector(`.checkbox-icon.index-${index}.active`);
+          if(checkboxItemActive) {
+            checkboxItemActive.classList.remove('active');
+          } else {
+            checkboxItem = document.querySelector(`.checkbox-icon.index-${index}`);
+            checkboxItem.classList.add('active');
+          }
+      });
+      });
     }
     eventHandlers();
 
