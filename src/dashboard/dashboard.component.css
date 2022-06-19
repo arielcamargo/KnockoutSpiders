@@ -14,13 +14,12 @@
   --primary-color: #a175fa;
   --disabled-color: rgb(160, 115, 250,0.5);
   --secondary-color: rgb(174, 139, 244);
-  --border-color: #484848;
+  --border-color: #b8b6b6;
   --alternate-primary: #17c214;
   --banner-background: rgb(243, 241, 246);
 
   /*       Font family      */
   --font-poppins: "Roboto","sans-serif";
-
 
   /*       Gradient colors      */
   --bg-gradient-indigo: linear-gradient(to right,#bda0f4 , #a175fa);
@@ -103,8 +102,7 @@ select {
 
 
 .col {
-  margin-left: 8px;
-  margin-right: 8px;
+  margin: 0.4em;
 }
 
 .col-1 {
@@ -162,7 +160,7 @@ select {
   text-transform: capitalize !important;
 }
 
-.text-sm {
+.text-xs {
   font-size: 1.2rem;
   line-height: 2.4rem;
 }
@@ -184,8 +182,8 @@ select {
 
 }
 
-.fw-5 {
-  font-weight: 500;
+.fw-6 {
+  font-weight: 600;
 }
 
 .ls {
@@ -203,9 +201,6 @@ select {
 }
 
 
-.font-bold {
-  font-weight: bold;
-}
 
 .flex {
   display: flex;
@@ -334,7 +329,6 @@ select {
   padding: .8rem 2rem;
   border-radius: 50px;
   font-family: var(--font-poppins);
-  font-weight: bold;
   box-shadow: var(--box-shadow);
   border: 0.5px solid #dddddd;
   max-height: 2.5em; 
@@ -369,7 +363,7 @@ select {
   background-image: url('../assets/img/banner-background.PNG');
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh; 
+  min-height: 100vh; 
 }
 
 
@@ -599,7 +593,7 @@ select {
 }
 
 .main {
-  margin: 60px auto 0;
+  margin: 60px auto;
   max-width: 1240px;
 }
 
@@ -701,7 +695,7 @@ select {
 
 
 .item-2 .item-2-list {
-  margin-right: 2.6em;
+  margin-right: 0.55em;
 }
 
 .item-2 .item-2-list-icon-1 {
@@ -728,12 +722,14 @@ select {
 
 
 .main .main__filters {
-  margin-left: 1em;
-  margin-top: 1em;
-  padding-bottom: 1em;
+  margin: 1em 1em 0 1em;
+  padding: 1em 0;
   justify-content: center;
   max-width: calc(100% - 32px);
   z-index: 1;
+  border-bottom: 1px solid var(--border-color);
+  border-top: 1px solid var(--border-color);
+
 }
 
 .main__filters .main__filters-item {
@@ -764,31 +760,67 @@ select {
 }
 
 .main__employee-data .employee-data__item  {
-  background-color: var(--background-white);
+  background-color: #e6f5fa;
   border-radius: 0.5em;
-  margin: 1em 1em;
-  height: 11em;
+  height: 10em;
   max-height: 11em;
+  overflow: hidden;
+  text-align: left;
 }
 
-.main__employee-data  .employee-data__item {
-  overflow: hidden;
-  text-align: center;
-}
 
 .employee-data__item header {
   max-height: 2em;
-  padding: 0.5em 0.5em;
-  background-color: #ecfbff;
-  box-shadow: var(--box-shadow);
+  margin-left: 1em;
+  font-weight: bold;
+}
+
+.employee-data__item-description {
+  margin-right: 1.5em;
+}
+
+.employee-data__item
+.employee-data__item-description {
+  color: #727576;
+  margin-left: 1.5em;
 }
 
 
 .employee-data__item p {
-  margin-top: 1.4em;
-  font-size: 3rem;
+  margin: 0.5em 0;
+  font-size: 2.2rem;
+  margin-left: 2.4em;
 }
 
+/*    FOOTER    */
+#footer {
+  position: relative;
+  bottom: -62px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  height: 46px;
+  max-width: 1240px;
+  min-height: 60px;
+  background-color: var(--background-white);
+  border-bottom: 2px solid #f7f7f7;
+  z-index: 9999;
+}
+
+#footer .footer__wrapper {
+  height: 100%;
+  justify-content: space-between;
+}
+
+
+.wrapper-social-medias i {
+  margin: 0 0.2em;
+}
+
+.wrapper-social-medias i:hover {
+  cursor: pointer;
+  opacity: 0.7;
+}
 
 /*Modal for Add new employee*/
 
@@ -864,6 +896,10 @@ select {
   margin: 1em 6em;
 }
 
+
+#modal-add-new label {
+}
+
 #modal-add-new .modal__inner input {
   line-height: 2.2rem;
   border-radius: 0.4rem;
@@ -930,6 +966,7 @@ select {
 #modal-filters .modal__inner-close {
   text-align: center;
   position: absolute;
+
   right: 0;
   top: 0;
   color: var(--text-dark);
