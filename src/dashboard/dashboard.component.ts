@@ -136,9 +136,20 @@ export class DashboardComponent implements OnInit
     }
   }
 
+  //given an array returns value that shows up the most, does not handle if there are duplicate modes
   getMode(data: any[])
   {
     let tempArr: any[] = data.sort();
+
+    let testHash = new Map<any, number>();
+    for (let i = 0; i < tempArr.length; i++) {
+      if(testHash.has(tempArr[i]) == false){
+          testHash.set(tempArr[i], 1);
+      }else{
+          testHash.set(tempArr[i], testHash.get(tempArr[i]) as number+1);
+      }
+    }
+    return Array.from(testHash.entries()).reduce((a, b) => a[1] < b[1] ? b : a)[0];
 
   }
 
