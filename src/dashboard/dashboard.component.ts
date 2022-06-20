@@ -38,9 +38,10 @@ export class DashboardComponent implements OnInit
   exerciseHours: number[] = [8, 2, 0, 12, 3, 5, 2, 4];
   vacationHours: number[] = [5, 3, 10, 10, 20, 0, 7, 3];
   workHours: number[] = [50, 40, 32, 40, 50, 20, 38, 40];
+  test: number = 50.0;
 
-  ngOnInit()
-  {
+  ngOnInit() {
+
   }
 
   //Author: Ariel Camargo

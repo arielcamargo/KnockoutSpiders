@@ -109,7 +109,7 @@
           <div class="row  main__banner-wrapper">
             <div class="col main__banner-item item-1 px-3 ">
               <header class="fw-6">
-                Working out more than <span>3 hours a week</span> helps: 
+                Working out more than <span>3 hours a week</span> helps:
               </header>
               <div class="item-1-list float-right">
                 <div class="flex">
@@ -191,7 +191,7 @@
                   Total number of all employees
               </div>
               <p>
-                50.0
+                {{ test }}
               </p>
             </div>
             <div class="col col-4 employee-data__item text-">
@@ -352,7 +352,7 @@
 
   <!---------------------MODAL------------------- -->
   <div id="modal" class="modal flex">
-        <!---------------------MODAL FOR ADD NEW EMPLOYEE------------------- --> 
+        <!---------------------MODAL FOR ADD NEW EMPLOYEE------------------- -->
         <div id="modal-add-new" class="modal  flex">
           <div class="row modal__body">
             <div class="modal__inner">
@@ -435,11 +435,11 @@
           </div>
         </div>
 
-  <!---------------------End of MODAL FOR ADD NEW EMPLOYE------------------- --> 
+  <!---------------------End of MODAL FOR ADD NEW EMPLOYE------------------- -->
   <!---------------------End of MODAL------------------- -->
 
 
-        <!---------------------MODAL FOR FILTERS------------------- --> 
+        <!---------------------MODAL FOR FILTERS------------------- -->
       <div id="modal-filters" class="modal  flex">
         <div class="row modal__body">
           <div class="modal__inner">
@@ -560,7 +560,7 @@
           </div>
         </div>
       </div>
-        <!---------------------End of MODAL FOR FILTERS------------------- --> 
+        <!---------------------End of MODAL FOR FILTERS------------------- -->
   </div>
 
 
@@ -619,7 +619,7 @@
         //filled out later
       })
 
-      //open filters modal 
+      //open filters modal
       filtersBtnElement.addEventListener('click',function() {
         modalFiltersElement.setAttribute('style','display: flex');
       })
