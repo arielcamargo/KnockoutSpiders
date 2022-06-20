@@ -1,11 +1,9 @@
+<!DOCTYPE html>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
-  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"> -->
-  <link rel="stylesheet" href="../assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css">
-  <link rel="stylesheet" href="dashboard.component.css">
 
 
 </head>
@@ -109,7 +107,7 @@
           <div class="row  main__banner-wrapper">
             <div class="col main__banner-item item-1 px-3 ">
               <header class="fw-6">
-                Working out more than <span>3 hours a week</span> helps: 
+                Working out more than <span>3 hours a week</span> helps:
               </header>
               <div class="item-1-list float-right">
                 <div class="flex">
@@ -134,11 +132,11 @@
               <div class="item-2-list float-right">
                 <div class="flex">
                   <i class="fa-solid fa-mars px-1   text-m  item-2-list-icon-1"></i>
-                  <p>Male  <span class="alternate-color px-3"> 50.0%</span></p>
+                  <p>Male  <span class="alternate-color px-3"> {{ malePercentage }}</span></p>
                 </div>
                 <div class="flex">
                   <i class="fa-solid fa-venus px-1   text-m  item-2-list-icon-2"></i>
-                  <header>Female  <span class="alternate-color px-1"> 50.0% </span> </header>
+                  <header>Female  <span class="alternate-color px-1"> {{ femalePercentage }} </span> </header>
 
                 </div>
               </div>
@@ -191,7 +189,7 @@
                   Total number of all employees
               </div>
               <p>
-                50.0
+                {{ employeeCount }}
               </p>
             </div>
             <div class="col col-4 employee-data__item text-l">
@@ -202,7 +200,7 @@
                 Average age of all employees
               </div>
               <p>
-                50.0
+                {{ avgAge }}
               </p>
             </div>
             <div class="col col-4 employee-data__item employee-data__item--active text-l">
@@ -224,7 +222,7 @@
                 Average height of all employees
               </div>
               <p>
-                50.0
+                {{ avgHeight }}
               </p>
             </div>
           </div>
@@ -237,7 +235,7 @@
                   average temperature of all employees
               </div>
               <p>
-                50.0
+                {{ avgTemp }}
               </p>
             </div>
             <div class="col col-4 employee-data__item text-l">
@@ -248,7 +246,7 @@
                 average Pulse Rate of all employees
               </div>
               <p>
-                50.0
+                {{ avgPulse }}
               </p>
             </div>
             <div class="col col-4 employee-data__item text-l">
@@ -270,7 +268,7 @@
                 Average Respiration Rate  of all employees
               </div>
               <p>
-                50.0
+                {{ avgRespRate }}
               </p>
             </div>
           </div>
@@ -284,7 +282,7 @@
 
               </div>
               <p>
-                50.0
+                {{ avgWeight }}
               </p>
             </div>
             <div class="col col-4 employee-data__item text-l">
@@ -295,7 +293,7 @@
                 Average Hours Exercise Per Week of all employees
               </div>
               <p>
-                50.0
+                {{ avgExercise }}
               </p>
             </div>
             <div class="col col-4 employee-data__item text-l">
@@ -306,7 +304,7 @@
                 Average Vacation Balance of all employees
               </div>
               <p>
-                50.0
+                {{ avgVacation }}
               </p>
             </div>
             <div class="col col-4 employee-data__item text-l">
@@ -317,7 +315,7 @@
                 Average Hours Work Per Week of all employees
               </div>
               <p>
-                50.0
+                {{ avgWork }}
               </p>
             </div>
           </div>
@@ -334,7 +332,7 @@
     <footer id="footer" class="footer">
       <div class="footer__wrapper flex ">
         <div class="wrapper-copyright text-capitalize text-m">
-          knocked out spiders
+          Knockout Spiders
           <i class="fa-regular fa-copyright"></i>
           2022
         </div>
@@ -352,7 +350,7 @@
 
   <!---------------------MODAL------------------- -->
   <div id="modal" class="modal flex">
-        <!---------------------MODAL FOR ADD NEW EMPLOYEE------------------- --> 
+        <!---------------------MODAL FOR ADD NEW EMPLOYEE------------------- -->
         <div id="modal-add-new" class="modal  flex">
           <div class="row modal__body">
             <div class="modal__inner">
@@ -435,11 +433,11 @@
           </div>
         </div>
 
-  <!---------------------End of MODAL FOR ADD NEW EMPLOYE------------------- --> 
+  <!---------------------End of MODAL FOR ADD NEW EMPLOYE------------------- -->
   <!---------------------End of MODAL------------------- -->
 
 
-        <!---------------------MODAL FOR FILTERS------------------- --> 
+        <!---------------------MODAL FOR FILTERS------------------- -->
       <div id="modal-filters" class="modal  flex">
         <div class="row modal__body">
           <div class="modal__inner">
@@ -560,7 +558,7 @@
           </div>
         </div>
       </div>
-        <!---------------------End of MODAL FOR FILTERS------------------- --> 
+        <!---------------------End of MODAL FOR FILTERS------------------- -->
   </div>
 
 
@@ -571,7 +569,7 @@
 
 
 
-  <!--Js to simulate some features, waiting to be done by Angular-->
+  Js to simulate some features, waiting to be done by Angular
   <script>
 
     const addNewElement = document.getElementById('create-new-btn');
@@ -599,10 +597,10 @@
 
       filterItemElements.forEach((item, index) => {
         item.addEventListener('click', function() {
-          
+
           document.querySelector('.main__filters-item.main__filters-item--active').classList.remove('main__filters-item--active');
           document.querySelector('.employee-data__item.employee-data__item--active').classList.remove('employee-data__item--active');
-          
+
           this.classList.add('main__filters-item--active');
           if(index !== 8){
             employeeDataCards[index].classList.add('employee-data__item--active');
@@ -629,7 +627,7 @@
         //filled out later
       })
 
-      //open filters modal 
+      //open filters modal
       filtersBtnElement.addEventListener('click',function() {
         modalFiltersElement.setAttribute('style','display: flex');
       })

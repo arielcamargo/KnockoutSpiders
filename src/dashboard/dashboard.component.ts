@@ -38,10 +38,41 @@ export class DashboardComponent implements OnInit
   exerciseHours: number[] = [8, 2, 0, 12, 3, 5, 2, 4];
   vacationHours: number[] = [5, 3, 10, 10, 20, 0, 7, 3];
   workHours: number[] = [50, 40, 32, 40, 50, 20, 38, 40];
-  test: number = 50.0;
+  employeeCount;
+  avgAge;
+  avgHeight;
+  avgTemp;
+  avgPulse;
+  avgPressure;
+  avgRespRate;
+  avgWeight;
+  avgExercise;
+  avgVacation;
+  avgWork;
+  malePercentage;
+  femalePercentage;
 
-  ngOnInit() {
 
+  ngOnInit()
+  {
+    this.calculations();
+  }
+
+  //Author:Ariel Camargo
+  calculations()
+  {
+    this.employeeCount = this.names.length;
+    this.avgAge = this.getAverage(this.ages);
+    this.avgHeight = this.getAverage(this.heights);
+    this.avgTemp = this.getAverage(this.temperatures);
+    this.avgPulse = this.getAverage(this.pulses);
+    this.avgRespRate = this.getAverage(this.breaths);
+    this.avgWeight = this.getAverage(this.weight);
+    this.avgExercise = this.getAverage(this.exerciseHours);
+    this.avgVacation = this.getAverage(this.vacationHours);
+    this.avgWork = this.getAverage(this.workHours);
+    this.malePercentage = this.getPercentage( 'male', this.genders);
+    this.femalePercentage = this.getPercentage( 'female', this.genders);
   }
 
   //Author: Ariel Camargo

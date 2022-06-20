@@ -331,7 +331,7 @@ select {
   font-family: var(--font-poppins);
   box-shadow: var(--box-shadow);
   border: 0.5px solid #dddddd;
-  max-height: 2.5em; 
+  max-height: 2.5em;
   background: var(--bg-gradient-indigo);
 }
 
@@ -363,7 +363,7 @@ select {
   background-image: url('../assets/img/banner-background.PNG');
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh; 
+  min-height: 100vh;
 }
 
 
@@ -485,7 +485,7 @@ select {
   margin-right: 0.55em;
   box-shadow: var(--box-shadow);
   border: 0.5px solid #dddddd;
-  max-height: 2.5em; 
+  max-height: 2.5em;
 }
 
 .utility .utility__bell-icon-wrapper:hover {
@@ -518,7 +518,7 @@ select {
   height: 1em;
 }
 
-.utility__avatar:hover .utility__avatar-panel { 
+.utility__avatar:hover .utility__avatar-panel {
   display: block;
 }
 
@@ -598,7 +598,7 @@ select {
 }
 
 .main .main__header {
-} 
+}
 
 .row .main__banner {
   text-align: center;
@@ -646,7 +646,7 @@ select {
   left: 0;
   bottom: 0;
   border-width: 0 1.85em 1em;
-  border-style: solid; 
+  border-style: solid;
   border-color: red var(--primary-color) white var(--primary-color);
 }
 
@@ -756,8 +756,6 @@ select {
   border: none;
 }
 
-.main .main__employee-data {
-}
 
 .main__employee-data .employee-data__item  {
   background-color: #e6f5fa;
@@ -771,15 +769,15 @@ select {
 .main .employee-data__item--active {
   background-color: var(--primary-color);
   color: var(--background-white);
-  
+
 }
 
-.main .employee-data__item--active 
+.main .employee-data__item--active
 header {
   font-size: 1.6em;
 }
 
-.main .employee-data__item--active 
+.main .employee-data__item--active
 .employee-data__item-description {
   color: var(--text-dark);
   padding-left: 1em;
@@ -842,8 +840,8 @@ header {
 
 /*Modal for Add new employee*/
 
-#modal-add-new { 
-  position: fixed; 
+#modal-add-new {
+  position: fixed;
   inset: 0;
   display: none;
   background-color: rgba(0,0,0,0.4);
@@ -927,7 +925,7 @@ header {
 
 
 #modal-add-new .modal__inner-form-wrapper .form__double-col {
-  
+
 }
 
 #modal-add-new  .modal__inner-form-wrapper .form__info {
@@ -944,8 +942,8 @@ header {
 
 
 /*Modal for Filters*/
-#modal-filters { 
-  position: fixed; 
+#modal-filters {
+  position: fixed;
   inset: 0;
   display: none;
   background-color: rgba(0,0,0,0.4);
@@ -1043,7 +1041,7 @@ header {
 
 #modal-filters .form-wrapper__title {
   margin: 0 0.2em;
-  
+
 }
 
 #modal-filters .add-emp-btn {
