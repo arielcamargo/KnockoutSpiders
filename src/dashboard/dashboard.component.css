@@ -11,7 +11,7 @@
   --background-white: #fff;
   --background-main: #f8f8f8;
   --box-shadow: 0px 0px 50px 0px rgb(0 0 0 / 20%);
-  --primary-color: #a175fa;
+  --primary-color: #af8cf5;
   --disabled-color: rgb(160, 115, 250,0.5);
   --secondary-color: rgb(174, 139, 244);
   --border-color: #b8b6b6;
@@ -749,10 +749,10 @@ select {
 }
 
 .main__filters .main__filters-item:hover {
-  background: var(--bg-gradient-indigo);
+  background-color: #fff;
   cursor: pointer;
+  font-size: 1.5rem;
   box-shadow: var(--box-shadow);
-  color: var(--background-white);
   border: none;
 }
 
