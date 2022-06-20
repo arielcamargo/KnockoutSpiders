@@ -1,164 +1,81 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "type": "object",
-  "properties": {
-    "employee": {
-      "type": "object",
-      "properties": {
-        "FirstName": {
-          "$ref": "#/definitions/String"
-        },
-        "LastName": {
-          "$ref": "#/definitions/String"
-        },
-        "Gender": {
-          "$ref": "#/definitions/gender"
-        },
-        "Height": {
-          "$ref": "#/definitions/Float"
-        },
-        "Weight": {
-          "$ref": "#/definitions/Float"
-        },
-        "BodyTemperature": {
-          "$ref": "#/definitions/Float"
-        },
-        "PulseRate": {
-          "$ref": "#/definitions/Int"
-        },
-        "BloodPressure": {
-          "$ref": "#/definitions/String"
-        },
-        "RespirationRate": {
-          "$ref": "#/definitions/Int"
-        },
-        "AvgHoursOfExercisePerWeek": {
-          "$ref": "#/definitions/Float"
-        },
-        "VacationBalance": {
-          "$ref": "#/definitions/Float"
-        },
-        "AvgHoursOfWorkPerWeek": {
-          "$ref": "#/definitions/Float"
-        }
-      },
-      "required": []
-    },
-    "gender": {
-      "type": "string",
-      "anyOf": [
-        {
-          "enum": [
-            "Woman"
-          ]
-        },
-        {
-          "enum": [
-            "Man"
-          ]
-        },
-        {
-          "enum": [
-            "Transgender"
-          ]
-        },
-        {
-          "enum": [
-            "NonBinaryOrNonConfirming"
-          ]
-        },
-        {
-          "enum": [
-            "PreferNotToRespond"
-          ]
-        }
-      ]
+  "title": "Employee",
+  "description": "Employee Data",
+  "x-vendia-acls": {
+    "EmployeeAcls": {
+      "type": "Employee"
     }
   },
-  "definitions": {
-    "employee": {
-      "type": "object",
-      "properties": {
-        "FirstName": {
-          "$ref": "#/definitions/String"
-        },
-        "LastName": {
-          "$ref": "#/definitions/String"
-        },
-        "Gender": {
-          "$ref": "#/definitions/gender"
-        },
-        "Height": {
-          "$ref": "#/definitions/Float"
-        },
-        "Weight": {
-          "$ref": "#/definitions/Float"
-        },
-        "BodyTemperature": {
-          "$ref": "#/definitions/Float"
-        },
-        "PulseRate": {
-          "$ref": "#/definitions/Int"
-        },
-        "BloodPressure": {
-          "$ref": "#/definitions/String"
-        },
-        "RespirationRate": {
-          "$ref": "#/definitions/Int"
-        },
-        "AvgHoursOfExercisePerWeek": {
-          "$ref": "#/definitions/Float"
-        },
-        "VacationBalance": {
-          "$ref": "#/definitions/Float"
-        },
-        "AvgHoursOfWorkPerWeek": {
-          "$ref": "#/definitions/Float"
+  "type": "object",
+  "properties": {
+    "Employee": {
+      "description": "employee",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "description": "First Name",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Last Name",
+            "type": "string"
+          },
+          "age": {
+            "description": "Age",
+            "type": "number"
+          },
+          "gender": {
+            "description": "Gender",
+            "type": "string",
+            "enum": [
+              "Woman",
+              "Man",
+              "Transgender",
+              "NonBinaryOrNonConfirming",
+              "PreferNotToRespond"
+            ]
+          },
+          "height": {
+            "description": "Height",
+            "type": "number"
+          },
+          "weight": {
+            "description": "Weight",
+            "type": "number"
+          },
+          "bodyTemperature": {
+            "description": "Body Temperature",
+            "type": "number"
+          },
+          "pulseRate": {
+            "description": "Pulse Rate",
+            "type": "number"
+          },
+          "bloodPressure": {
+            "description": "Blood Pressure",
+            "type": "string"
+          },
+          "respirationRate": {
+            "description": "Respiration Rate",
+            "type": "number"
+          },
+          "avgHourseOfExercisePerWeek": {
+            "description": "Average Hourse of Exercise per Week",
+            "type": "number"
+          },
+          "vacationBalance": {
+            "description": "Vacation Balance",
+            "type": "number"
+          },
+          "avgHourseOfWorkPerWeek": {
+            "description": "Average Hourse of Work per Week",
+            "type": "number"
+          }
         }
-      },
-      "required": []
-    },
-    "String": {
-      "type": "string"
-    },
-    "Float": {
-      "type": "number"
-    },
-    "Int": {
-      "type": "number"
-    },
-    "gender": {
-      "type": "string",
-      "anyOf": [
-        {
-          "enum": [
-            "Woman"
-          ]
-        },
-        {
-          "enum": [
-            "Man"
-          ]
-        },
-        {
-          "enum": [
-            "Transgender"
-          ]
-        },
-        {
-          "enum": [
-            "NonBinaryOrNonConfirming"
-          ]
-        },
-        {
-          "enum": [
-            "PreferNotToRespond"
-          ]
-        }
-      ]
-    },
-    "Boolean": {
-      "type": "boolean"
+      }
     }
   }
 }

@@ -194,229 +194,150 @@ enum Vendia_SyncMode {
   ASYNC
 }
 
-input Self_employee_ConditionInput_ {
-  AvgHoursOfExercisePerWeek: Vendia_ModelFloatInput_
-  AvgHoursOfWorkPerWeek: Vendia_ModelFloatInput_
-  BloodPressure: Vendia_ModelStringInput_
-  BodyTemperature: Vendia_ModelFloatInput_
-  FirstName: Vendia_ModelStringInput_
-  Gender: Vendia_ModelStringInput_
-  Height: Vendia_ModelFloatInput_
-  LastName: Vendia_ModelStringInput_
-  PulseRate: Vendia_ModelFloatInput_
-  RespirationRate: Vendia_ModelFloatInput_
-  VacationBalance: Vendia_ModelFloatInput_
-  Weight: Vendia_ModelFloatInput_
-  _and: [Self_employee_ConditionInput_]
-  _or: [Self_employee_ConditionInput_]
-  _not: Self_employee_ConditionInput_
+input Self_Employee_ConditionInput_ {
+  age: Vendia_ModelFloatInput_
+  avgHourseOfExercisePerWeek: Vendia_ModelFloatInput_
+  avgHourseOfWorkPerWeek: Vendia_ModelFloatInput_
+  bloodPressure: Vendia_ModelStringInput_
+  bodyTemperature: Vendia_ModelFloatInput_
+  firstName: Vendia_ModelStringInput_
+  gender: Vendia_ModelStringInput_
+  height: Vendia_ModelFloatInput_
+  lastName: Vendia_ModelStringInput_
+  pulseRate: Vendia_ModelFloatInput_
+  respirationRate: Vendia_ModelFloatInput_
+  vacationBalance: Vendia_ModelFloatInput_
+  weight: Vendia_ModelFloatInput_
+  _and: [Self_Employee_ConditionInput_]
+  _or: [Self_Employee_ConditionInput_]
+  _not: Self_Employee_ConditionInput_
 }
 
-input Self_employee_FilterInput_ {
-  AvgHoursOfExercisePerWeek: Vendia_ModelFloatInput_
-  AvgHoursOfWorkPerWeek: Vendia_ModelFloatInput_
-  BloodPressure: Vendia_ModelStringInput_
-  BodyTemperature: Vendia_ModelFloatInput_
-  FirstName: Vendia_ModelStringInput_
-  Gender: Vendia_ModelStringInput_
-  Height: Vendia_ModelFloatInput_
-  LastName: Vendia_ModelStringInput_
-  PulseRate: Vendia_ModelFloatInput_
-  RespirationRate: Vendia_ModelFloatInput_
-  VacationBalance: Vendia_ModelFloatInput_
-  Weight: Vendia_ModelFloatInput_
-  _and: [Self_employee_FilterInput_]
-  _or: [Self_employee_FilterInput_]
-  _not: Self_employee_FilterInput_
+input Self_Employee_FilterInput_ {
+  _id: Vendia_ModelIDInput_
+  age: Vendia_ModelFloatInput_
+  avgHourseOfExercisePerWeek: Vendia_ModelFloatInput_
+  avgHourseOfWorkPerWeek: Vendia_ModelFloatInput_
+  bloodPressure: Vendia_ModelStringInput_
+  bodyTemperature: Vendia_ModelFloatInput_
+  firstName: Vendia_ModelStringInput_
+  gender: Vendia_ModelStringInput_
+  height: Vendia_ModelFloatInput_
+  lastName: Vendia_ModelStringInput_
+  pulseRate: Vendia_ModelFloatInput_
+  respirationRate: Vendia_ModelFloatInput_
+  vacationBalance: Vendia_ModelFloatInput_
+  weight: Vendia_ModelFloatInput_
+  _and: [Self_Employee_FilterInput_]
+  _or: [Self_Employee_FilterInput_]
+  _not: Self_Employee_FilterInput_
 }
 
-type Self_employee {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
+type Self_Employee {
+  _id: ID!
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
+  _acl: [Vendia_Acl!]
   _owner: String
 }
 
-type Self_employee_Partial_ {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
+type Self_Employee_Partial_ {
+  _id: ID!
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
+  _acl: [Vendia_Acl!]
   _owner: String
 }
 
-type Self_employee_Result_ {
+union Self_Employee_PartialUnion_ = Self_Employee | Self_Employee_Partial_
+
+type Self_Employee_Result_ {
   error: String
-  result: Self_employee
+  result: Self_Employee
 }
 
-type Self_employee_Transaction_Result_ {
+type Self_Employee_Transaction_Result_ {
   transaction: Vendia_Transaction!
-  result: Self_employee
+  result: Self_Employee_PartialUnion_
 }
 
-type Self_employee_Delete_Transaction_Result_ {
-  transaction: Vendia_Transaction!
-}
-
-input Self_employee_Input_ {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
-}
-
-input Self_employee_UpdateInput_ {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
-}
-
-input Self_employee_PartialInput_ {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
-}
-
-union Self_employee_PartialUnion_ = Self_employee | Self_employee_Partial_
-
-input Self_gender_ConditionInput_ {
-  Self_gender: Vendia_ModelStringInput_
-  _and: [Self_gender_ConditionInput_]
-  _or: [Self_gender_ConditionInput_]
-  _not: Self_gender_ConditionInput_
-}
-
-type Self_gender_Transaction_Result_ {
-  transaction: Vendia_Transaction!
-  result: String
-}
-
-type Self_gender_Delete_Transaction_Result_ {
+type Self_Employee_Delete_Transaction_Result_ {
   transaction: Vendia_Transaction!
 }
 
-input Self__definitions_employee_ConditionInput_ {
-  AvgHoursOfExercisePerWeek: Vendia_ModelFloatInput_
-  AvgHoursOfWorkPerWeek: Vendia_ModelFloatInput_
-  BloodPressure: Vendia_ModelStringInput_
-  BodyTemperature: Vendia_ModelFloatInput_
-  FirstName: Vendia_ModelStringInput_
-  Gender: Vendia_ModelStringInput_
-  Height: Vendia_ModelFloatInput_
-  LastName: Vendia_ModelStringInput_
-  PulseRate: Vendia_ModelFloatInput_
-  RespirationRate: Vendia_ModelFloatInput_
-  VacationBalance: Vendia_ModelFloatInput_
-  Weight: Vendia_ModelFloatInput_
-  _and: [Self__definitions_employee_ConditionInput_]
-  _or: [Self__definitions_employee_ConditionInput_]
-  _not: Self__definitions_employee_ConditionInput_
+type Self_Employee_Connection_ {
+  _EmployeeItems: [Self_Employee_PartialUnion_]
+  nextToken: String
 }
 
-input Self__definitions_employee_FilterInput_ {
-  AvgHoursOfExercisePerWeek: Vendia_ModelFloatInput_
-  AvgHoursOfWorkPerWeek: Vendia_ModelFloatInput_
-  BloodPressure: Vendia_ModelStringInput_
-  BodyTemperature: Vendia_ModelFloatInput_
-  FirstName: Vendia_ModelStringInput_
-  Gender: Vendia_ModelStringInput_
-  Height: Vendia_ModelFloatInput_
-  LastName: Vendia_ModelStringInput_
-  PulseRate: Vendia_ModelFloatInput_
-  RespirationRate: Vendia_ModelFloatInput_
-  VacationBalance: Vendia_ModelFloatInput_
-  Weight: Vendia_ModelFloatInput_
-  _and: [Self__definitions_employee_FilterInput_]
-  _or: [Self__definitions_employee_FilterInput_]
-  _not: Self__definitions_employee_FilterInput_
+input Self_Employee_Input_ {
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
 }
 
-type Self__definitions_employee {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
+input Self_Employee_UpdateInput_ {
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
 }
 
-type Self__definitions_employee_Partial_ {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
-}
-
-type Self__definitions_employee_Result_ {
-  error: String
-  result: Self__definitions_employee
-}
-
-type Self__definitions_employee_Transaction_Result_ {
-  transaction: Vendia_Transaction!
-  result: Self__definitions_employee
-}
-
-type Self__definitions_employee_Delete_Transaction_Result_ {
-  transaction: Vendia_Transaction!
+input Self_Employee_PartialInput_ {
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
 }
 
 input Vendia_Block_transactions_transactionsItem_ConditionInput_ {
@@ -1597,6 +1518,14 @@ type Vendia_UniInfo_nodes_nodesItem_temporaryCredentials_uploadFile_Delete_Trans
   transaction: Vendia_Transaction!
 }
 
+enum Self_Employee_genderEnum {
+  Woman
+  Man
+  Transgender
+  NonBinaryOrNonConfirming
+  PreferNotToRespond
+}
+
 enum Vendia_Contract_resource_cspEnum {
   aws
 }
@@ -2571,10 +2500,9 @@ input Vendia_Contract_InvokeInput_ {
 }
 
 type Query {
-  get_employee(version: Int): Self_employee
-  list_employeeVersions(limit: Int, nextToken: String): Vendia_Version_Connection_
-  get_gender: String
-  list_genderVersions(limit: Int, nextToken: String): Vendia_Version_Connection_
+  get_Employee(id: ID!, version: Int): Self_Employee_PartialUnion_
+  list_EmployeeItems(filter: Self_Employee_FilterInput_, limit: Int, nextToken: String): Self_Employee_Connection_
+  list_EmployeeVersions(id: ID!, limit: Int, nextToken: String): Vendia_Version_Connection_
   getVendia_Block(id: ID!): Vendia_Block
   listVendia_BlockItems(filter: Vendia_Block_FilterInput_, limit: Int, nextToken: String): Vendia_Block_Connection_
   getVendia_File(id: ID!, version: Int): Vendia_File
@@ -2600,22 +2528,14 @@ type Query {
 }
 
 type Mutation {
-  create_employee_async(input: Self_employee_Input_!): Vendia_Transaction_Result_
-  create_employee(input: Self_employee_Input_!, syncMode: Vendia_SyncMode!): Self_employee_Transaction_Result_
-  put_employee_async(input: Self_employee_Input_!, condition: Self_employee_ConditionInput_): Vendia_Transaction_Result_
-  put_employee(input: Self_employee_Input_!, condition: Self_employee_ConditionInput_, syncMode: Vendia_SyncMode!): Self_employee_Transaction_Result_
-  update_employee_async(input: Self_employee_UpdateInput_!, condition: Self_employee_ConditionInput_): Vendia_Transaction_Result_
-  update_employee(input: Self_employee_UpdateInput_!, condition: Self_employee_ConditionInput_, syncMode: Vendia_SyncMode!): Self_employee_Transaction_Result_
-  delete_employee_async(condition: Self_employee_ConditionInput_): Vendia_Transaction_Result_
-  delete_employee(condition: Self_employee_ConditionInput_, syncMode: Vendia_SyncMode!): Self_employee_Delete_Transaction_Result_
-  create_gender_async(input: String!): Vendia_Transaction_Result_
-  put_gender_async(input: String!, condition: Self_gender_ConditionInput_): Vendia_Transaction_Result_
-  update_gender_async(input: String!, condition: Self_gender_ConditionInput_): Vendia_Transaction_Result_
-  create_gender(input: String!, syncMode: Vendia_SyncMode!): Self_gender_Transaction_Result_
-  put_gender(input: String!, condition: Self_gender_ConditionInput_, syncMode: Vendia_SyncMode!): Self_gender_Transaction_Result_
-  update_gender(input: String!, condition: Self_gender_ConditionInput_, syncMode: Vendia_SyncMode!): Self_gender_Transaction_Result_
-  delete_gender_async(condition: Self_gender_ConditionInput_): Vendia_Transaction_Result_
-  delete_gender(condition: Self_gender_ConditionInput_, syncMode: Vendia_SyncMode!): Self_gender_Delete_Transaction_Result_
+  add_Employee_async(input: Self_Employee_Input_!, aclInput: Vendia_Acls_Input_): Vendia_Transaction_Result_
+  add_Employee(input: Self_Employee_Input_!, aclInput: Vendia_Acls_Input_, syncMode: Vendia_SyncMode!): Self_Employee_Transaction_Result_
+  put_Employee_async(id: ID!, input: Self_Employee_Input_!, condition: Self_Employee_ConditionInput_, aclInput: Vendia_Acls_Input_!): Vendia_Transaction_Result_
+  put_Employee(id: ID!, input: Self_Employee_Input_!, condition: Self_Employee_ConditionInput_, aclInput: Vendia_Acls_Input_!, syncMode: Vendia_SyncMode!): Self_Employee_Transaction_Result_
+  update_Employee_async(id: ID!, input: Self_Employee_UpdateInput_!, condition: Self_Employee_ConditionInput_, aclInput: Vendia_Acls_Input_): Vendia_Transaction_Result_
+  update_Employee(id: ID!, input: Self_Employee_UpdateInput_!, condition: Self_Employee_ConditionInput_, aclInput: Vendia_Acls_Input_, syncMode: Vendia_SyncMode!): Self_Employee_Transaction_Result_
+  remove_Employee_async(id: ID!, condition: Self_Employee_ConditionInput_): Vendia_Transaction_Result_
+  remove_Employee(id: ID!, condition: Self_Employee_ConditionInput_, syncMode: Vendia_SyncMode!): Self_Employee_Delete_Transaction_Result_
   addVendia_File_async(input: Vendia_File_Input_!): Vendia_Transaction_Result_
   addVendia_File(input: Vendia_File_Input_!, syncMode: Vendia_SyncMode!): Vendia_File_Transaction_Result_
   putVendia_File_async(id: ID!, input: Vendia_File_Input_!, condition: Vendia_File_ConditionInput_): Vendia_Transaction_Result_
@@ -2652,12 +2572,9 @@ type Mutation {
 }
 
 type Subscription {
-  onCreate_employee: Self_employee_Result_
-  onUpdate_employee: Self_employee_Result_
-  onDelete_employee: Self_employee_Result_
-  onCreate_gender: String
-  onUpdate_gender: String
-  onDelete_gender: String
+  onAdd_Employee: Self_Employee_Result_
+  onUpdate_Employee: Self_Employee_Result_
+  onRemove_Employee: Self_Employee_Result_
   onAddVendia_Block: Vendia_Block_Result_
   onUpdateVendia_Block: Vendia_Block_Result_
   onRemoveVendia_Block: Vendia_Block_Result_
@@ -2692,51 +2609,6 @@ type Schema {
   query: Query
   mutation: Mutation
   subscription: Subscription
-}
-
-input Self__definitions_employee_Input_ {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
-}
-
-input Self__definitions_employee_UpdateInput_ {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
-}
-
-input Self__definitions_employee_PartialInput_ {
-  AvgHoursOfExercisePerWeek: Float
-  AvgHoursOfWorkPerWeek: Float
-  BloodPressure: String
-  BodyTemperature: Float
-  FirstName: String
-  Gender: String
-  Height: Float
-  LastName: String
-  PulseRate: Float
-  RespirationRate: Float
-  VacationBalance: Float
-  Weight: Float
 }
 
 input Vendia_Block_transactions_transactionsItem_Input_ {
