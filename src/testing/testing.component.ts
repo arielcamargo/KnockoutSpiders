@@ -15,32 +15,36 @@ import { createVendiaClient } from '@vendia/client';
 })
 export class TestingComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
-    async function async() {
-      console.log('works???');
-      // const employeeResponse = await entities.employee.list();
-      const employeeResponse = await entities.employee.add({
-        age: 14,
-        avgHourseOfExercisePerWeek: 56,
-        avgHourseOfWorkPerWeek: 67,
-        bloodPressure: '78',
-        bodyTemperature: 78,
-        firstName: 'Christina',
-        gender: 'Woman',
-        height: 1,
-        lastName: 'Silva',
-        pulseRate: 56,
-        respirationRate: 45,
-        vacationBalance: 15,
-        weight: 156,
-      });
-    
-      console.log(employeeResponse);
-    }
-    async();
-     console.log('works???');
+  ngOnInit()
+  {
   }
+
+  // constructor() { }
+  //
+  // ngOnInit(): void {
+  //   async function async() {
+  //     console.log('works???');
+  //     // const employeeResponse = await entities.employee.list();
+  //     const employeeResponse = await entities.employee.add({
+  //       age: 14,
+  //       avgHourseOfExercisePerWeek: 56,
+  //       avgHourseOfWorkPerWeek: 67,
+  //       bloodPressure: '78',
+  //       bodyTemperature: 78,
+  //       firstName: 'Christina',
+  //       gender: 'Woman',
+  //       height: 1,
+  //       lastName: 'Silva',
+  //       pulseRate: 56,
+  //       respirationRate: 45,
+  //       vacationBalance: 15,
+  //       weight: 156,
+  //     });
+  //
+  //     console.log(employeeResponse);
+  //   }
+  //   async();
+  //    console.log('works???');
+  // }
 
 }
