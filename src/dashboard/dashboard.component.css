@@ -768,6 +768,22 @@ select {
   text-align: left;
 }
 
+.main .employee-data__item--active {
+  background-color: var(--primary-color);
+  color: var(--background-white);
+  
+}
+
+.main .employee-data__item--active 
+header {
+  font-size: 1.6em;
+}
+
+.main .employee-data__item--active 
+.employee-data__item-description {
+  color: var(--text-dark);
+  padding-left: 1em;
+}
 
 .employee-data__item header {
   max-height: 2em;
@@ -784,6 +800,8 @@ select {
   color: #727576;
   margin-left: 1.5em;
 }
+
+
 
 
 .employee-data__item p {

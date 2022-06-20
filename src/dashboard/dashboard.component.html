@@ -109,7 +109,7 @@
           <div class="row  main__banner-wrapper">
             <div class="col main__banner-item item-1 px-3 ">
               <header class="fw-6">
-                Working out more than <span>3 hours a week</span> helps:
+                Working out more than <span>3 hours a week</span> helps: 
               </header>
               <div class="item-1-list float-right">
                 <div class="flex">
@@ -183,7 +183,7 @@
       <!---------------------Employee data section------------------- -->
       <div class="main__employee-data text-m">
           <div class="row flex employee-data-group box-shadow text-capitalize my-1">
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Employees
               </header>
@@ -191,10 +191,10 @@
                   Total number of all employees
               </div>
               <p>
-                {{ test }}
+                50.0
               </p>
             </div>
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Age
               </header>
@@ -205,7 +205,7 @@
                 50.0
               </p>
             </div>
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item employee-data__item--active text-l">
               <header class="text-xl">
                 Gender
               </header>
@@ -216,7 +216,7 @@
                 N/A
               </p>
             </div>
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Height
               </header>
@@ -229,7 +229,7 @@
             </div>
           </div>
           <div class="row flex employee-data-group box-shadow text-capitalize my-1">
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Body Temperature
               </header>
@@ -240,7 +240,7 @@
                 50.0
               </p>
             </div>
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Pulse Rate
               </header>
@@ -251,7 +251,7 @@
                 50.0
               </p>
             </div>
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Blood Pressure
               </header>
@@ -262,7 +262,7 @@
                 50.0
               </p>
             </div>
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Respiration Rate
               </header>
@@ -275,7 +275,7 @@
             </div>
           </div>
           <div class="row flex employee-data-group box-shadow text-capitalize my-1">
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Weight
               </header>
@@ -287,7 +287,7 @@
                 50.0
               </p>
             </div>
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Hours Exercise Per Week
               </header>
@@ -298,7 +298,7 @@
                 50.0
               </p>
             </div>
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Vacation Balance
               </header>
@@ -309,7 +309,7 @@
                 50.0
               </p>
             </div>
-            <div class="col col-4 employee-data__item text-">
+            <div class="col col-4 employee-data__item text-l">
               <header class="text-xl">
                 Hours Work Per Week
               </header>
@@ -352,7 +352,7 @@
 
   <!---------------------MODAL------------------- -->
   <div id="modal" class="modal flex">
-        <!---------------------MODAL FOR ADD NEW EMPLOYEE------------------- -->
+        <!---------------------MODAL FOR ADD NEW EMPLOYEE------------------- --> 
         <div id="modal-add-new" class="modal  flex">
           <div class="row modal__body">
             <div class="modal__inner">
@@ -435,11 +435,11 @@
           </div>
         </div>
 
-  <!---------------------End of MODAL FOR ADD NEW EMPLOYE------------------- -->
+  <!---------------------End of MODAL FOR ADD NEW EMPLOYE------------------- --> 
   <!---------------------End of MODAL------------------- -->
 
 
-        <!---------------------MODAL FOR FILTERS------------------- -->
+        <!---------------------MODAL FOR FILTERS------------------- --> 
       <div id="modal-filters" class="modal  flex">
         <div class="row modal__body">
           <div class="modal__inner">
@@ -560,7 +560,7 @@
           </div>
         </div>
       </div>
-        <!---------------------End of MODAL FOR FILTERS------------------- -->
+        <!---------------------End of MODAL FOR FILTERS------------------- --> 
   </div>
 
 
@@ -586,6 +586,7 @@
     const closeFiltersBtnElement = document.getElementById('close-filters-btn');
     const modalFiltersElement = document.getElementById('modal-filters');
     const modalFiltersCheckboxItemsElements = document.querySelectorAll('#modal-filters .form-wrapper__checkbox');
+    const employeeDataCards = document.querySelectorAll('.employee-data__item');
 
     //ADD EMPLOYEE FORM elements
     const formAddBtnElement = document.getElementById('form-add-btn');
@@ -598,8 +599,17 @@
 
       filterItemElements.forEach((item, index) => {
         item.addEventListener('click', function() {
+          
           document.querySelector('.main__filters-item.main__filters-item--active').classList.remove('main__filters-item--active');
+          document.querySelector('.employee-data__item.employee-data__item--active').classList.remove('employee-data__item--active');
+          
           this.classList.add('main__filters-item--active');
+          if(index !== 8){
+            employeeDataCards[index].classList.add('employee-data__item--active');
+          } else {
+            employeeDataCards[0].classList.add('employee-data__item--active');
+            filterItemElements[0].classList.add('main__filters-item--active');
+          }
         });
       });
 
@@ -619,7 +629,7 @@
         //filled out later
       })
 
-      //open filters modal
+      //open filters modal 
       filtersBtnElement.addEventListener('click',function() {
         modalFiltersElement.setAttribute('style','display: flex');
       })
