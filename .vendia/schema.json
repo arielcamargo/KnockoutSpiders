@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Employee",
+  "description": "Employee Data",
+  "x-vendia-acls": {
+    "EmployeeAcls": {
+      "type": "Employee"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "Employee": {
+      "description": "employee",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "firstName": {
+            "description": "First Name",
+            "type": "string"
+          },
+          "lastName": {
+            "description": "Last Name",
+            "type": "string"
+          },
+          "age": {
+            "description": "Age",
+            "type": "number"
+          },
+          "gender": {
+            "description": "Gender",
+            "type": "string",
+            "enum": [
+              "Woman",
+              "Man",
+              "Transgender",
+              "NonBinaryOrNonConfirming",
+              "PreferNotToRespond"
+            ]
+          },
+          "height": {
+            "description": "Height",
+            "type": "number"
+          },
+          "weight": {
+            "description": "Weight",
+            "type": "number"
+          },
+          "bodyTemperature": {
+            "description": "Body Temperature",
+            "type": "number"
+          },
+          "pulseRate": {
+            "description": "Pulse Rate",
+            "type": "number"
+          },
+          "bloodPressure": {
+            "description": "Blood Pressure",
+            "type": "string"
+          },
+          "respirationRate": {
+            "description": "Respiration Rate",
+            "type": "number"
+          },
+          "avgHourseOfExercisePerWeek": {
+            "description": "Average Hourse of Exercise per Week",
+            "type": "number"
+          },
+          "vacationBalance": {
+            "description": "Vacation Balance",
+            "type": "number"
+          },
+          "avgHourseOfWorkPerWeek": {
+            "description": "Average Hourse of Work per Week",
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}
