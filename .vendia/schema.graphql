@@ -194,99 +194,150 @@ enum Vendia_SyncMode {
   ASYNC
 }
 
-input Self_Product_ConditionInput_ {
-  description: Vendia_ModelStringInput_
-  name: Vendia_ModelStringInput_
-  price: Vendia_ModelFloatInput_
-  size: Vendia_ModelStringInput_
-  sku: Vendia_ModelStringInput_
-  tags: Vendia_ModelStringInput_
-  _and: [Self_Product_ConditionInput_]
-  _or: [Self_Product_ConditionInput_]
-  _not: Self_Product_ConditionInput_
+input Self_Employee_ConditionInput_ {
+  age: Vendia_ModelFloatInput_
+  avgHourseOfExercisePerWeek: Vendia_ModelFloatInput_
+  avgHourseOfWorkPerWeek: Vendia_ModelFloatInput_
+  bloodPressure: Vendia_ModelStringInput_
+  bodyTemperature: Vendia_ModelFloatInput_
+  firstName: Vendia_ModelStringInput_
+  gender: Vendia_ModelStringInput_
+  height: Vendia_ModelFloatInput_
+  lastName: Vendia_ModelStringInput_
+  pulseRate: Vendia_ModelFloatInput_
+  respirationRate: Vendia_ModelFloatInput_
+  vacationBalance: Vendia_ModelFloatInput_
+  weight: Vendia_ModelFloatInput_
+  _and: [Self_Employee_ConditionInput_]
+  _or: [Self_Employee_ConditionInput_]
+  _not: Self_Employee_ConditionInput_
 }
 
-input Self_Product_FilterInput_ {
+input Self_Employee_FilterInput_ {
   _id: Vendia_ModelIDInput_
-  description: Vendia_ModelStringInput_
-  name: Vendia_ModelStringInput_
-  price: Vendia_ModelFloatInput_
-  size: Vendia_ModelStringInput_
-  sku: Vendia_ModelStringInput_
-  tags: Vendia_ModelStringInput_
-  _and: [Self_Product_FilterInput_]
-  _or: [Self_Product_FilterInput_]
-  _not: Self_Product_FilterInput_
+  age: Vendia_ModelFloatInput_
+  avgHourseOfExercisePerWeek: Vendia_ModelFloatInput_
+  avgHourseOfWorkPerWeek: Vendia_ModelFloatInput_
+  bloodPressure: Vendia_ModelStringInput_
+  bodyTemperature: Vendia_ModelFloatInput_
+  firstName: Vendia_ModelStringInput_
+  gender: Vendia_ModelStringInput_
+  height: Vendia_ModelFloatInput_
+  lastName: Vendia_ModelStringInput_
+  pulseRate: Vendia_ModelFloatInput_
+  respirationRate: Vendia_ModelFloatInput_
+  vacationBalance: Vendia_ModelFloatInput_
+  weight: Vendia_ModelFloatInput_
+  _and: [Self_Employee_FilterInput_]
+  _or: [Self_Employee_FilterInput_]
+  _not: Self_Employee_FilterInput_
 }
 
-type Self_Product {
+type Self_Employee {
   _id: ID!
-  description: String
-  name: String
-  price: Float
-  size: Self_Product_sizeEnum
-  sku: String
-  tags: [String]
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
+  _acl: [Vendia_Acl!]
   _owner: String
 }
 
-type Self_Product_Partial_ {
+type Self_Employee_Partial_ {
   _id: ID!
-  description: String
-  name: String
-  price: Float
-  size: Self_Product_sizeEnum
-  sku: String
-  tags: [String]
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
+  _acl: [Vendia_Acl!]
   _owner: String
 }
 
-union Self_Product_PartialUnion_ = Self_Product | Self_Product_Partial_
+union Self_Employee_PartialUnion_ = Self_Employee | Self_Employee_Partial_
 
-type Self_Product_Result_ {
+type Self_Employee_Result_ {
   error: String
-  result: Self_Product
+  result: Self_Employee
 }
 
-type Self_Product_Transaction_Result_ {
+type Self_Employee_Transaction_Result_ {
   transaction: Vendia_Transaction!
-  result: Self_Product
+  result: Self_Employee_PartialUnion_
 }
 
-type Self_Product_Delete_Transaction_Result_ {
+type Self_Employee_Delete_Transaction_Result_ {
   transaction: Vendia_Transaction!
 }
 
-type Self_Product_Connection_ {
-  _ProductItems: [Self_Product]
+type Self_Employee_Connection_ {
+  _EmployeeItems: [Self_Employee_PartialUnion_]
   nextToken: String
 }
 
-input Self_Product_Input_ {
-  description: String
-  name: String
-  price: Float
-  size: Self_Product_sizeEnum
-  sku: String
-  tags: [String]
+input Self_Employee_Input_ {
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
 }
 
-input Self_Product_UpdateInput_ {
-  description: String
-  name: String
-  price: Float
-  size: Self_Product_sizeEnum
-  sku: String
-  tags: [String]
+input Self_Employee_UpdateInput_ {
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
 }
 
-input Self_Product_PartialInput_ {
-  description: String
-  name: String
-  price: Float
-  size: Self_Product_sizeEnum
-  sku: String
-  tags: [String]
+input Self_Employee_PartialInput_ {
+  age: Float
+  avgHourseOfExercisePerWeek: Float
+  avgHourseOfWorkPerWeek: Float
+  bloodPressure: String
+  bodyTemperature: Float
+  firstName: String
+  gender: Self_Employee_genderEnum
+  height: Float
+  lastName: String
+  pulseRate: Float
+  respirationRate: Float
+  vacationBalance: Float
+  weight: Float
 }
 
 input Vendia_Block_transactions_transactionsItem_ConditionInput_ {
@@ -1467,11 +1518,12 @@ type Vendia_UniInfo_nodes_nodesItem_temporaryCredentials_uploadFile_Delete_Trans
   transaction: Vendia_Transaction!
 }
 
-enum Self_Product_sizeEnum {
-  S
-  M
-  L
-  XL
+enum Self_Employee_genderEnum {
+  Woman
+  Man
+  Transgender
+  NonBinaryOrNonConfirming
+  PreferNotToRespond
 }
 
 enum Vendia_Contract_resource_cspEnum {
@@ -2448,9 +2500,9 @@ input Vendia_Contract_InvokeInput_ {
 }
 
 type Query {
-  get_Product(id: ID!, version: Int): Self_Product
-  list_ProductItems(filter: Self_Product_FilterInput_, limit: Int, nextToken: String): Self_Product_Connection_
-  list_ProductVersions(id: ID!, limit: Int, nextToken: String): Vendia_Version_Connection_
+  get_Employee(id: ID!, version: Int): Self_Employee_PartialUnion_
+  list_EmployeeItems(filter: Self_Employee_FilterInput_, limit: Int, nextToken: String): Self_Employee_Connection_
+  list_EmployeeVersions(id: ID!, limit: Int, nextToken: String): Vendia_Version_Connection_
   getVendia_Block(id: ID!): Vendia_Block
   listVendia_BlockItems(filter: Vendia_Block_FilterInput_, limit: Int, nextToken: String): Vendia_Block_Connection_
   getVendia_File(id: ID!, version: Int): Vendia_File
@@ -2476,14 +2528,14 @@ type Query {
 }
 
 type Mutation {
-  add_Product_async(input: Self_Product_Input_!): Vendia_Transaction_Result_
-  add_Product(input: Self_Product_Input_!, syncMode: Vendia_SyncMode!): Self_Product_Transaction_Result_
-  put_Product_async(id: ID!, input: Self_Product_Input_!, condition: Self_Product_ConditionInput_): Vendia_Transaction_Result_
-  put_Product(id: ID!, input: Self_Product_Input_!, condition: Self_Product_ConditionInput_, syncMode: Vendia_SyncMode!): Self_Product_Transaction_Result_
-  update_Product_async(id: ID!, input: Self_Product_UpdateInput_!, condition: Self_Product_ConditionInput_): Vendia_Transaction_Result_
-  update_Product(id: ID!, input: Self_Product_UpdateInput_!, condition: Self_Product_ConditionInput_, syncMode: Vendia_SyncMode!): Self_Product_Transaction_Result_
-  remove_Product_async(id: ID!, condition: Self_Product_ConditionInput_): Vendia_Transaction_Result_
-  remove_Product(id: ID!, condition: Self_Product_ConditionInput_, syncMode: Vendia_SyncMode!): Self_Product_Delete_Transaction_Result_
+  add_Employee_async(input: Self_Employee_Input_!, aclInput: Vendia_Acls_Input_): Vendia_Transaction_Result_
+  add_Employee(input: Self_Employee_Input_!, aclInput: Vendia_Acls_Input_, syncMode: Vendia_SyncMode!): Self_Employee_Transaction_Result_
+  put_Employee_async(id: ID!, input: Self_Employee_Input_!, condition: Self_Employee_ConditionInput_, aclInput: Vendia_Acls_Input_!): Vendia_Transaction_Result_
+  put_Employee(id: ID!, input: Self_Employee_Input_!, condition: Self_Employee_ConditionInput_, aclInput: Vendia_Acls_Input_!, syncMode: Vendia_SyncMode!): Self_Employee_Transaction_Result_
+  update_Employee_async(id: ID!, input: Self_Employee_UpdateInput_!, condition: Self_Employee_ConditionInput_, aclInput: Vendia_Acls_Input_): Vendia_Transaction_Result_
+  update_Employee(id: ID!, input: Self_Employee_UpdateInput_!, condition: Self_Employee_ConditionInput_, aclInput: Vendia_Acls_Input_, syncMode: Vendia_SyncMode!): Self_Employee_Transaction_Result_
+  remove_Employee_async(id: ID!, condition: Self_Employee_ConditionInput_): Vendia_Transaction_Result_
+  remove_Employee(id: ID!, condition: Self_Employee_ConditionInput_, syncMode: Vendia_SyncMode!): Self_Employee_Delete_Transaction_Result_
   addVendia_File_async(input: Vendia_File_Input_!): Vendia_Transaction_Result_
   addVendia_File(input: Vendia_File_Input_!, syncMode: Vendia_SyncMode!): Vendia_File_Transaction_Result_
   putVendia_File_async(id: ID!, input: Vendia_File_Input_!, condition: Vendia_File_ConditionInput_): Vendia_Transaction_Result_
@@ -2520,9 +2572,9 @@ type Mutation {
 }
 
 type Subscription {
-  onAdd_Product: Self_Product_Result_
-  onUpdate_Product: Self_Product_Result_
-  onRemove_Product: Self_Product_Result_
+  onAdd_Employee: Self_Employee_Result_
+  onUpdate_Employee: Self_Employee_Result_
+  onRemove_Employee: Self_Employee_Result_
   onAddVendia_Block: Vendia_Block_Result_
   onUpdateVendia_Block: Vendia_Block_Result_
   onRemoveVendia_Block: Vendia_Block_Result_

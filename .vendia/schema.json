@@ -1,48 +1,78 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://vendia.net/schemas/demos/product.json",
-  "title": "Product",
-  "description": "Product information",
+  "title": "Employee",
+  "description": "Employee Data",
+  "x-vendia-acls": {
+    "EmployeeAcls": {
+      "type": "Employee"
+    }
+  },
   "type": "object",
   "properties": {
-    "Product": {
-      "description": "Product information",
+    "Employee": {
+      "description": "employee",
       "type": "array",
       "items": {
         "type": "object",
         "properties": {
-          "name": {
-            "description": "Product name",
+          "firstName": {
+            "description": "First Name",
             "type": "string"
           },
-          "sku": {
-            "description": "Product SKU",
+          "lastName": {
+            "description": "Last Name",
             "type": "string"
           },
-          "description": {
-            "description": "Product description",
-            "type": "string"
-          },
-          "price": {
-            "description": "Product price",
+          "age": {
+            "description": "Age",
             "type": "number"
           },
-          "tags": {
-            "description": "Product tags",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "size": {
-            "description": "Product size",
+          "gender": {
+            "description": "Gender",
             "type": "string",
             "enum": [
-              "S",
-              "M",
-              "L",
-              "XL"
+              "Woman",
+              "Man",
+              "Transgender",
+              "NonBinaryOrNonConfirming",
+              "PreferNotToRespond"
             ]
+          },
+          "height": {
+            "description": "Height",
+            "type": "number"
+          },
+          "weight": {
+            "description": "Weight",
+            "type": "number"
+          },
+          "bodyTemperature": {
+            "description": "Body Temperature",
+            "type": "number"
+          },
+          "pulseRate": {
+            "description": "Pulse Rate",
+            "type": "number"
+          },
+          "bloodPressure": {
+            "description": "Blood Pressure",
+            "type": "string"
+          },
+          "respirationRate": {
+            "description": "Respiration Rate",
+            "type": "number"
+          },
+          "avgHourseOfExercisePerWeek": {
+            "description": "Average Hourse of Exercise per Week",
+            "type": "number"
+          },
+          "vacationBalance": {
+            "description": "Vacation Balance",
+            "type": "number"
+          },
+          "avgHourseOfWorkPerWeek": {
+            "description": "Average Hourse of Work per Week",
+            "type": "number"
           }
         }
       }
