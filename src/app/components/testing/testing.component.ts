@@ -22,8 +22,8 @@ export class TestingComponent implements OnInit {
       console.log('works???');
 
       // const employeeGet = await entities.employee.list();
-      const employeeGet = await entities.employee.get('018182ed-df7f-434c-5f31-97c8c7564019');
-      console.log(employeeGet);
+      // const employeeGet = await entities.employee.get('018182ed-df7f-434c-5f31-97c8c7564019');
+      // console.log(employeeGet);
 
       const employeeResponse = await entities.employee.add({
         age: 14,
@@ -31,7 +31,7 @@ export class TestingComponent implements OnInit {
         avgHourseOfWorkPerWeek: 67,
         bloodPressure: '78',
         bodyTemperature: 78,
-        firstName: 'Gino',
+        firstName: 'Gloria',
         gender: 'Woman',
         height: 1,
         lastName: 'Leone',
@@ -46,7 +46,4 @@ export class TestingComponent implements OnInit {
     async();
     console.log('works???');
   }
-
-  
-
 }
