@@ -20,7 +20,11 @@ export class TestingComponent implements OnInit {
   ngOnInit(): void {
     async function async() {
       console.log('works???');
-      // const employeeResponse = await entities.employee.list();
+
+      // const employeeGet = await entities.employee.list();
+      const employeeGet = await entities.employee.get('018182ed-df7f-434c-5f31-97c8c7564019');
+      console.log(employeeGet);
+
       const employeeResponse = await entities.employee.add({
         age: 14,
         avgHourseOfExercisePerWeek: 56,
@@ -40,7 +44,9 @@ export class TestingComponent implements OnInit {
       console.log(employeeResponse);
     }
     async();
-     console.log('works???');
+    console.log('works???');
   }
+
+  
 
 }
