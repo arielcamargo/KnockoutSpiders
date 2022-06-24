@@ -51,11 +51,13 @@ export class DashboardComponent implements OnInit
   avgWork;
   malePercentage;
   femalePercentage;
+  employeeBoxClasses;
 
 
   ngOnInit()
   {
     this.calculations();
+    this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
   }
 
   //Author:Ariel Camargo
@@ -169,6 +171,12 @@ export class DashboardComponent implements OnInit
       }
     }
     return orderedArr;
+  }
+
+  onHighlightClick()
+  {
+    this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn', 'main__filters-item--active'];
+
   }
 }
 
