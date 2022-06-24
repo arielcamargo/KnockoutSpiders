@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import {DashboardComponent} from "../dashboard/dashboard.component";
-import { TestingComponent } from "../testing/testing.component";
+import { TestingComponent } from './components/testing/testing.component';
 
 @NgModule({
   declarations: [
@@ -20,4 +20,3 @@ import { TestingComponent } from "../testing/testing.component";
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-//testing 

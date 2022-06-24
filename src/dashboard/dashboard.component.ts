@@ -6,7 +6,7 @@ import {createVendiaClient} from "@vendia/client";
 const client = createVendiaClient({
   apiUrl: "https://xxxxxxx.execute-api.us-east-1.amazonaws.com/graphql/",
   websocketUrl: "wss://xxxxxxx.execute-api.us-west-1.amazonaws.com/graphql",
-  apiKey: "naUSK3QaBR8gPJcjj8N8diBaDNcuBdSe9UgDooCJciD",
+  apiKey: "M9YffZc6jK3Jj8uHz68fNGWuEhfjrXiThqqsPzSjqWQg3",
 });
 
 @Component({
@@ -171,3 +171,4 @@ export class DashboardComponent implements OnInit
     return orderedArr;
   }
 }
+
