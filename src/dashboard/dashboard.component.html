@@ -4,7 +4,6 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Dashboard</title>
-
     
     </head>
     <body>
@@ -20,18 +19,18 @@
             <div class="search-bar">
               <input type="text" placeholder="Type to search ..." class="search-bar__input">
             </div>
-            <div class="search-icon">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </div>
+            <button class="search-icon">
+              Search
+            </button>
             <div class="utility">
-              <div class="utility__share-btn">
+              <button class="utility__share-btn">
                 <span class="share-text">Share</span>
                 <i class="fa-solid fa-share-from-square"></i>
-              </div>
-              <div id="create-new-btn" class="utility__create-new-btn">
+              </button>
+              <button id="create-new-btn" class="utility__create-new-btn">
                 <span class="create-text ">New</span>
                 <i class="fa-solid fa-plus"></i>
-              </div>
+              </button>
               <div class="utility__avatar">
                 <div class="utility__avatar-panel">
                   <div class="avatar-panel__wrapper ">
@@ -42,7 +41,7 @@
                     </div>
                     <div class="avatar-panel__item  ">
                       <div class="avatar-panel__item-icon">
-                        <i class="avatar-panel__icon fa-solid fa-gear"></i>
+
                       </div>
                       <div class="avatar-panel__item-title">
                         settings & privacy
@@ -50,7 +49,7 @@
                     </div>
                     <div class="avatar-panel__item  ">
                       <div class="avatar-panel__item-icon">
-                        <i class="avatar-panel__icon fa-solid fa-circle-question"></i>
+
                       </div>
                       <div class="avatar-panel__item-title">
                         help & support
@@ -58,7 +57,6 @@
                     </div>
                     <div class="avatar-panel__item  ">
                       <div class="avatar-panel__item-icon">
-                        <i class="avatar-panel__icon fa-solid fa-comment-dots"></i>
                       </div>
                       <div class="avatar-panel__item-title">
                         give feedback
@@ -66,7 +64,7 @@
                     </div>
                     <div class="avatar-panel__item  ">
                       <div class="avatar-panel__item-icon">
-                        <i class="avatar-panel__icon fa-solid fa-arrow-right-from-bracket"></i>
+
                       </div>
                       <div class="avatar-panel__item-title">
                         log out
@@ -90,7 +88,7 @@
                   <!-------------------Greeting section------------------->
             <div class="main__greeting">
               <div style="color: transparent" class="greeting-flag">
-               flag
+              flag
               </div>
             </div>
                   <!-------------------End of Greeting section------------------->
@@ -100,42 +98,40 @@
             <div class="main__banner">
               <div class="main__banner-wrapper">
                 <div class="main__banner-item ">
-                  <header>
+                  <header class="main__banner-item-header" >
                     Working out more than <span>3 hours a week</span> helps:
                   </header>
-                  <div class="">
-                    <div >
+                  <div class="main__banner-item-body-wrapper">
+                    <div class="main__banner-item-body-wrapper-item">
                       <i class="fa-solid fa-arrow-down "></i>
                       <p>Lower blood pressure</p>
                     </div>
-                    <div class="">
+                    <div class="main__banner-item-body-wrapper-item">
                       <i class="fa-solid fa-arrow-up "></i>
                       <p> Higher respiratory rate</p>
                     </div>
     
-                    <div class="">
+                    <div class="main__banner-item-body-wrapper-item">
                       <i class="fa-solid fa-check  "></i>
                       <p>Have ideal BMI</p>
                     </div>
                   </div>
                 </div>
                 <div class="main__banner-item">
-                  <header>
-                     percentage of each gender  working more than <span>40</span> hours a week:
+                  <header class="main__banner-item-header">
+                    percentage of each gender  working more than <span>40</span> hours a week:
                   </header>
-                  <div class="">
-                    <div class="">
+                  <div class="main__banner-item-body-wrapper">
+                    <div class="main__banner-item-body-item">
                       <i class="fa-solid fa-mars"></i>
-                      <p>Male  <span class="alternate-color"> {{ malePercentage }}</span></p>
+                      <p>Male  <span> {{ malePercentage }}</span></p>
                     </div>
-                    <div class="">
+                    <div class="main__banner-item-body-item">
                       <i class="fa-solid fa-venus"></i>
-                      <header>Female  <span class="alternate-color px-1"> {{ femalePercentage }} </span> </header>
-    
+                      <p>Female  <span> {{ femalePercentage }} </span> </p>
                     </div>
                   </div>
                 </div>
-    
               </div>
               <div class="main__banner-wrapper">
                 <div class=" main__banner-item">
@@ -342,131 +338,6 @@
           <!---------------------End of FOOTER------------------- -->
     
       </div>
-    
-    
-    
-            <!---------------------MODAL FOR FILTERS------------------- -->
-          <div id="modal-filters" class="modal  flex">
-            <div class="row modal__body">
-              <div class="modal__inner">
-                <div id="close-filters-btn" class="modal__inner-close text-l">
-                  <i class="fa-solid fa-xmark"></i>
-                </div>
-                <div class="modal__inner-header flex text-xl ">
-                  <div class="header__tittle px-1">
-                    <header>
-                      Filters
-                    </header>
-                  </div>
-                </div>
-                <div class="modal__inner-form-wrapper">
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-0  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Number Of Employees
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-1  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Age
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-2  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Gender
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-3  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Height
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-4  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      body temp
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-5  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Pulse Rate
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-6  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Blood Pressure
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-7  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Respiration Rate
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-8  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Weight
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-9  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Hours Exercise Per Week
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-10  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Vacation Balance
-                    </div>
-                  </label>
-                  <label class="lh-3 flex ">
-                    <div class="form-wrapper__checkbox text-center">
-                      <i class="checkbox-icon index-11  fa-solid fa-check text-l"></i>
-                    </div>
-                    <div class="form-wrapper__title text-capitalize text-l">
-                      Hours Work Per Week
-                    </div>
-                  </label>
-    
-    
-                </div>
-                <!--Currently being disabled until valid  data entered -->
-                <button id="" class="add-emp-btn btn btn-primary float-right text-m text-capitalize">
-                  filter
-                </button>
-              </div>
-            </div>
-          </div>
-            <!---------------------End of MODAL FOR FILTERS------------------- -->
       </div>
     
   </body>
