@@ -4,7 +4,7 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Dashboard</title>
-    
+
     </head>
     <body>
       <div class="app">
@@ -27,7 +27,8 @@
                 <span class="share-text">Share</span>
                 <i class="fa-solid fa-share-from-square"></i>
               </button>
-              <button id="create-new-btn" class="utility__create-new-btn">
+              <button id="create-new-btn" class="utility__create-new-btn"
+              (click) = goToAddEmployeee()>
                 <span class="create-text ">New</span>
                 <i class="fa-solid fa-plus"></i>
               </button>
@@ -71,7 +72,7 @@
                       </div>
                     </div>
                   </div>
-    
+
                 </div>
                 <img id="avatar-img" src="https://studyingbreakingbadcourse.files.wordpress.com/2016/02/walt-wearing-hat.jpg" alt="">
               </div>
@@ -79,12 +80,12 @@
           </div>
         </header>
           <!---------------End of Header section----------------->
-    
-    
+
+
         <main class="main">
           <!-------------------Banner section------------------->
           <div class="main__header">
-    
+
                   <!-------------------Greeting section------------------->
             <div class="main__greeting">
               <div style="color: transparent" class="greeting-flag">
@@ -92,8 +93,8 @@
               </div>
             </div>
                   <!-------------------End of Greeting section------------------->
-    
-    
+
+
                   <!-------------------Banner section------------------->
             <div class="main__banner">
               <div class="main__banner-wrapper">
@@ -110,7 +111,7 @@
                       <i class="fa-solid fa-arrow-up "></i>
                       <p> Higher respiratory rate</p>
                     </div>
-    
+
                     <div class="main__banner-item-body-wrapper-item">
                       <i class="fa-solid fa-check  "></i>
                       <p>Have ideal BMI</p>
@@ -140,7 +141,7 @@
                   </header>
                 </div>
                 <div class="main__banner-item">
-    
+
                   <header>
                     standard deviation (probably)
                   </header>
@@ -149,7 +150,7 @@
             </div>
           </div>
           <!-------------------End of Banner section----------------- -->
-    
+
           <!-------------------Filters section------------------->
           <div class="filters-wrapper">
             <div class="main__filters">
@@ -167,8 +168,8 @@
             </div>
           </div>
            <!-------------------End of Filters section------------------->
-    
-    
+
+
           <!---------------------Employee data section------------------- -->
           <div class="main__employee-data">
               <div class="employee-data-group">
@@ -270,7 +271,7 @@
                   </header>
                   <div class="employee-data__item-description">
                     Average weight of all employees
-    
+
                   </div>
                   <p>
                     {{ avgWeight }}
@@ -311,15 +312,15 @@
                 </div>
               </div>
           </div>
-    
+
           <!---------------------End of Employee data section------------------- -->
-    
-    
+
+
         </main>
-    
-    
+
+
           <!---------------------FOOTER------------------- -->
-    
+
         <footer id="footer" class="footer">
           <div class="footer__wrapper flex ">
             <div class="wrapper-copyright text-capitalize text-m">
@@ -336,10 +337,8 @@
           </div>
         </footer>
           <!---------------------End of FOOTER------------------- -->
-    
+
       </div>
-      </div>
-    
+
   </body>
 
-  
