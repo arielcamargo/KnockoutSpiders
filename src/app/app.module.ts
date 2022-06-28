@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import {DashboardComponent} from "../dashboard/dashboard.component";
 import { TestingComponent } from './components/testing/testing.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [
@@ -16,7 +17,13 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot(
+      [
+        {path: 'add-employee', component: AddEmployeeComponent},
+        {path: '', component: DashboardComponent},
+      ]
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]

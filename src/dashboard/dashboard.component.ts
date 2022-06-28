@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {createVendiaClient} from "@vendia/client";
+import { Router} from "@angular/router";
 
 //This should allow for the vendia client to work
 //in this component. Change apikey to correct one.
@@ -22,7 +23,8 @@ const client = createVendiaClient({
 
 export class DashboardComponent implements OnInit
 {
-
+  constructor(private router: Router) {
+  }
   //The following arrays are placeholders for when the Vendia
   //client is up and running. Once it is we remove
   //these hard calls and replace with Vendia API calls.
@@ -177,6 +179,11 @@ export class DashboardComponent implements OnInit
   {
     this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn', 'main__filters-item--active'];
 
+  }
+
+  goToAddEmployeee()
+  {
+    this.router.navigate(['add-employee']);
   }
 }
 
