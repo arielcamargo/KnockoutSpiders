@@ -19,11 +19,6 @@ export class TestingComponent implements OnInit {
 
   ngOnInit(): void {
     async function async() {
-      console.log('works???');
-      
-      // const employeeGet = await entities.employee.list();
-      // const employeeGet = await entities.employee.get('018182ed-df7f-434c-5f31-97c8c7564019');
-      // console.log(employeeGet);
 
       const employeeResponse = await entities.employee.add({
         age: 14,
@@ -43,8 +38,64 @@ export class TestingComponent implements OnInit {
     
       console.log(employeeResponse);
     }
-    async();
-    console.log('works???');
+
+    async function get() {
+      console.log('works???');
+
+      const employeeGet = await entities.employee.get('018182ed-df7f-434c-5f31-97c8c7564019');
+      console.log(employeeGet);
+    }
+    
+    async function customTesting() {
+      console.log('works???');
+      const employeeResponse = await entities.employee.list();
+      return employeeResponse;
+    }
+    
+    var totalAge = 0;
+    customTesting().then(data => {
+    for(let i = 0;i < data.items.length;i++){
+      
+      totalAge += data.items[i].age!;
+
+    }
+      let averageAge = totalAge/data.items.length; 
+      console.log(averageAge);
+    })
+    // console.log(averageAge);
+    // customTesting().then(data => {
+    //   for(let i = 0;i < data.items.length;i++){
+    //     console.log(data.items[i].weight);
+    //   }
+    // })
+    // async function list() {
+
+    //   const employeeList = await entities.employee.list();
+      
+     
+    // }
+
+    // get();
+    // async function getItems() {
+    //   const responseTesting = await entities.employee.list();
+    //   // return responseTesting;
+    //   getAllAges(data:number[])
+    //   {
+    //     let average = 0.0;
+    //     for(let i = 0; i < data.length; i++)
+    //     {
+    //       verage += data[i];
+    //     }
+    //     average /= data.length;
+    //     return average;
+    //   }
+    //   // console.log(responseTesting.items[0].age);
+    // }
+    // getItems();
+    // // const items = getItems();
+    // console.log( items);
+  
+    
   }
  
 }

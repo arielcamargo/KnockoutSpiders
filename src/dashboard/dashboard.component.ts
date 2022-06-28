@@ -62,7 +62,7 @@ export class DashboardComponent implements OnInit
   calculations()
   {
     this.employeeCount = this.names.length;
-    this.avgAge = this.getAverage(this.ages);
+    // this.avgAge = this.getAverage(this.ages);
     this.avgHeight = this.getAverage(this.heights);
     this.avgTemp = this.getAverage(this.temperatures);
     this.avgPulse = this.getAverage(this.pulses);
