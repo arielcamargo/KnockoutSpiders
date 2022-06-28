@@ -17,34 +17,37 @@ export class TestingComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    async function async() {
-      console.log('works???');
-
-      // const employeeGet = await entities.employee.list();
-      // const employeeGet = await entities.employee.get('018182ed-df7f-434c-5f31-97c8c7564019');
-      // console.log(employeeGet);
-
-      const employeeResponse = await entities.employee.add({
-        age: 14,
-        avgHourseOfExercisePerWeek: 56,
-        avgHourseOfWorkPerWeek: 67,
-        bloodPressure: '78',
-        bodyTemperature: 78,
-        firstName: 'Gloria',
-        gender: 'Woman',
-        height: 1,
-        lastName: 'Leone',
-        pulseRate: 56,
-        respirationRate: 45,
-        vacationBalance: 15,
-        weight: 156,
-      });
-    
-      console.log(employeeResponse);
-    }
-    async();
-    console.log('works???');
+  ngOnInit() {
   }
- 
+
+  // ngOnInit(): void {
+  //   async function async() {
+  //     console.log('works???');
+  //
+  //     // const employeeGet = await entities.employee.list();
+  //     // const employeeGet = await entities.employee.get('018182ed-df7f-434c-5f31-97c8c7564019');
+  //     // console.log(employeeGet);
+  //
+  //     const employeeResponse = await entities.employee.add({
+  //       age: 14,
+  //       avgHourseOfExercisePerWeek: 56,
+  //       avgHourseOfWorkPerWeek: 67,
+  //       bloodPressure: '78',
+  //       bodyTemperature: 78,
+  //       firstName: 'Gloria',
+  //       gender: 'Woman',
+  //       height: 1,
+  //       lastName: 'Leone',
+  //       pulseRate: 56,
+  //       respirationRate: 45,
+  //       vacationBalance: 15,
+  //       weight: 156,
+  //     });
+  //
+  //     console.log(employeeResponse);
+  //   }
+  //   async();
+  //   console.log('works???');
+  // }
+
 }
