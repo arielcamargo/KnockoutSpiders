@@ -83,7 +83,7 @@ select {
 
 
 
-#modal-add-new .modal__body {
+.modal__body {
   background-color: var(--background-white);
   min-height: 60%;
   max-width: calc(100% - 32px);
@@ -95,10 +95,9 @@ select {
   overflow: auto;
 }
 
-#modal-add-new .modal__inner {
-}
 
-#modal-add-new .modal__inner-header {
+
+.modal__inner-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -110,73 +109,68 @@ select {
 
 
 
+.header__tittle {
 
-#modal-add-new .header__tittle {
-  font-size: 4rem;
-  text-transform: capitalize;
-  color: var(--primary-color);
 }
 
-
-#modal-add-new .header__icon-wrapper {
+.header__icon-wrapper {
   padding: 0 0.4em;
 }
-
-#modal-add-new .modal__inner-form-wrapper {
+.modal__inner-form-wrapper {
   margin: 1em 6em;
+  font-size: 1.6rem;
 }
 
 
-#modal-add-new form {
+#modal-add-new-form {
   font-size: 1.8rem;
 }
 
 
-#modal-add-new label {
-}
-
-#modal-add-new .modal__inner input {
+.modal__inner-input {
   line-height: 2.2rem;
   border-radius: 0.4rem;
   border: 1px solid var(--border-color);
   background-color: var(--background-main);
+
 }
 
 
-#modal-add-new .form__double-col {
+.form__double-col {
   display: flex;
   align-items: center;
 }
 
-#modal-add-new .form__single-col {
+.form__single-col {
   display: flex;
   align-items: center;
 }
 
 
-.form__double-col .form__double-col-item {
+.form__double-col-item {
   width: 50%;
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
 
-.form__single-col .form__single-col-item {
+.form__single-col-item {
   width: 50%;
   margin-left: 1rem;
   margin-right: 1rem;
 }
 
-.form__double-col-item-selection select {
+.form__double-col-item-selection-select {
   margin-bottom: 0.3rem;;
 }
-.form__single-col-item > label,
-.form__double-col-item > label {
+.form__single-col-item-label,
+.form__double-col-item-label {
   line-height: 3rem;
+  font-weight: 600;
+  margin-top: 0.4em;
 }
 
-
-.modal__inner-form-wrapper .form__info {
+.form__info {
   display: flex;
   flex-direction: column;
   margin-left: 1rem;
@@ -184,28 +178,29 @@ select {
   align-items: stretch;
 }
 
-.modal__inner-form-wrapper .form__info > label {
+.form__info-label {
+  margin-top: 0.4em;
   line-height: 3rem;
+  font-weight: 600;
 }
 
 
 
-#modal-add-new .add-emp-btn {
+.add-emp-btn {
   margin: 1em 0;
   width: 16em;
-  max-height: 2.8em;
   border: none;
-  background-color: transparent;
   cursor: pointer;
   padding: .8rem 2rem;
   border-radius: 50px;
   font-family: var(--font-poppins);
   box-shadow: var(--box-shadow);
   border: 0.5px solid #dddddd;
-  max-height: 2.5em;
   background: var(--bg-gradient-indigo);
   float: right;
   font-size: 1.4rem;
   line-height: 2.5rem;
+  text-transform: capitalize;
+  font-weight: 600;
 }
 
