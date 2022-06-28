@@ -4,45 +4,43 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Dashboard</title>
-    
+      <link rel="stylesheet" href="./dashboard.component.css">
     </head>
     <body>
       <div class="app">
           <!-----------------Header section----------------->
         <header class="header">
-          <div class="nav-bar">
-            <div class="logo">
-              <div class="logo-container">
-                <img src="../assets/img/logo/vendia-logo.svg" alt="https://www.vendia.net/images/logo/white.svg">
+          <div class="header--nav-bar">
+            <div class="nav-bar--logo">
+              <div class="header--logo-container">
+                <img class="logo--img" src="../assets/img/logo/vendia-logo.svg" alt="https://www.vendia.net/images/logo/white.svg">
               </div>
             </div>
-            <div class="search-bar">
-              <input type="text" placeholder="Type to search ..." class="search-bar__input">
+            <div class="header--search-bar">
+              <input type="text" placeholder="Type to search ..." class="search-bar--search-bar__input">
             </div>
-            <button class="search-icon">
+            <button class="nav-bar--search-icon">
               Search
             </button>
-            <div class="utility">
+            <div class="header--utility">
               <button class="utility__share-btn">
-                <span class="share-text">Share</span>
+                <span class="utility__share-btn--share-text">Share</span>
                 <i class="fa-solid fa-share-from-square"></i>
               </button>
               <button id="create-new-btn" class="utility__create-new-btn">
-                <span class="create-text ">New</span>
+                <span class="utility__create-new-btn--create-text ">New</span>
                 <i class="fa-solid fa-plus"></i>
               </button>
-              <div class="utility__avatar">
-                <div class="utility__avatar-panel">
+              <div class="nav-bar--utility__avatar">
+                <div class="nav-bar--utility__avatar-panel">
                   <div class="avatar-panel__wrapper ">
                     <div class="avatar-panel__header">
-                      <header class="">
+                      <header class="avatar-panel__header--header">
                         John Doe
                       </header>
                     </div>
                     <div class="avatar-panel__item  ">
-                      <div class="avatar-panel__item-icon">
 
-                      </div>
                       <div class="avatar-panel__item-title">
                         settings & privacy
                       </div>
@@ -73,7 +71,7 @@
                   </div>
     
                 </div>
-                <img id="avatar-img" src="https://studyingbreakingbadcourse.files.wordpress.com/2016/02/walt-wearing-hat.jpg" alt="">
+                <img id="avatar-img" class="utility--img" src="https://studyingbreakingbadcourse.files.wordpress.com/2016/02/walt-wearing-hat.jpg" alt="">
               </div>
             </div>
           </div>
@@ -95,7 +93,7 @@
     
     
                   <!-------------------Banner section------------------->
-            <div class="main__banner">
+            <div class="row--main__banner">
               <div class="main__banner-wrapper">
                 <div class="main__banner-item ">
                   <header class="main__banner-item-header" >
@@ -104,16 +102,16 @@
                   <div class="main__banner-item-body-wrapper">
                     <div class="main__banner-item-body-wrapper-item">
                       <i class="fa-solid fa-arrow-down "></i>
-                      <p>Lower blood pressure</p>
+                      <p class= "main__banner-item-body-wrapper-p">Lower blood pressure</p>
                     </div>
                     <div class="main__banner-item-body-wrapper-item">
                       <i class="fa-solid fa-arrow-up "></i>
-                      <p> Higher respiratory rate</p>
+                      <p class="main__banner-item-body-wrapper-p"> Higher respiratory rate</p>
                     </div>
     
                     <div class="main__banner-item-body-wrapper-item">
                       <i class="fa-solid fa-check  "></i>
-                      <p>Have ideal BMI</p>
+                      <p class="main__banner-item-body-wrapper-p">Have ideal BMI</p>
                     </div>
                   </div>
                 </div>
@@ -124,24 +122,23 @@
                   <div class="main__banner-item-body-wrapper">
                     <div class="main__banner-item-body-item">
                       <i class="fa-solid fa-mars"></i>
-                      <p>Male  <span> {{ malePercentage }}</span></p>
+                      <p class="main__banner-item-body-wrapper-p">Male  <span> {{ malePercentage }}</span></p>
                     </div>
                     <div class="main__banner-item-body-item">
                       <i class="fa-solid fa-venus"></i>
-                      <p>Female  <span> {{ femalePercentage }} </span> </p>
+                      <p class="main__banner-item-body-wrapper-p">Female  <span> {{ femalePercentage }} </span> </p>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="main__banner-wrapper">
                 <div class=" main__banner-item">
-                  <header >
+                  <header class="main__banner-item-header" >
                     Means (probably)
                   </header>
                 </div>
                 <div class="main__banner-item">
-    
-                  <header>
+                  <header class="main__banner-item-header">
                     standard deviation (probably)
                   </header>
                 </div>
@@ -173,7 +170,7 @@
           <div class="main__employee-data">
               <div class="employee-data-group">
                 <div class="employee-data__item">
-                  <header class="">
+                  <header class="employee-data__item-header">
                     Employees
                   </header>
                   <div class="employee-data__item-description">
@@ -184,7 +181,7 @@
                   </p>
                 </div>
                 <div class="employee-data__item">
-                  <header class="">
+                  <header class="employee-data__item-header">
                     Age
                   </header>
                   <div class="employee-data__item-description">
@@ -195,7 +192,7 @@
                   </p>
                 </div>
                 <div class="employee-data__item">
-                  <header class="">
+                  <header class="employee-data__item-header">
                     Gender
                   </header>
                   <div class="employee-data__item-description">
@@ -206,7 +203,7 @@
                   </p>
                 </div>
                 <div class="employee-data__item">
-                  <header>
+                  <header class="employee-data__item-header">
                     Height
                   </header>
                   <div class="employee-data__item-description">
@@ -219,7 +216,7 @@
               </div>
               <div class="employee-data-group">
                 <div class="employee-data__item">
-                  <header class="text-xl">
+                  <header class="employee-data__item-header">
                     Body Temperature
                   </header>
                   <div class="employee-data__item-description">
@@ -230,7 +227,7 @@
                   </p>
                 </div>
                 <div class="employee-data__item">
-                  <header class="text-xl">
+                  <header class="employee-data__item-header">
                     Pulse Rate
                   </header>
                   <div class="employee-data__item-description">
@@ -241,7 +238,7 @@
                   </p>
                 </div>
                 <div class="employee-data__item">
-                  <header class="text-xl">
+                  <header class="employee-data__item-header">
                     Blood Pressure
                   </header>
                   <div class="employee-data__item-description">
@@ -252,7 +249,7 @@
                   </p>
                 </div>
                 <div class="employee-data__item">
-                  <header class="text-xl">
+                  <header class="employee-data__item-header">
                     Respiration Rate
                   </header>
                   <div class="employee-data__item-description">
@@ -265,7 +262,7 @@
               </div>
               <div class="employee-data-group">
                 <div class="employee-data__item">
-                  <header class="text-xl">
+                  <header class="employee-data__item-header">
                     Weight
                   </header>
                   <div class="employee-data__item-description">
@@ -277,7 +274,7 @@
                   </p>
                 </div>
                 <div class="employee-data__item">
-                  <header class="text-xl">
+                  <header class="employee-data__item-header">
                     Hours Exercise Per Week
                   </header>
                   <div class="employee-data__item-description">
@@ -288,7 +285,7 @@
                   </p>
                 </div>
                 <div class="employee-data__item">
-                  <header class="text-xl">
+                  <header class="employee-data__item-header">
                     Vacation Balance
                   </header>
                   <div class="employee-data__item-description">
@@ -299,7 +296,7 @@
                   </p>
                 </div>
                 <div class="employee-data__item">
-                  <header class="text-xl">
+                  <header class="employee-data__item-header">
                     Hours Work Per Week
                   </header>
                   <div class="employee-data__item-description">
