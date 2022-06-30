@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {createVendiaClient} from "@vendia/client";
 import { Router} from "@angular/router";
+import {delay, map} from "rxjs";
 
 
 //This should allow for the vendia client to work
@@ -16,13 +17,16 @@ const {entities} = client;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css', '../assets/fonts/fontawesome-free-6.1.1-web/css/all.min.css']
+  styleUrls: ['./dashboard.component.css'],
+  encapsulation: ViewEncapsulation.None
 
 })
 
 export class DashboardComponent implements OnInit
 {
+  testOutput: any;
   testing: any;
+  ageArr: number[] = [];
   constructor(private router: Router) {
   }
 
@@ -32,8 +36,7 @@ export class DashboardComponent implements OnInit
   malePercentage;
   femalePercentage;
   employeeBoxClasses;
-
-  ngOnInit()
+  async ngOnInit()
   {
     this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
     this.customTesting().then();
@@ -75,8 +78,6 @@ export class DashboardComponent implements OnInit
 
 
     this.customTesting().then(data => {
-
-  
        for(let i = 0;i < data.items.length;i++){
         totalAge += data.items[i].age!;
         totalWeight += data.items[i].weight!;
@@ -89,9 +90,8 @@ export class DashboardComponent implements OnInit
         totalBodyTemp += data.items[i].bodyTemperature;
         totalRespirationRate += data.items[i].respirationRate;
         allGenders += data.items[i].gender;
-
-
-        if(data.items[i].gender === "Man"){ 
+        this.ageArr[i] = (data.items[i].age);
+        if(data.items[i].gender === "Man"){
             maleCounter++;
         }
         else if(data.items[i].gender === "Woman") {
@@ -108,26 +108,6 @@ export class DashboardComponent implements OnInit
 
         }
       }
-            
-      averageAge = Number((totalAge/data.items.length).toFixed(2));
-      averageWeight = Number((totalWeight/data.items.length).toFixed());
-      averageHeight = Number((totalHeight/data.items.length).toFixed(2));
-      averageBloodPressure = Number((totalBloodPressure/data.items.length).toFixed(2));
-      averagePulseRate = Number((totalPulseRate/data.items.length).toFixed(2));
-      averageHrExercisePerWeek = Number((totalHrExercisePerWeek/data.items.length).toFixed(2));
-      averageVacationBalance = Number((totalVacationBalance/data.items.length).toFixed(2));
-      averageHrWorkPerWeek = Number((totalHrWorkPerWeek/data.items.length).toFixed(2));
-      averageBodyTemp = Number((totalBodyTemp/data.items.length).toFixed(2));
-      averageRespirationRate = Number((totalRespirationRate/data.items.length).toFixed(2));
-      totalEmployeeCount = Number((data.items.length).toFixed(2));
-
-      malePercentage = Number(((maleCounter/totalEmployeeCount) * 100).toFixed(2));
-      femalePercentage = Number(((femaleCounter/totalEmployeeCount) * 100).toFixed(2));
-      transPercentage = Number(((transCounter/totalEmployeeCount) * 100).toFixed(2));
-      nonBinaryOrNonConfirmingPercentage = Number(((nonBinaryOrNonConfirmingCounter/totalEmployeeCount) * 100).toFixed(2));
-      preferNotToRespondPercentage = Number(((preferNotToRespondCounter/totalEmployeeCount) * 100).toFixed(2));
-      console.log(femalePercentage);
-
 
       averageAge = Number((totalAge/data.items.length).toFixed(2));
       averageWeight = Number((totalWeight/data.items.length).toFixed());
@@ -146,9 +126,6 @@ export class DashboardComponent implements OnInit
       transPercentage = Number(((transCounter/totalEmployeeCount) * 100).toFixed(2));
       nonBinaryOrNonConfirmingPercentage = Number(((nonBinaryOrNonConfirmingCounter/totalEmployeeCount) * 100).toFixed(2));
       preferNotToRespondPercentage = Number(((preferNotToRespondCounter/totalEmployeeCount) * 100).toFixed(2));
-      console.log(femalePercentage);
-
-
       this.testing = {
         Age: averageAge,
         Weight: averageWeight,
@@ -169,14 +146,11 @@ export class DashboardComponent implements OnInit
 
       }
 
-
     })
-
   }
 
   async customTesting()
   {
-    console.log('works???');
     // @ts-ignore
     const employeeResponse = await entities.employee.list();
     return employeeResponse;
@@ -252,6 +226,7 @@ export class DashboardComponent implements OnInit
   }
 
   // //given an array returns value that shows up the most, does not handle if there are duplicate modes
+
   getMode(data: any[])
   {
     let tempArr: any[] = data.sort();
