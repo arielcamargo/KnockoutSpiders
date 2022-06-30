@@ -47,7 +47,7 @@ export class AddEmployeeComponent implements OnInit {
       avgHourseOfWorkPerWeek: 67,
       bloodPressure: '78',
       bodyTemperature: 78,
-      firstName: 'Gloria',
+      firstName: 'Test',
       gender: 'Woman',
       height: 1,
       lastName: 'Leone',
@@ -59,4 +59,6 @@ export class AddEmployeeComponent implements OnInit {
 
     console.log(employeeResponse);
   }
+
+ 
 }
