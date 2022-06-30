@@ -272,4 +272,8 @@ export class DashboardComponent implements OnInit
     this.router.navigate(['add-employee']).then();
   }
 
+  goToTable()
+  {
+    this.router.navigate(['table-display']).then();
+  }
 }
