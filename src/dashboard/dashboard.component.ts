@@ -1,15 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {createVendiaClient} from "@vendia/client";
 import { Router} from "@angular/router";
+import { TestingComponent } from 'src/app/components/testing/testing.component';
+
 
 //This should allow for the vendia client to work
 //in this component. Change apikey to correct one.
 const client = createVendiaClient({
-  apiUrl: "https://xxxxxxx.execute-api.us-east-1.amazonaws.com/graphql/",
-  websocketUrl: "wss://xxxxxxx.execute-api.us-west-1.amazonaws.com/graphql",
-  apiKey: "M9YffZc6jK3Jj8uHz68fNGWuEhfjrXiThqqsPzSjqWQg3",
+
+    apiUrl: `https://z2z10z6138.execute-api.us-west-1.amazonaws.com/graphql/`,
+    websocketUrl: `wss://ssope56ubl.execute-api.us-west-1.amazonaws.com/graphql`,
+    apiKey: `naUSK3QaBR8gPJcjj8N8diBaDNcuBdSe9UgDooCJciD`,
 });
 
+const {entities} = client;
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -17,40 +21,15 @@ const client = createVendiaClient({
 
 })
 
-
-
-
-
 export class DashboardComponent implements OnInit
 {
+  testing: any;
   constructor(private router: Router) {
   }
-  //The following arrays are placeholders for when the Vendia
-  //client is up and running. Once it is we remove
-  //these hard calls and replace with Vendia API calls.
-  names: string[] = ['Elizabeth Swann', 'Hector Barbossa', 'Joshamee Gibbs', 'Will Turner', 'Tia Dalma', 'Angelica Beard', 'Shirley Jennings', 'Georgia Brown'];
-  ages: number[] = [28, 45, 52, 31, 27, 28, 29, 29];
+  
+  
   genders: string[] = ['female', 'male', 'male', 'male', 'non-binary', 'female', 'non-binary', 'prefer not to answer'];
-  heights: number[] = [61, 73, 68, 70, 63, 57, 62, 59];
-  temperatures: number[] = [98.7, 98.0, 98.6, 98.6, 97.6, 100.0, 98.7, 98.4];
-  pulses: number[] = [80, 100, 70, 83, 60, 79, 77, 82];
-  bloodPressures: string[] = ['120/80', '140/60', '138/72', '124/75', '110/70', '120/78', '119/80', '120/81'];
-  breaths: number[] = [12, 16, 12, 16, 13, 11, 12, 14];
-  weight: number[] = [110, 165, 189, 140, 121, 115, 135, 112];
-  exerciseHours: number[] = [8, 2, 0, 12, 3, 5, 2, 4];
-  vacationHours: number[] = [5, 3, 10, 10, 20, 0, 7, 3];
-  workHours: number[] = [50, 40, 32, 40, 50, 20, 38, 40];
-  employeeCount;
-  avgAge;
-  avgHeight;
-  avgTemp;
-  avgPulse;
-  avgPressure;
-  avgRespRate;
-  avgWeight;
-  avgExercise;
-  avgVacation;
-  avgWork;
+  
   malePercentage;
   femalePercentage;
   employeeBoxClasses;
@@ -60,24 +39,88 @@ export class DashboardComponent implements OnInit
   {
     this.calculations();
     this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
-  }
 
-  //Author:Ariel Camargo
-  calculations()
-  {
-    this.employeeCount = this.names.length;
-    this.avgAge = this.getAverage(this.ages);
-    this.avgHeight = this.getAverage(this.heights);
-    this.avgTemp = this.getAverage(this.temperatures);
-    this.avgPulse = this.getAverage(this.pulses);
-    this.avgRespRate = this.getAverage(this.breaths);
-    this.avgWeight = this.getAverage(this.weight);
-    this.avgExercise = this.getAverage(this.exerciseHours);
-    this.avgVacation = this.getAverage(this.vacationHours);
-    this.avgWork = this.getAverage(this.workHours);
-    this.malePercentage = this.getPercentage( 'male', this.genders);
-    this.femalePercentage = this.getPercentage( 'female', this.genders);
+    async function customTesting() {
+      console.log('works???');
+      const employeeResponse = await entities.employee.list();
+      return employeeResponse;
+    }
+    let totalAge = 0;
+    let averageAge = 0;
+    let totalWeight = 0;
+    let averageWeight = 0;
+    let totalHeight = 0;
+    let averageHeight = 0;
+    let totalBloodPressure = 0;
+    let averageBloodPressure = 0;
+    let totalPulseRate = 0;
+    let averagePulseRate = 0;
+    let totalHrExercisePerWeek = 0;
+    let averageHrExercisePerWeek = 0;
+    let totalVacationBalance = 0;
+    let averageVacationBalance = 0;
+    let totalHrWorkPerWeek = 0;
+    let averageHrWorkPerWeek = 0;
+    let totalBodyTemp = 0;
+    let averageBodyTemp = 0;
+    let totalRespirationRate = 0;
+    let averageRespirationRate = 0;
+    let totalEmployeeCount = 0;
+    let allGenders = '';
+  
+    customTesting().then(data => {
+      for(let i = 0;i < data.items.length;i++){
+        totalAge += data.items[i].age!;
+        totalWeight += data.items[i].weight!;
+        totalHeight += data.items[i].height!;
+        totalBloodPressure += Number(data.items[i].bloodPressure);
+        totalPulseRate += data.items[i].pulseRate;
+        totalHrExercisePerWeek += data.items[i].avgHourseOfExercisePerWeek;
+        totalVacationBalance += data.items[i].vacationBalance;
+        totalHrWorkPerWeek += data.items[i].avgHourseOfWorkPerWeek;
+        totalBodyTemp += data.items[i].bodyTemperature;
+        totalRespirationRate += data.items[i].respirationRate;
+        allGenders += data.items[i].gender;
+      }
+
+      averageAge = totalAge/data.items.length;
+      averageWeight = totalWeight/data.items.length;
+      averageHeight = totalHeight/data.items.length;
+      averageBloodPressure = totalBloodPressure/data.items.length;
+      averagePulseRate = totalPulseRate/data.items.length;
+      averageHrExercisePerWeek = totalHrExercisePerWeek/data.items.length;
+      averageVacationBalance = totalVacationBalance/data.items.length;
+      averageHrWorkPerWeek = totalHrWorkPerWeek/data.items.length;
+      averageBodyTemp = totalBodyTemp/data.items.length;
+      averageRespirationRate = totalRespirationRate/data.items.length;
+      totalEmployeeCount = data.items.length;
+      this.testing = {
+        Age: averageAge,
+        Weight: averageWeight,
+        Height: averageHeight,
+        TotalEmployee: totalEmployeeCount,
+        BloodPressure: averageBloodPressure,
+        PulseRate: averagePulseRate,
+        ExercisePerWeek: averageHrExercisePerWeek,
+        VacationBalance: averageVacationBalance,
+        WorkPerWeek: averageHrWorkPerWeek,
+        BodyTemp: averageBodyTemp,
+        RespirationRate: averageRespirationRate,
+        FPercent: this.femalePercentage,
+      }
+      
+    
+    })
+    
   }
+  
+   //Author:Ariel Camargo
+   calculations()
+   {
+    //  this.malePercentage = this.getPercentage( 'male', this.testing.genders);
+    //  this.femalePercentage = this.getPercentage( 'female', this.testing.allGenders);
+   }
+
 
   //Author: Ariel Camargo
   //Given an array, the standard deviation is returned.
@@ -140,7 +183,7 @@ export class DashboardComponent implements OnInit
     }
   }
 
-  //given an array returns value that shows up the most, does not handle if there are duplicate modes
+  // //given an array returns value that shows up the most, does not handle if there are duplicate modes
   getMode(data: any[])
   {
     let tempArr: any[] = data.sort();
@@ -185,5 +228,5 @@ export class DashboardComponent implements OnInit
   {
     this.router.navigate(['add-employee']);
   }
+  
 }
-

@@ -604,7 +604,7 @@ select {
 
 
 
-.nav-bar .avatar-panel__item-title {
+.avatar-panel__item-title {
   text-transform: capitalize;
 }
 
@@ -667,7 +667,7 @@ select {
 
 }
 
-.main__greeting .greeting-flag::before {
+.greeting-flag::before {
   position: absolute;
   display: block;
   content: "";
@@ -677,7 +677,7 @@ select {
   border-left: 1.5em solid #3e3355;
 
 }
-.main__greeting .greeting-flag::after {
+.greeting-flag::after {
   position: absolute;
   display: block;
   content: "";
@@ -852,7 +852,7 @@ select {
 
 
 
-.employee-data__item p {
+.employee-data__item-p {
   margin: 0.5em 0;
   font-size: 2.2rem;
   margin-left: 2.4em;
@@ -873,13 +873,24 @@ select {
   z-index: 9999;
 }
 
-#footer .footer__wrapper {
+.footer__wrapper {
   height: 100%;
   justify-content: space-between;
 }
 
+.wrapper-social-medias {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  line-height: 4.2rem;
 
-.wrapper-social-medias i {
+}
+
+
+#wrapper-social-medias-i-1,
+#wrapper-social-medias-i-2,
+#wrapper-social-medias-i-3,
+#wrapper-social-medias-i-4 {
   margin: 0 0.2em;
 }
 
@@ -898,8 +909,7 @@ select {
 }
 
 
-
-#modal-add-new .modal__body {
+.modal__body {
   background-color: var(--background-white);
   min-height: 70%;
   max-width: calc(100% - 32px);
@@ -911,10 +921,10 @@ select {
   overflow: auto;
 }
 
-#modal-add-new .modal__inner {
+.modal__inner {
 }
 
-#modal-add-new .modal__inner-header {
+.modal__inner-header {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -927,18 +937,17 @@ select {
 
 
 
-#modal-add-new .header__tittle {
+.header__tittle {
   font-size: 4rem;
   text-transform: capitalize;
   color: var(--primary-color);
 }
 
-
-#modal-add-new .header__icon-wrapper {
+.header__icon-wrapper {
   padding: 0 0.4em;
 }
 
-#modal-add-new .modal__inner-form-wrapper {
+.modal__inner-form-wrapper {
   margin: 1em 6em;
 }
 
@@ -1056,7 +1065,6 @@ select {
 #modal-filters .modal__inner-close {
   text-align: center;
   position: absolute;
-
   right: 0;
   top: 0;
   color: var(--text-dark);
