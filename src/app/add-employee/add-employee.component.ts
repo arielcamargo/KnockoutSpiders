@@ -48,7 +48,10 @@ export class AddEmployeeComponent implements OnInit {
       avgHourseOfWorkPerWeek: 67,
       bloodPressure: '78',
       bodyTemperature: 78,
+
       firstName: 'DoesEmployeeChange',
+
+
       gender: 'Woman',
       height: 1,
       lastName: 'Leone',
