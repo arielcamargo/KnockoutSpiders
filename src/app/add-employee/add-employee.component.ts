@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import { Router } from "@angular/router";
 import {createVendiaClient} from "@vendia/client";
 
@@ -14,7 +14,8 @@ const {entities} = client;
 @Component({
   selector: 'app-add-employee',
   templateUrl: './add-employee.component.html',
-  styleUrls: ['./add-employee.component.css']
+  styleUrls: ['./add-employee.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 
 export class AddEmployeeComponent implements OnInit {
@@ -47,7 +48,7 @@ export class AddEmployeeComponent implements OnInit {
       avgHourseOfWorkPerWeek: 67,
       bloodPressure: '78',
       bodyTemperature: 78,
-      firstName: 'Test',
+      firstName: 'DoesEmployeeChange',
       gender: 'Woman',
       height: 1,
       lastName: 'Leone',
@@ -60,5 +61,5 @@ export class AddEmployeeComponent implements OnInit {
     console.log(employeeResponse);
   }
 
- 
+
 }
