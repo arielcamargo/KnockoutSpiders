@@ -1,16 +1,15 @@
 import {Component, OnInit} from '@angular/core';
 import {createVendiaClient} from "@vendia/client";
 import { Router} from "@angular/router";
-import { TestingComponent } from 'src/app/components/testing/testing.component';
 
 
 //This should allow for the vendia client to work
 //in this component. Change apikey to correct one.
 const client = createVendiaClient({
 
-    apiUrl: `https://z2z10z6138.execute-api.us-west-1.amazonaws.com/graphql/`,
-    websocketUrl: `wss://ssope56ubl.execute-api.us-west-1.amazonaws.com/graphql`,
-    apiKey: `naUSK3QaBR8gPJcjj8N8diBaDNcuBdSe9UgDooCJciD`,
+  apiUrl: `https://z2z10z6138.execute-api.us-west-1.amazonaws.com/graphql/`,
+  websocketUrl: `wss://ssope56ubl.execute-api.us-west-1.amazonaws.com/graphql`,
+  apiKey: `naUSK3QaBR8gPJcjj8N8diBaDNcuBdSe9UgDooCJciD`,
 });
 
 const {entities} = client;
@@ -26,25 +25,19 @@ export class DashboardComponent implements OnInit
   testing: any;
   constructor(private router: Router) {
   }
-  
-  
+
+
   genders: string[] = ['female', 'male', 'male', 'male', 'non-binary', 'female', 'non-binary', 'prefer not to answer'];
-  
+
   malePercentage;
   femalePercentage;
   employeeBoxClasses;
 
-
   ngOnInit()
   {
-    this.calculations();
     this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
+    this.customTesting().then();
 
-    async function customTesting() {
-      console.log('works???');
-      const employeeResponse = await entities.employee.list();
-      return employeeResponse;
-    }
     let totalAge = 0;
     let averageAge = 0;
     let totalWeight = 0;
@@ -67,8 +60,20 @@ export class DashboardComponent implements OnInit
     let averageRespirationRate = 0;
     let totalEmployeeCount = 0;
     let allGenders = '';
-  
-    customTesting().then(data => {
+
+    let maleCounter = 0;
+    let femaleCounter = 0;
+    let transCounter= 0;
+    let preferNotToRespondCounter = 0;
+    let nonBinaryOrNonConfirmingCounter = 0;
+
+    let malePercentage = 0;
+    let femalePercentage = 0;
+    let transPercentage= 0;
+    let preferNotToRespondPercentage = 0;
+    let nonBinaryOrNonConfirmingPercentage = 0;
+
+    this.customTesting().then(data => {
       for(let i = 0;i < data.items.length;i++){
         totalAge += data.items[i].age!;
         totalWeight += data.items[i].weight!;
@@ -81,19 +86,43 @@ export class DashboardComponent implements OnInit
         totalBodyTemp += data.items[i].bodyTemperature;
         totalRespirationRate += data.items[i].respirationRate;
         allGenders += data.items[i].gender;
+
+        if(data.items[i].gender === "Man"){
+          maleCounter++;
+        }
+        else if(data.items[i].gender === "Woman") {
+          femaleCounter++;
+        }
+        else if(data.items[i].gender === "Transgender") {
+          transCounter++;
+        }
+        else if(data.items[i].gender === "NonBinaryOrNonConfirming") {
+          preferNotToRespondCounter++;
+        }
+        else if(data.items[i].gender === "PreferNotToRespond") {
+          nonBinaryOrNonConfirmingCounter++;
+        }
       }
 
-      averageAge = totalAge/data.items.length;
-      averageWeight = totalWeight/data.items.length;
-      averageHeight = totalHeight/data.items.length;
-      averageBloodPressure = totalBloodPressure/data.items.length;
-      averagePulseRate = totalPulseRate/data.items.length;
-      averageHrExercisePerWeek = totalHrExercisePerWeek/data.items.length;
-      averageVacationBalance = totalVacationBalance/data.items.length;
-      averageHrWorkPerWeek = totalHrWorkPerWeek/data.items.length;
-      averageBodyTemp = totalBodyTemp/data.items.length;
-      averageRespirationRate = totalRespirationRate/data.items.length;
-      totalEmployeeCount = data.items.length;
+      averageAge = Number((totalAge/data.items.length).toFixed(2));
+      averageWeight = Number((totalWeight/data.items.length).toFixed());
+      averageHeight = Number((totalHeight/data.items.length).toFixed(2));
+      averageBloodPressure = Number((totalBloodPressure/data.items.length).toFixed(2));
+      averagePulseRate = Number((totalPulseRate/data.items.length).toFixed(2));
+      averageHrExercisePerWeek = Number((totalHrExercisePerWeek/data.items.length).toFixed(2));
+      averageVacationBalance = Number((totalVacationBalance/data.items.length).toFixed(2));
+      averageHrWorkPerWeek = Number((totalHrWorkPerWeek/data.items.length).toFixed(2));
+      averageBodyTemp = Number((totalBodyTemp/data.items.length).toFixed(2));
+      averageRespirationRate = Number((totalRespirationRate/data.items.length).toFixed(2));
+      totalEmployeeCount = Number((data.items.length).toFixed(2));
+
+      malePercentage = Number(((maleCounter/totalEmployeeCount) * 100).toFixed(2));
+      femalePercentage = Number(((femaleCounter/totalEmployeeCount) * 100).toFixed(2));
+      transPercentage = Number(((transCounter/totalEmployeeCount) * 100).toFixed(2));
+      nonBinaryOrNonConfirmingPercentage = Number(((nonBinaryOrNonConfirmingCounter/totalEmployeeCount) * 100).toFixed(2));
+      preferNotToRespondPercentage = Number(((preferNotToRespondCounter/totalEmployeeCount) * 100).toFixed(2));
+      console.log(femalePercentage);
+
       this.testing = {
         Age: averageAge,
         Weight: averageWeight,
@@ -106,20 +135,34 @@ export class DashboardComponent implements OnInit
         WorkPerWeek: averageHrWorkPerWeek,
         BodyTemp: averageBodyTemp,
         RespirationRate: averageRespirationRate,
-        FPercent: this.femalePercentage,
+        Mpercent: malePercentage,
+        Fpercent: femalePercentage,
+        Transpercent: transPercentage,
+        NonBinaryPerdent: nonBinaryOrNonConfirmingPercentage,
+        preferNotToRespond: preferNotToRespondPercentage,
+
+
       }
-      
-    
+
+
     })
-    
+
   }
-  
-   //Author:Ariel Camargo
-   calculations()
-   {
+
+  async customTesting()
+  {
+    console.log('works???');
+    // @ts-ignore
+    const employeeResponse = await entities.employee.list();
+    return employeeResponse;
+  }
+
+  //Author:Ariel Camargo
+  calculations()
+  {
     //  this.malePercentage = this.getPercentage( 'male', this.testing.genders);
     //  this.femalePercentage = this.getPercentage( 'female', this.testing.allGenders);
-   }
+  }
 
 
   //Author: Ariel Camargo
@@ -191,9 +234,9 @@ export class DashboardComponent implements OnInit
     let testHash = new Map<any, number>();
     for (let i = 0; i < tempArr.length; i++) {
       if(testHash.has(tempArr[i]) == false){
-          testHash.set(tempArr[i], 1);
+        testHash.set(tempArr[i], 1);
       }else{
-          testHash.set(tempArr[i], testHash.get(tempArr[i]) as number+1);
+        testHash.set(tempArr[i], testHash.get(tempArr[i]) as number+1);
       }
     }
     return Array.from(testHash.entries()).reduce((a, b) => a[1] < b[1] ? b : a)[0];
@@ -224,9 +267,9 @@ export class DashboardComponent implements OnInit
 
   }
 
-  goToAddEmployeee()
+  goToAddEmployee()
   {
-    this.router.navigate(['add-employee']);
+    this.router.navigate(['add-employee']).then();
   }
-  
+
 }
