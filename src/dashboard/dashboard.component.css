@@ -449,10 +449,8 @@ select {
   padding: .8rem 2rem;
   border-radius: 50px;
   font-family: var(--font-poppins);
-  box-shadow: var(--box-shadow);
   border: 0.5px solid #dddddd;
   max-height: 2.5em;
-  /* background: var(--background-white); */
   background: var(--bg-gradient-indigo);
   font-size: 1.4rem;
   line-height: 2.5rem;
@@ -485,7 +483,7 @@ select {
   padding: .8rem 2rem;
   border-radius: 50px;
   font-family: var(--font-poppins);
-  box-shadow: var(--box-shadow);
+
   border: 0.5px solid #dddddd;
   max-height: 2.5em;
   background: var(--bg-gradient-indigo);
@@ -724,6 +722,7 @@ select {
   text-transform: capitalize;
   border: 1px solid var(--regular-text);
   box-shadow: var(--box-shadow);
+  background-color: #e6f5fa;
   margin: 0.4em;
 }
 
@@ -1115,6 +1114,7 @@ select {
 #modal-filters .checkbox-icon {
   display: none;
   margin-top: -0.5em;
+
 }
 
 #modal-filters .checkbox-icon.active {
