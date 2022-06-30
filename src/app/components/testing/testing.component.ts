@@ -23,6 +23,7 @@ export class TestingComponent implements OnInit {
 
     async function customTesting() {
       console.log('works???');
+      // @ts-ignore
       const employeeResponse = await entities.employee.list();
       return employeeResponse;
     }
@@ -61,7 +62,7 @@ export class TestingComponent implements OnInit {
     //     vacationBalance: 15,
     //     weight: 156,
     //   });
-    
+
     //   console.log(employeeResponse);
     // }
 
@@ -71,13 +72,13 @@ export class TestingComponent implements OnInit {
     //   const employeeGet = await entities.employee.get('018182ed-df7f-434c-5f31-97c8c7564019');
     //   console.log(employeeGet);
     // }
-    
+
     // async function customTesting() {
     //   console.log('works???');
     //   const employeeResponse = await entities.employee.list();
     //   return employeeResponse;
-    
-      
+
+
     // }
     // customTesting()
     // let fruits: Array<string>;
@@ -85,13 +86,13 @@ export class TestingComponent implements OnInit {
     // var totalAge = 0;
     // customTesting().then(data => {
     // for(let i = 0;i < data.items.length;i++){
-      
+
     //   totalAge += data.items[i].age!;
 
     // }
-    //   averageAge = totalAge/data.items.length; 
+    //   averageAge = totalAge/data.items.length;
     //   console.log(totalAge);
-    
+
     // })
   }
 
@@ -109,8 +110,8 @@ export class TestingComponent implements OnInit {
     // async function list() {
 
     //   const employeeList = await entities.employee.list();
-      
-     
+
+
     // }
 
     // get();
