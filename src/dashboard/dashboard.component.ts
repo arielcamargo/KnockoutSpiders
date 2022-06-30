@@ -73,8 +73,11 @@ export class DashboardComponent implements OnInit
     let preferNotToRespondPercentage = 0;
     let nonBinaryOrNonConfirmingPercentage = 0;
 
+
     this.customTesting().then(data => {
-      for(let i = 0;i < data.items.length;i++){
+
+  
+       for(let i = 0;i < data.items.length;i++){
         totalAge += data.items[i].age!;
         totalWeight += data.items[i].weight!;
         totalHeight += data.items[i].height!;
@@ -87,22 +90,44 @@ export class DashboardComponent implements OnInit
         totalRespirationRate += data.items[i].respirationRate;
         allGenders += data.items[i].gender;
 
-        if(data.items[i].gender === "Man"){
-          maleCounter++;
+
+        if(data.items[i].gender === "Man"){ 
+            maleCounter++;
         }
         else if(data.items[i].gender === "Woman") {
-          femaleCounter++;
+            femaleCounter++;
         }
         else if(data.items[i].gender === "Transgender") {
-          transCounter++;
+            transCounter++;
         }
         else if(data.items[i].gender === "NonBinaryOrNonConfirming") {
-          preferNotToRespondCounter++;
+            preferNotToRespondCounter++;
         }
-        else if(data.items[i].gender === "PreferNotToRespond") {
-          nonBinaryOrNonConfirmingCounter++;
+       else if(data.items[i].gender === "PreferNotToRespond") {
+            nonBinaryOrNonConfirmingCounter++;
+
         }
       }
+            
+      averageAge = Number((totalAge/data.items.length).toFixed(2));
+      averageWeight = Number((totalWeight/data.items.length).toFixed());
+      averageHeight = Number((totalHeight/data.items.length).toFixed(2));
+      averageBloodPressure = Number((totalBloodPressure/data.items.length).toFixed(2));
+      averagePulseRate = Number((totalPulseRate/data.items.length).toFixed(2));
+      averageHrExercisePerWeek = Number((totalHrExercisePerWeek/data.items.length).toFixed(2));
+      averageVacationBalance = Number((totalVacationBalance/data.items.length).toFixed(2));
+      averageHrWorkPerWeek = Number((totalHrWorkPerWeek/data.items.length).toFixed(2));
+      averageBodyTemp = Number((totalBodyTemp/data.items.length).toFixed(2));
+      averageRespirationRate = Number((totalRespirationRate/data.items.length).toFixed(2));
+      totalEmployeeCount = Number((data.items.length).toFixed(2));
+
+      malePercentage = Number(((maleCounter/totalEmployeeCount) * 100).toFixed(2));
+      femalePercentage = Number(((femaleCounter/totalEmployeeCount) * 100).toFixed(2));
+      transPercentage = Number(((transCounter/totalEmployeeCount) * 100).toFixed(2));
+      nonBinaryOrNonConfirmingPercentage = Number(((nonBinaryOrNonConfirmingCounter/totalEmployeeCount) * 100).toFixed(2));
+      preferNotToRespondPercentage = Number(((preferNotToRespondCounter/totalEmployeeCount) * 100).toFixed(2));
+      console.log(femalePercentage);
+
 
       averageAge = Number((totalAge/data.items.length).toFixed(2));
       averageWeight = Number((totalWeight/data.items.length).toFixed());
@@ -123,6 +148,7 @@ export class DashboardComponent implements OnInit
       preferNotToRespondPercentage = Number(((preferNotToRespondCounter/totalEmployeeCount) * 100).toFixed(2));
       console.log(femalePercentage);
 
+
       this.testing = {
         Age: averageAge,
         Weight: averageWeight,
@@ -140,7 +166,6 @@ export class DashboardComponent implements OnInit
         Transpercent: transPercentage,
         NonBinaryPerdent: nonBinaryOrNonConfirmingPercentage,
         preferNotToRespond: preferNotToRespondPercentage,
-
 
       }
 

@@ -818,7 +818,7 @@ select {
   margin: 0.4em;
   width: calc(100% / 4);
   font-size: 1.6rem;
-  line-height: 3.6rem;
+  /* line-height: 3.6rem; */
 }
 
 .employee-data__item-header {
