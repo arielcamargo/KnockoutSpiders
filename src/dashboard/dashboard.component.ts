@@ -34,7 +34,6 @@ export class DashboardComponent implements OnInit
   femalePercentage;
   employeeBoxClasses;
 
-
   ngOnInit()
   {
     this.calculations();
@@ -67,6 +66,18 @@ export class DashboardComponent implements OnInit
     let averageRespirationRate = 0;
     let totalEmployeeCount = 0;
     let allGenders = '';
+
+    let maleCounter = 0;
+    let femaleCounter = 0;
+    let transCounter= 0;
+    let preferNotToRespondCounter = 0;
+    let nonBinaryOrNonConfirmingCounter = 0;
+
+    let malePercentage = 0;
+    let femalePercentage = 0;
+    let transPercentage= 0;
+    let preferNotToRespondPercentage = 0;
+    let nonBinaryOrNonConfirmingPercentage = 0;
   
     customTesting().then(data => {
       for(let i = 0;i < data.items.length;i++){
@@ -81,19 +92,43 @@ export class DashboardComponent implements OnInit
         totalBodyTemp += data.items[i].bodyTemperature;
         totalRespirationRate += data.items[i].respirationRate;
         allGenders += data.items[i].gender;
-      }
 
-      averageAge = totalAge/data.items.length;
-      averageWeight = totalWeight/data.items.length;
-      averageHeight = totalHeight/data.items.length;
-      averageBloodPressure = totalBloodPressure/data.items.length;
-      averagePulseRate = totalPulseRate/data.items.length;
-      averageHrExercisePerWeek = totalHrExercisePerWeek/data.items.length;
-      averageVacationBalance = totalVacationBalance/data.items.length;
-      averageHrWorkPerWeek = totalHrWorkPerWeek/data.items.length;
-      averageBodyTemp = totalBodyTemp/data.items.length;
-      averageRespirationRate = totalRespirationRate/data.items.length;
-      totalEmployeeCount = data.items.length;
+        if(data.items[i].gender === "Man"){ 
+            maleCounter++;
+        }
+        else if(data.items[i].gender === "Woman") {
+            femaleCounter++;
+        }
+        else if(data.items[i].gender === "Transgender") {
+            transCounter++;
+        }
+        else if(data.items[i].gender === "NonBinaryOrNonConfirming") {
+            preferNotToRespondCounter++;
+        }
+       else if(data.items[i].gender === "PreferNotToRespond") {
+            nonBinaryOrNonConfirmingCounter++;
+        }
+      }
+            
+      averageAge = Number((totalAge/data.items.length).toFixed(2));
+      averageWeight = Number((totalWeight/data.items.length).toFixed());
+      averageHeight = Number((totalHeight/data.items.length).toFixed(2));
+      averageBloodPressure = Number((totalBloodPressure/data.items.length).toFixed(2));
+      averagePulseRate = Number((totalPulseRate/data.items.length).toFixed(2));
+      averageHrExercisePerWeek = Number((totalHrExercisePerWeek/data.items.length).toFixed(2));
+      averageVacationBalance = Number((totalVacationBalance/data.items.length).toFixed(2));
+      averageHrWorkPerWeek = Number((totalHrWorkPerWeek/data.items.length).toFixed(2));
+      averageBodyTemp = Number((totalBodyTemp/data.items.length).toFixed(2));
+      averageRespirationRate = Number((totalRespirationRate/data.items.length).toFixed(2));
+      totalEmployeeCount = Number((data.items.length).toFixed(2));
+
+      malePercentage = Number(((maleCounter/totalEmployeeCount) * 100).toFixed(2));
+      femalePercentage = Number(((femaleCounter/totalEmployeeCount) * 100).toFixed(2));
+      transPercentage = Number(((transCounter/totalEmployeeCount) * 100).toFixed(2));
+      nonBinaryOrNonConfirmingPercentage = Number(((nonBinaryOrNonConfirmingCounter/totalEmployeeCount) * 100).toFixed(2));
+      preferNotToRespondPercentage = Number(((preferNotToRespondCounter/totalEmployeeCount) * 100).toFixed(2));
+      console.log(femalePercentage);
+
       this.testing = {
         Age: averageAge,
         Weight: averageWeight,
@@ -106,7 +141,13 @@ export class DashboardComponent implements OnInit
         WorkPerWeek: averageHrWorkPerWeek,
         BodyTemp: averageBodyTemp,
         RespirationRate: averageRespirationRate,
-        FPercent: this.femalePercentage,
+        Mpercent: malePercentage,
+        Fpercent: femalePercentage,
+        Transpercent: transPercentage,
+        NonBinaryPerdent: nonBinaryOrNonConfirmingPercentage,
+        preferNotToRespond: preferNotToRespondPercentage,
+        
+  
       }
       
     
