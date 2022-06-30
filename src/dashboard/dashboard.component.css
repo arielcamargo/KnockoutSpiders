@@ -473,7 +473,7 @@ select {
     flex: 1;
 }
 
-.utility__share-btn,
+.utility__all-btn,
 .utility__create-new-btn {
   text-align: center;
   border: none;
@@ -494,7 +494,7 @@ select {
 }
 
 
-.utility__share-btn--share-text,
+.utility__all-btn--all-text,
 .utility__create-new-btn--create-text {
   text-transform: capitalize;
 }
