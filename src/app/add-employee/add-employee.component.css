@@ -184,7 +184,10 @@ select {
   font-weight: 600;
 }
 
-
+.add-btn-group {
+  display: flex;
+  justify-content: space-between;
+}
 
 .add-emp-btn {
   margin: 1em 0;
@@ -203,4 +206,6 @@ select {
   text-transform: capitalize;
   font-weight: 600;
 }
+
+
 

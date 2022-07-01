@@ -19,8 +19,26 @@ const {entities} = client;
 })
 
 export class AddEmployeeComponent implements OnInit {
-  constructor(private router: Router) {
+  constructor(private router: Router)
+  {
   }
+  gender = 0;
+  firstName: string = 'John';
+  lastName: string = 'Doe';
+  age: number = 18;
+  height: number = 70;
+  bodyTemp: number = 98;
+  pulseRate: number = 80;
+  bloodPressure: string = '(120 80)';
+  respirationRate: number = 12;
+  weight: number = 110;
+  avgHoursExercise: number = 4;
+  vacationBalance: number = 8;
+  avgHoursOfWo: number = 40;
+
+
+
+
   ngOnInit()
   {
   }
@@ -30,39 +48,131 @@ export class AddEmployeeComponent implements OnInit {
     //This would pull all data from
     //this form and click it back to
     //Vendia
-    this.goToDashboard();
+    this.async().then();
+
   }
 
   goToDashboard()
   {
-    this.async().then();
+
     this.router.navigate(['']).then();
   }
 
   async async() {
-
-    // @ts-ignore
-    const employeeResponse = await entities.employee.add({
-      age: 14,
-      avgHourseOfExercisePerWeek: 56,
-      avgHourseOfWorkPerWeek: 67,
-      bloodPressure: '78',
-      bodyTemperature: 78,
-
-      firstName: 'DoesEmployeeChange',
-
-
-      gender: 'Woman',
-      height: 1,
-      lastName: 'Leone',
-      pulseRate: 56,
-      respirationRate: 45,
-      vacationBalance: 15,
-      weight: 156,
-    });
-
-    console.log(employeeResponse);
+    if (this.gender === 0)
+    {
+      const employeeResponse = await entities.employee.add({
+        age: this.age,
+        avgHourseOfExercisePerWeek: this.avgHoursExercise,
+        avgHourseOfWorkPerWeek: this.avgHoursOfWo,
+        bloodPressure: this.bloodPressure,
+        bodyTemperature: this.bodyTemp,
+        firstName: this.firstName,
+        gender: 'Man',
+        height: this.height,
+        lastName: this.lastName,
+        pulseRate: this.pulseRate,
+        respirationRate: this.respirationRate,
+        vacationBalance: this.vacationBalance,
+        weight: this.weight,
+      });
+    }
+    else if (this.gender === 1)
+    {
+      const employeeResponse = await entities.employee.add({
+        age: this.age,
+        avgHourseOfExercisePerWeek: this.avgHoursExercise,
+        avgHourseOfWorkPerWeek: this.avgHoursOfWo,
+        bloodPressure: this.bloodPressure,
+        bodyTemperature: this.bodyTemp,
+        firstName: this.firstName,
+        gender: 'Woman',
+        height: this.height,
+        lastName: this.lastName,
+        pulseRate: this.pulseRate,
+        respirationRate: this.respirationRate,
+        vacationBalance: this.vacationBalance,
+        weight: this.weight,
+      });
+    }
+    else if (this.gender === 2)
+    {
+      const employeeResponse = await entities.employee.add({
+        age: this.age,
+        avgHourseOfExercisePerWeek: this.avgHoursExercise,
+        avgHourseOfWorkPerWeek: this.avgHoursOfWo,
+        bloodPressure: this.bloodPressure,
+        bodyTemperature: this.bodyTemp,
+        firstName: this.firstName,
+        gender: 'Transgender',
+        height: this.height,
+        lastName: this.lastName,
+        pulseRate: this.pulseRate,
+        respirationRate: this.respirationRate,
+        vacationBalance: this.vacationBalance,
+        weight: this.weight,
+      });
+    }
+    else if (this.gender === 3)
+    {
+      const employeeResponse = await entities.employee.add({
+        age: this.age,
+        avgHourseOfExercisePerWeek: this.avgHoursExercise,
+        avgHourseOfWorkPerWeek: this.avgHoursOfWo,
+        bloodPressure: this.bloodPressure,
+        bodyTemperature: this.bodyTemp,
+        firstName: this.firstName,
+        gender: 'NonBinaryOrNonConfirming',
+        height: this.height,
+        lastName: this.lastName,
+        pulseRate: this.pulseRate,
+        respirationRate: this.respirationRate,
+        vacationBalance: this.vacationBalance,
+        weight: this.weight,
+      });
+    }
+    else if (this.gender === 4)
+    {
+      const employeeResponse = await entities.employee.add({
+        age: this.age,
+        avgHourseOfExercisePerWeek: this.avgHoursExercise,
+        avgHourseOfWorkPerWeek: this.avgHoursOfWo,
+        bloodPressure: this.bloodPressure,
+        bodyTemperature: this.bodyTemp,
+        firstName: this.firstName,
+        gender: 'PreferNotToRespond',
+        height: this.height,
+        lastName: this.lastName,
+        pulseRate: this.pulseRate,
+        respirationRate: this.respirationRate,
+        vacationBalance: this.vacationBalance,
+        weight: this.weight,
+      });
+    }
   }
 
 
+  onSelected(value: string)
+  {
+    if('Male' == value)
+    {
+      this.gender = 0;
+    }
+    else if('Female' == value)
+    {
+      this.gender = 1;
+    }
+    else if('Transgender' == value)
+    {
+      this.gender = 2;
+    }
+    else if('NonBinaryOrNonConfirming' == value)
+    {
+      this.gender = 3;
+    }
+    else
+    {
+      this.gender = 4;
+    }
+  }
 }

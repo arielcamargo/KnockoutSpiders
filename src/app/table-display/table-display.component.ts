@@ -43,7 +43,6 @@ export class TableDisplayComponent implements OnInit {
   {
     this.data = await this.customTesting();
     this.dataInitialization();
-    this.stringOutput = this.outputString();
   }
 
   async customTesting()
@@ -126,13 +125,72 @@ export class TableDisplayComponent implements OnInit {
     this.router.navigate(['add-employee']).then();
   }
 
-  outputString()
+  outputFullName(index: number)
   {
-    let i = 4;
-    return this.ids[i] + " " + this.fullNames[i] + " " + this.ages[i] + " " +
-      this.genders[i] + " " + this.heights[i] + " " + this.temperatures[i] + " " +
-      this.pulseRates[i] + " " + this.respRates[i] + " " + this.weights[i] + " " +
-      this.exerciseHours[i] + " " + this.vacationHours[i] + " " + this.workHours[i];
+    return this.fullNames[index];
+  }
+
+  outputAge(index: number)
+  {
+    return this.ages[index];
+  }
+
+  outputGender(index: number)
+  {
+    return this.genders[index];
+  }
+
+  outputHeight(index:number)
+  {
+    return this.heights[index];
+  }
+
+  outputTemp(index:number)
+  {
+    return this.temperatures[index];
+  }
+
+  outputPulse(index:number)
+  {
+    return this.pulseRates[index];
+  }
+
+  outputPressure(index:number)
+  {
+    return this.bloodPressures[index];
+  }
+
+  outputResp(index:number)
+  {
+    return this.pulseRates[index];
+  }
+
+  outputWeight(index:number)
+  {
+    return this.weights[index];
+  }
+
+  outputExercise(index:number)
+  {
+    return this.exerciseHours[index];
+  }
+
+  outputVacation(index:number)
+  {
+    return this.vacationHours[index];
+  }
+
+  outputWorkHours(index:number)
+  {
+    return this.workHours[index];
+  }
+
+  outputString(index: number)
+  {
+    return this.ids[index] + " " + this.fullNames[index] + " " + this.ages[index] + " " +
+      this.genders[index] + " " + this.heights[index] + " " + this.temperatures[index] + " " +
+      this.pulseRates[index] + " " + this.respRates[index] + " " + this.weights[index] + " " +
+      this.exerciseHours[index] + " " + this.vacationHours[index] + " " + this.workHours[index];
   }
 
 }
