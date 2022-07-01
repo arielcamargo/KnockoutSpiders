@@ -19,7 +19,8 @@
               Search
             </button>
             <div class="header--utility">
-              <button class="utility__all-btn">
+              <button class="utility__all-btn"
+              (click) = goToTable()>
                 <span class="utility__all-btn--all-text">ALL</span>
                 <i class="fa-solid fa-all-from-square"></i>
               </button>
@@ -193,8 +194,8 @@
 
                   </div>
 
-                  <div style="padding:0; margin: 0; font-size: 16px;" > 
-                    <p style= "margin: 0 0 0 1em;"> 
+                  <div style="padding:0; margin: 0; font-size: 16px;" >
+                    <p style= "margin: 0 0 0 1em;">
                       Male: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Mpercent }}</span> %
 
                     </p>

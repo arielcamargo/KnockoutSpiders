@@ -24,6 +24,7 @@ import { TableDisplayComponent } from './table-display/table-display.component';
       [
         {path: 'add-employee', component: AddEmployeeComponent},
         {path: '', component: DashboardComponent},
+        {path: 'table-display', component: TableDisplayComponent},
       ]
     )
   ],
