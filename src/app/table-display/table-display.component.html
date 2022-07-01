@@ -5,7 +5,10 @@
 
 <body>
   <main>
-    <div>{{stringOutput}}</div>
+<!--    This is where the output data will be.-->
+    <div *ngFor="let item of ids; let i = index">
+      <div>{{outputString(i)}}</div>
+    </div>
     <div class="main-wrapper">
       <header class="main-wrapper__header">
         <div class="header-title">

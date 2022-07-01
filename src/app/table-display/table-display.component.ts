@@ -43,7 +43,6 @@ export class TableDisplayComponent implements OnInit {
   {
     this.data = await this.customTesting();
     this.dataInitialization();
-    this.stringOutput = this.outputString();
   }
 
   async customTesting()
@@ -126,13 +125,12 @@ export class TableDisplayComponent implements OnInit {
     this.router.navigate(['add-employee']).then();
   }
 
-  outputString()
+  outputString(index: number)
   {
-    let i = 4;
-    return this.ids[i] + " " + this.fullNames[i] + " " + this.ages[i] + " " +
-      this.genders[i] + " " + this.heights[i] + " " + this.temperatures[i] + " " +
-      this.pulseRates[i] + " " + this.respRates[i] + " " + this.weights[i] + " " +
-      this.exerciseHours[i] + " " + this.vacationHours[i] + " " + this.workHours[i];
+    return this.ids[index] + " " + this.fullNames[index] + " " + this.ages[index] + " " +
+      this.genders[index] + " " + this.heights[index] + " " + this.temperatures[index] + " " +
+      this.pulseRates[index] + " " + this.respRates[index] + " " + this.weights[index] + " " +
+      this.exerciseHours[index] + " " + this.vacationHours[index] + " " + this.workHours[index];
   }
 
 }
