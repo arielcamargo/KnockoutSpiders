@@ -29,26 +29,30 @@
         <div class="form__double-col ">
             <div class="form__double-col-item">
             <label style="font-size:1.6rem" class="form__double-col-item-label" >First name</label>
-            <input class="modal__inner-input" required="required" id="firstName" type="text" placeholder="  John">
+            <input class="modal__inner-input" required="required" name="firstName" id="firstName" type="text"
+            [(ngModel)]="firstName">
             </div>
             <div class="form__double-col-item">
             <label style="font-size:1.6rem" class="form__double-col-item-label">Last Name</label>
-            <input class="modal__inner-input" required="required" id="lastName"  type="text" placeholder="  Doe">
+            <input class="modal__inner-input" required="required" id="lastName"  type="text"  name="lastName"
+            [(ngModel)]="lastName">
             </div>
         </div>
         <div class="form__double-col">
             <div class="form__double-col-item">
             <label style="font-size:1.6rem" class="form__double-col-item-label">Age</label>
-            <input class="modal__inner-input"  required="required" id="age" type="number" placeholder="  18">
+            <input class="modal__inner-input"  required="required" id="age" type="number" name="age"
+            [(ngModel)]="age">
             </div>
             <div class="form__double-col-item">
             <label class="form__double-col-item-label">Gender:</label>
-            <select class="form__double-col-item-selection-select" >
-                <option >Male</option>
-                <option >Female</option>
-                <option >Transgender</option>
-                <option >Non-binary/non-conforming</option>
-                <option >Prefer Not To Repsond</option>
+            <select #gender class="form__double-col-item-selection-select"
+            (change) = "onSelected(gender.value)">
+                <option id="Man">Male</option>
+                <option id="Woman" name="Woman">Female</option>
+                <option id="Transgender">Transgender</option>
+                <option id="Non-binary">NonBinaryOrNonConfirming</option>
+                <option id="Prefer">PreferNotToRespond</option>
             </select>
             </div>
         </div>
@@ -56,29 +60,38 @@
         <div class="form__single-col">
             <div class="form__single-col-item">
             <label style="font-size:1.6rem" class="form__single-col-item-label">Height(in inches)</label>
-            <input class="modal__inner-input" required="required" id="height"  type="number" placeholder="  70">
+            <input class="modal__inner-input" required="required" id="height"  type="number" name="height"
+            [(ngModel)]="height">
             </div>
             <div  class="form__single-col-item">
             <label style="font-size:1.6rem" class="form__single-col-item-label">Body temp (in F)</label>
-            <input class="modal__inner-input" required="required"  id="bodyTemp"   type="number"  placeholder="  98">
+            <input class="modal__inner-input" required="required"  id="bodyTemp"   type="number"  name="bodyTemp"
+            [(ngModel)]="bodyTemp">
             </div>
         </div>
 
         <div class="form__info">
             <label style="font-size:1.6rem" class="form__info-label">Pulse Rate(beats per minute)</label>
-            <input class="modal__inner-input" required="required" id="pulseRate" type="number"  placeholder="  80">
+            <input class="modal__inner-input" required="required" id="pulseRate" type="number"  name="pulseRate"
+            [(ngModel)]="pulseRate">
             <label style="font-size:1.6rem" class="form__info-label">Blood Pressure (number over number i.e. 120/80)</label>
-            <input class="modal__inner-input" required="required" id="bloodPressure"  type="number"  placeholder="  (120 80)">
+            <input class="modal__inner-input" required="required" id="bloodPressure"  type="text"  name="bloodPressure"
+            [(ngModel)]="bloodPressure">
             <label style="font-size:1.6rem" class="form__info-label">Respiration Rate (breaths per minute)</label>
-            <input class="modal__inner-input" required="required"  id="respirationRate"  type="number"  placeholder="  12">
+            <input class="modal__inner-input" required="required"  id="respirationRate"  type="number"  name="respirationRate"
+            [(ngModel)]="respirationRate">
             <label style="font-size:1.6rem" class="form__info-label">Weight (in pounds)</label>
-            <input class="modal__inner-input" required="required"  id="weight"  type="number"  placeholder="  110">
+            <input class="modal__inner-input" required="required"  id="weight"  type="number"  name="weight"
+            [(ngModel)]="weight">
             <label style="font-size:1.6rem" class="form__info-label">Average Hours of Exercise Per Week</label>
-            <input class="modal__inner-input" required="required" id="avgHoursExercise"   type="number"  placeholder="  8">
+            <input class="modal__inner-input" required="required" id="avgHoursExercise"   type="number"  name="avgHoursExercise"
+            [(ngModel)]="avgHoursExercise">
             <label style="font-size:1.6rem" class="form__info-label">Vacation Balance (in hours)</label>
-            <input class="modal__inner-input" required="required"  id="vacationBalance"  type="number"  placeholder="  5">
+            <input class="modal__inner-input" required="required"  id="vacationBalance"  type="number" name="vacationBalance"
+            [(ngModel)]="vacationBalance">
             <label style="font-size:1.6rem" class="form__info-label">Average Hours of work Per Week</label>
-            <input class="modal__inner-input" required="required"  id="avgHoursOfWo"  type="number"  placeholder="  50">
+            <input class="modal__inner-input" required="required"  id="avgHoursOfWo"  type="number"  name="avgHoursOfWo"
+            [(ngModel)]="avgHoursOfWo">
         </div>
         </form>
         <!--Currently being disabled until valid  data entered -->

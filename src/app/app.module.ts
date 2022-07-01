@@ -8,6 +8,7 @@ import { TestingComponent } from './components/testing/testing.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import {RouterModule} from "@angular/router";
 import { TableDisplayComponent } from './table-display/table-display.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -17,17 +18,18 @@ import { TableDisplayComponent } from './table-display/table-display.component';
     AddEmployeeComponent,
     TableDisplayComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(
-      [
-        {path: 'add-employee', component: AddEmployeeComponent},
-        {path: '', component: DashboardComponent},
-        {path: 'table-display', component: TableDisplayComponent},
-      ]
-    )
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        RouterModule.forRoot(
+            [
+                {path: 'add-employee', component: AddEmployeeComponent},
+                {path: '', component: DashboardComponent},
+                {path: 'table-display', component: TableDisplayComponent},
+            ]
+        ),
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
