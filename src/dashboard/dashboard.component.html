@@ -1,5 +1,6 @@
  <head>
       <title>Dashboard</title>
+      <link rel="stylesheet" href="./dashboard.component.css">
 </head>
 <body>
       <div class="app">
@@ -338,3 +339,12 @@
 
   </body>
 
+
+  <script>
+  if(data.items[i].gender === "Man"){
+    maleCounter++;
+    if(data.items[i].hoursExercisePerWeek > 40){
+      maleWorkMoreThanFortyHours++;
+    } 
+  }
+  </script>
