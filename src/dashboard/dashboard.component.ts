@@ -38,9 +38,14 @@ export class DashboardComponent implements OnInit
   employeeBoxClasses;
   async ngOnInit()
   {
-    this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
-    this.customTesting().then();
+    this.testOutput = await this.customTesting();
+    console.log(this.testOutput.items[0].age);
+    for(let i = 0; i < this.testOutput.items.length; i++)
+    {
+      this.ageArr.push(this.testOutput.items[i].age);
+    }
 
+    this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
     let totalAge = 0;
     let averageAge = 0;
     let totalWeight = 0;
@@ -147,6 +152,8 @@ export class DashboardComponent implements OnInit
       }
 
     })
+    averageAge = this.getAverage(this.ageArr);
+    console.log(averageAge);
   }
 
   async customTesting()

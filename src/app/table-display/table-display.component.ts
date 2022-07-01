@@ -20,70 +20,119 @@ const {entities} = client;
   styleUrls: ['./table-display.component.css'],
 })
 export class TableDisplayComponent implements OnInit {
-  
+
+  data;
+  ids: number[] = [];
+  ages: number[] = [];
+  fullNames: string[] = [];
+  genders: string[] = [];
+  heights: number[] = [];
+  temperatures: number[] = [];
+  pulseRates: number[] = [];
+  bloodPressures: number[] = [];
+  respRates: number[] = [];
+  weights: number[] = [];
+  exerciseHours: number[] = [];
+  vacationHours: number[] = [];
+  workHours: number[] = [];
+  stringOutput;
+
   constructor(private router: Router) { }
-  
-  arrayObj: object[] = [];
-  test = 0;
-  ngOnInit()
+
+  async ngOnInit()
   {
-    async function customTesting() {
-      console.log('works???');
-      // @ts-ignore
-      const employeeResponse = await entities.employee.list();
-      return employeeResponse;
+    this.data = await this.customTesting();
+    this.dataInitialization();
+    this.stringOutput = this.outputString();
   }
 
-  let firstName= "";
-  let lastName= "";
-  let age = 0;
-  let gender = "";
-  let weight = 0;
-  let height = 0;
-  let bloodPressure = 0;
-  let pulseRate = 0;
-  let exercisePerWeek = 0;
-  let vacationBalance = 0;
-  let workPerWeek = 0;
-  let bodyTemp = 0;
-  let respirationRate = 0;
-  customTesting().then(data => {
-    for(let i = 0;i < data.items.length;i++){
-      let obj = {
-        firstName: "",
-        lastName: "",
-        age: 0,
-        gender: "",
-        weight: 0,
-        height: 0,
-        bloodPressure: "",
-        pulseRate: 0,
-        exercisePerWeek: 0,
-        vacationBalance: 0,
-        workPerWeek: 0,
-        bodyTemp: 0,
-        respirationRate: 0,
-      }
-      obj.firstName = data.items[i].firstName;
-      obj.lastName = data.items[i].lastName;
-      obj.age = data.items[i].age;
-      obj.gender = data.items[i].gender;
-      obj.weight = data.items[i].weight;
-      obj.height = data.items[i].height;
-      obj.bloodPressure = data.items[i].bloodPressure;
-      obj.pulseRate = data.items[i].pulseRate;
-      obj.exercisePerWeek = data.items[i].avgHourseOfExercisePerWeek;
-      obj.vacationBalance = data.items[i].vacationBalance;
-      obj.workPerWeek = data.items[i].avgHourseOfWorkPerWeek;
-      obj.bodyTemp = data.items[i].bodyTemperature;
-      obj.respirationRate = data.items[i].respirationRate;
-  
-      this.arrayObj[i] = obj;
-    }
-    console.log(this.arrayObj);
+  async customTesting()
+  {
+    // @ts-ignore
+    const employeeResponse = await entities.employee.list();
+    return employeeResponse;
   }
-  
-  
-)
-}
+
+  dataInitialization()
+  {
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.ids.push(i + 1);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.fullNames.push(this.data.items[i].firstName + " " + this.data.items[i].lastName);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.ages.push(this.data.items[i].age);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.genders.push(this.data.items[i].gender);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.heights.push(this.data.items[i].height);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.temperatures.push(this.data.items[i].bodyTemperature);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.pulseRates.push(Number(this.data.items[i].pulseRate));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.weights.push(Number(this.data.items[i].weight));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.bloodPressures.push(Number(this.data.items[i].bloodPressure));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.respRates.push(Number(this.data.items[i].respirationRate));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.exerciseHours.push(Number(this.data.items[i].avgHourseOfExercisePerWeek));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.vacationHours.push(Number(this.data.items[i].vacationBalance));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.workHours.push(Number(this.data.items[i].avgHourseOfWorkPerWeek));
+    }
+  }
+
+  goToAddEmployee()
+  {
+    this.router.navigate(['add-employee']).then();
+  }
+
+  outputString()
+  {
+    let i = 4;
+    return this.ids[i] + " " + this.fullNames[i] + " " + this.ages[i] + " " +
+      this.genders[i] + " " + this.heights[i] + " " + this.temperatures[i] + " " +
+      this.pulseRates[i] + " " + this.respRates[i] + " " + this.weights[i] + " " +
+      this.exerciseHours[i] + " " + this.vacationHours[i] + " " + this.workHours[i];
+  }
+
 }
