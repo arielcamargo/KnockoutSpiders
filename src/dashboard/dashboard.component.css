@@ -810,8 +810,8 @@ select {
 .employee-data__item  {
   background-color: #e6f5fa;
   border-radius: 0.5em;
-  height: 10em;
-  max-height: 11em;
+  height: 12em;
+  /* max-height: 11em; */
   overflow: hidden;
   text-align: left;
   margin: 0.4em;

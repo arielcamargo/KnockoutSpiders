@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit
   async ngOnInit()
   {
     this.testOutput = await this.customTesting();
-    console.log(this.testOutput.items[0].age);
+    // console.log(this.testOutput.items[0].age);
     for(let i = 0; i < this.testOutput.items.length; i++)
     {
       this.ageArr.push(this.testOutput.items[i].age);
@@ -135,9 +135,7 @@ export class DashboardComponent implements OnInit
         else if(data.items[i].gender === "PreferNotToRespond") {
             preferNotToRespondCounter++;
             if(data.items[i].avgHourseOfWorkPerWeek > 40){
-              preferNottoSayWorkMoreThanFortyHours;
-              console.log(data.items[i].gender);
-              
+              preferNottoSayWorkMoreThanFortyHours++;
             }
         }
       }
@@ -153,7 +151,12 @@ export class DashboardComponent implements OnInit
       averageBodyTemp = Number((totalBodyTemp/data.items.length).toFixed(2));
       averageRespirationRate = Number((totalRespirationRate/data.items.length).toFixed(2));
       totalEmployeeCount = Number((data.items.length).toFixed(2));
-
+      console.log(averageBloodPressure);
+      console.log(totalBloodPressure);
+      console.log(data.items.length);
+      
+      
+      
       malePercentage = Number(((maleCounter/totalEmployeeCount) * 100).toFixed(2));
       femalePercentage = Number(((femaleCounter/totalEmployeeCount) * 100).toFixed(2));
       transPercentage = Number(((transCounter/totalEmployeeCount) * 100).toFixed(2));
@@ -165,7 +168,7 @@ export class DashboardComponent implements OnInit
       transWorkMoreThanFortyHoursPercent = Number(((transWorkMoreThanFortyHours/transCounter) * 100).toFixed(2));
       noneBinaryWorkMoreThanFortyHoursPercent = Number(((noneBinaryWorkMoreThanFortyHours/nonBinaryOrNonConfirmingCounter) * 100).toFixed(2));
       preferNotoSayWorkMoreThanFortyHoursPercent = Number(((preferNottoSayWorkMoreThanFortyHours/preferNotToRespondCounter) * 100).toFixed(2));
-      console.log(preferNottoSayWorkMoreThanFortyHours );
+      
       
       
 
@@ -198,7 +201,7 @@ export class DashboardComponent implements OnInit
 
     })
     averageAge = this.getAverage(this.ageArr);
-    console.log(averageAge);
+    // console.log(averageAge);
   }
 
   async customTesting()
