@@ -1,7 +1,6 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {createVendiaClient} from "@vendia/client";
 import { Router} from "@angular/router";
-import {delay, map} from "rxjs";
 
 
 //This should allow for the vendia client to work
@@ -24,28 +23,43 @@ const {entities} = client;
 
 export class DashboardComponent implements OnInit
 {
-  testOutput: any;
-  testing: any;
-  ageArr: number[] = [];
+
+
+
   constructor(private router: Router) {
   }
 
 
-  genders: string[] = ['female', 'male', 'male', 'male', 'non-binary', 'female', 'non-binary', 'prefer not to answer'];
+  genderTypes: string[] = ['female', 'male', 'male', 'male', 'non-binary', 'female', 'non-binary', 'prefer not to answer'];
 
+  genders: any = [];
+  data: any;
+  testing: any;
+  ids: number[] = [];
+  vacationHours: number[] = [];
+  weights: number[] = [];
+  ages: number[] = [];
+  heights: number[] = [];
+  temperatures: number[] = [];
+  pulseRates: number[] = [];
+  exerciseHours: number[] = [];
+  bloodPressures: any = [];
+  workHours: number[] = [];
+  respRates: number[] = [];
   malePercentage;
   femalePercentage;
   employeeBoxClasses;
+  transPercentage: any;
+  nonBinaryOrNonConfirmingPercentage: any;
+  preferNotToRespondPercentage: any;
+  avgHeight;
   async ngOnInit()
   {
-    this.testOutput = await this.customTesting();
-    console.log(this.testOutput.items[0].age);
-    for(let i = 0; i < this.testOutput.items.length; i++)
-    {
-      this.ageArr.push(this.testOutput.items[i].age);
-    }
-
+    this.data = await this.customTesting();
+    this.dataInitialization()
+    this.calculations()
     this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
+
     let totalAge = 0;
     let averageAge = 0;
     let totalWeight = 0;
@@ -196,9 +210,8 @@ export class DashboardComponent implements OnInit
 
       }
 
-    })
-    averageAge = this.getAverage(this.ageArr);
-    console.log(averageAge);
+
+    }
   }
 
   async customTesting()
@@ -211,10 +224,75 @@ export class DashboardComponent implements OnInit
   //Author:Ariel Camargo
   calculations()
   {
-    //  this.malePercentage = this.getPercentage( 'male', this.testing.genders);
-    //  this.femalePercentage = this.getPercentage( 'female', this.testing.allGenders);
+     this.malePercentage = this.getPercentage( 'Man', this.genders);
+     this.femalePercentage = this.getPercentage( 'Woman', this.genders);
+     this.transPercentage = this.getPercentage( 'Transgender', this.genders);
+     this.nonBinaryOrNonConfirmingPercentage = this.getPercentage('NonBinaryOrNonConfirming', this.genders);
+     this.preferNotToRespondPercentage = this.getPercentage('PreferNotToRespond', this.genders);
   }
 
+  dataInitialization()
+  {
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.ids.push(i + 1);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.ages.push(this.data.items[i].age);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.genders.push(this.data.items[i].gender);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.heights.push(this.data.items[i].height);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.temperatures.push(this.data.items[i].bodyTemperature);
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.pulseRates.push(Number(this.data.items[i].pulseRate));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.weights.push(Number(this.data.items[i].weight));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.bloodPressures.push(Number(this.data.items[i].bloodPressure));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.respRates.push(Number(this.data.items[i].respirationRate));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.exerciseHours.push(Number(this.data.items[i].avgHourseOfExercisePerWeek));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.vacationHours.push(Number(this.data.items[i].vacationBalance));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.workHours.push(Number(this.data.items[i].avgHourseOfWorkPerWeek));
+    }
+  }
 
   //Author: Ariel Camargo
   //Given an array, the standard deviation is returned.
