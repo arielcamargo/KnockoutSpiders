@@ -30,12 +30,12 @@ export class AddEmployeeComponent implements OnInit {
     //This would pull all data from
     //this form and click it back to
     //Vendia
-    this.goToDashboard();
+    this.async().then();
   }
 
   goToDashboard()
   {
-    this.async().then();
+
     this.router.navigate(['']).then();
   }
 
