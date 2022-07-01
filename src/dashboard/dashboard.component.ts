@@ -60,23 +60,156 @@ export class DashboardComponent implements OnInit
     this.calculations()
     this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
 
-    this.testing = {
-      Age: this.getAverage(this.ages).toFixed(1),
-      Weight: this.getAverage(this.weights).toFixed(1),
-      Height: this.getAverage(this.heights).toFixed(1),
-      TotalEmployee: this.data.items.length,
-      BloodPressure: this.getAverage(this.bloodPressures).toFixed(1),
-      PulseRate: this.getAverage(this.pulseRates).toFixed(1),
-      ExercisePerWeek: this.getAverage(this.exerciseHours).toFixed(1),
-      VacationBalance: this.getAverage(this.vacationHours).toFixed(1),
-      WorkPerWeek: this.getAverage(this.workHours).toFixed(1),
-      BodyTemp: this.getAverage(this.temperatures).toFixed(1),
-      RespirationRate: this.getAverage(this.respRates).toFixed(1),
-      Mpercent: this.malePercentage,
-      Fpercent: this.femalePercentage,
-      Transpercent: this.transPercentage,
-      NonBinaryPercent: this.nonBinaryOrNonConfirmingPercentage,
-      preferNotToRespond: this.preferNotToRespondPercentage,
+    let totalAge = 0;
+    let averageAge = 0;
+    let totalWeight = 0;
+    let averageWeight = 0;
+    let totalHeight = 0;
+    let averageHeight = 0;
+    let totalBloodPressure = 0;
+    let averageBloodPressure = 0;
+    let totalPulseRate = 0;
+    let averagePulseRate = 0;
+    let totalHrExercisePerWeek = 0;
+    let averageHrExercisePerWeek = 0;
+    let totalVacationBalance = 0;
+    let averageVacationBalance = 0;
+    let totalHrWorkPerWeek = 0;
+    let averageHrWorkPerWeek = 0;
+    let totalBodyTemp = 0;
+    let averageBodyTemp = 0;
+    let totalRespirationRate = 0;
+    let averageRespirationRate = 0;
+    let totalEmployeeCount = 0;
+    let allGenders = '';
+
+    let maleCounter = 0;
+    let femaleCounter = 0;
+    let transCounter= 0;
+    let preferNotToRespondCounter = 0;
+    let nonBinaryOrNonConfirmingCounter = 0;
+
+    let maleWorkMoreThanFortyHours = 0;
+    let femaleWorkMoreThanFortyHours = 0;
+    let transWorkMoreThanFortyHours = 0;
+    let noneBinaryWorkMoreThanFortyHours = 0;
+    let preferNottoSayWorkMoreThanFortyHours = 0;
+
+    let maleWorkMoreThanFortyHoursPercent = 0;
+    let femaleWorkMoreThanFortyHoursPercent = 0;
+    let transWorkMoreThanFortyHoursPercent = 0;
+    let noneBinaryWorkMoreThanFortyHoursPercent = 0;
+    let preferNotoSayWorkMoreThanFortyHoursPercent = 0;
+
+    let malePercentage = 0;
+    let femalePercentage = 0;
+    let transPercentage= 0;
+    let preferNotToRespondPercentage = 0;
+    let nonBinaryOrNonConfirmingPercentage = 0;
+
+
+    this.customTesting().then(data => {
+       for(let i = 0;i < data.items.length;i++){
+        totalAge += data.items[i].age!;
+        totalWeight += data.items[i].weight!;
+        totalHeight += data.items[i].height!;
+        totalBloodPressure += Number(data.items[i].bloodPressure);
+        totalPulseRate += data.items[i].pulseRate;
+        totalHrExercisePerWeek += data.items[i].avgHourseOfExercisePerWeek;
+        totalVacationBalance += data.items[i].vacationBalance;
+        totalHrWorkPerWeek += data.items[i].avgHourseOfWorkPerWeek;
+        totalBodyTemp += data.items[i].bodyTemperature;
+        totalRespirationRate += data.items[i].respirationRate;
+        allGenders += data.items[i].gender;
+        this.ageArr[i] = (data.items[i].age);
+        if(data.items[i].gender === "Man"){
+            maleCounter++;
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              maleWorkMoreThanFortyHours++;
+            } 
+        }
+        else if(data.items[i].gender === "Woman") {
+            femaleCounter++;
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              femaleWorkMoreThanFortyHours++;
+            } 
+        }
+        else if(data.items[i].gender === "Transgender") {
+            transCounter++;
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              transWorkMoreThanFortyHours++;
+            } 
+        }
+        else if(data.items[i].gender === "NonBinaryOrNonConfirming") {
+            nonBinaryOrNonConfirmingCounter++;
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              noneBinaryWorkMoreThanFortyHours++;
+            } 
+        }
+        else if(data.items[i].gender === "PreferNotToRespond") {
+            preferNotToRespondCounter++;
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              preferNottoSayWorkMoreThanFortyHours;
+              console.log(data.items[i].gender);
+              
+            }
+        }
+      }
+
+      averageAge = Number((totalAge/data.items.length).toFixed(2));
+      averageWeight = Number((totalWeight/data.items.length).toFixed());
+      averageHeight = Number((totalHeight/data.items.length).toFixed(2));
+      averageBloodPressure = Number((totalBloodPressure/data.items.length).toFixed(2));
+      averagePulseRate = Number((totalPulseRate/data.items.length).toFixed(2));
+      averageHrExercisePerWeek = Number((totalHrExercisePerWeek/data.items.length).toFixed(2));
+      averageVacationBalance = Number((totalVacationBalance/data.items.length).toFixed(2));
+      averageHrWorkPerWeek = Number((totalHrWorkPerWeek/data.items.length).toFixed(2));
+      averageBodyTemp = Number((totalBodyTemp/data.items.length).toFixed(2));
+      averageRespirationRate = Number((totalRespirationRate/data.items.length).toFixed(2));
+      totalEmployeeCount = Number((data.items.length).toFixed(2));
+
+      malePercentage = Number(((maleCounter/totalEmployeeCount) * 100).toFixed(2));
+      femalePercentage = Number(((femaleCounter/totalEmployeeCount) * 100).toFixed(2));
+      transPercentage = Number(((transCounter/totalEmployeeCount) * 100).toFixed(2));
+      nonBinaryOrNonConfirmingPercentage = Number(((nonBinaryOrNonConfirmingCounter/totalEmployeeCount) * 100).toFixed(2));
+      preferNotToRespondPercentage = Number(((preferNotToRespondCounter/totalEmployeeCount) * 100).toFixed(2));
+
+      maleWorkMoreThanFortyHoursPercent = Number(((maleWorkMoreThanFortyHours/maleCounter) * 100).toFixed(2));
+      femaleWorkMoreThanFortyHoursPercent = Number(((femaleWorkMoreThanFortyHours/femaleCounter) * 100).toFixed(2));
+      transWorkMoreThanFortyHoursPercent = Number(((transWorkMoreThanFortyHours/transCounter) * 100).toFixed(2));
+      noneBinaryWorkMoreThanFortyHoursPercent = Number(((noneBinaryWorkMoreThanFortyHours/nonBinaryOrNonConfirmingCounter) * 100).toFixed(2));
+      preferNotoSayWorkMoreThanFortyHoursPercent = Number(((preferNottoSayWorkMoreThanFortyHours/preferNotToRespondCounter) * 100).toFixed(2));
+      console.log(preferNottoSayWorkMoreThanFortyHours );
+      
+      
+
+      this.testing = {
+        Age: averageAge,
+        Weight: averageWeight,
+        Height: averageHeight,
+        TotalEmployee: totalEmployeeCount,
+        BloodPressure: averageBloodPressure,
+        PulseRate: averagePulseRate,
+        ExercisePerWeek: averageHrExercisePerWeek,
+        VacationBalance: averageVacationBalance,
+        WorkPerWeek: averageHrWorkPerWeek,
+        BodyTemp: averageBodyTemp,
+        RespirationRate: averageRespirationRate,
+        Mpercent: malePercentage,
+        Fpercent: femalePercentage,
+        Transpercent: transPercentage,
+        NonBinaryPerdent: nonBinaryOrNonConfirmingPercentage,
+        preferNotToRespond: preferNotToRespondPercentage,
+
+        MaleFortyHourAWeek: maleWorkMoreThanFortyHoursPercent,
+        FemaleFortyHourAWeek: femaleWorkMoreThanFortyHoursPercent, 
+        TransFortyHoursAWeek: transWorkMoreThanFortyHoursPercent,
+        NoneBinaryFortyHourAWeek: noneBinaryWorkMoreThanFortyHoursPercent,
+        preferNToSayFortyHourAweek: preferNotoSayWorkMoreThanFortyHoursPercent,
+
+
+      }
+
 
     }
   }

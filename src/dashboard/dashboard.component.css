@@ -735,10 +735,12 @@ select {
 
 .main__banner-item-header {
     font-weight: 600;
+    font-size: 1.6rem;
 }
 
 .main__banner-item-body-wrapper-p {
-  margin-left: 6em;
+  margin-left: 0em;
+  font-size: 1.6rem;
 }
 
 .filters-wrapper {
