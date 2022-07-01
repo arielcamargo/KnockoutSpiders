@@ -5,10 +5,6 @@
 
 <body>
   <main>
-<!--    This is where the output data will be.-->
-    <div *ngFor="let item of ids; let i = index">
-      <div>{{outputString(i)}}</div>
-    </div>
     <div class="main-wrapper">
       <header class="main-wrapper__header">
         <div class="header-title">
@@ -62,96 +58,24 @@
           </div>
         </div>
         <div class="content__employee-list">
-          <div class="employee-list-item">
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
+          <div *ngFor="let item of ids; let i = index">
+            <div class="employee-list-item">
+              <div class="employee-list-item-content">{{i + 1}}</div>
+              <div class="employee-list-item-content">{{outputFullName(i)}}</div>
+              <div class="employee-list-item-content">{{outputAge(i)}}</div>
+              <div class="employee-list-item-content">{{outputGender(i)}}</div>
+              <div class="employee-list-item-content">{{outputHeight(i)}}</div>
+              <div class="employee-list-item-content">{{outputTemp(i)}}</div>
+              <div class="employee-list-item-content">{{outputPulse(i)}}</div>
+              <div class="employee-list-item-content">{{outputPressure(i)}}</div>
+              <div class="employee-list-item-content">{{outputResp(i)}}</div>
+              <div class="employee-list-item-content">{{outputWeight(i)}}</div>
+              <div class="employee-list-item-content">{{outputExercise(i)}}</div>
+              <div class="employee-list-item-content">{{outputVacation(i)}}</div>
+              <div class="employee-list-item-content">{{outputWorkHours(i)}}</div>
+            </div>
           </div>
-          <div class="employee-list-item">
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-          </div>
-          <div class="employee-list-item">
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-          </div>
-          <div class="employee-list-item">
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-          </div>
-          <div class="employee-list-item">
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-          </div>
-          <div class="employee-list-item">
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-            <div class="employee-list-item-content">1</div>
-          </div>
+
         </div>
       </div>
     </div>
