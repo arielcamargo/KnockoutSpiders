@@ -98,16 +98,16 @@
                   </header>
                   <div class="main__banner-item-body-wrapper">
                     <div class="main__banner-item-body-wrapper-item">
-                      <i class="fa-solid fa-arrow-down "></i>
+                    
                       <p class= "main__banner-item-body-wrapper-p">Lower blood pressure</p>
                     </div>
                     <div class="main__banner-item-body-wrapper-item">
-                      <i class="fa-solid fa-arrow-up "></i>
+                    
                       <p class="main__banner-item-body-wrapper-p"> Higher respiratory rate</p>
                     </div>
 
                     <div class="main__banner-item-body-wrapper-item">
-                      <i class="fa-solid fa-check  "></i>
+                   
                       <p class="main__banner-item-body-wrapper-p">Have ideal BMI</p>
                     </div>
                   </div>
@@ -118,12 +118,24 @@
                   </header>
                   <div class="main__banner-item-body-wrapper">
                     <div class="main__banner-item-body-item">
-                      <i class="fa-solid fa-mars"></i>
-                      <p class="main__banner-item-body-wrapper-p">Male  <span> {{ malePercentage }}</span></p>
+                    
+                      <p class="main__banner-item-body-wrapper-p">Male:  <span  *ngIf="testing">{{ testing.MaleFortyHourAWeek }}%</span></p> 
                     </div>
                     <div class="main__banner-item-body-item">
-                      <i class="fa-solid fa-venus"></i>
-                      <h1 *ngIf="testing">{{ testing.Fpercent }}</h1>
+                      <p class="main__banner-item-body-wrapper-p">Female:  <span  *ngIf="testing">{{ testing.FemaleFortyHourAWeek }}%</span></p> 
+                    
+                    </div>
+                    <div class="main__banner-item-body-item">
+                      <p class="main__banner-item-body-wrapper-p">Transgender:  <span  *ngIf="testing">{{ testing.TransFortyHoursAWeek }}%</span></p> 
+                    
+                    </div>
+                    <div class="main__banner-item-body-item">
+                      <p class="main__banner-item-body-wrapper-p">Non-Binary/Non-Conforming:  <span  *ngIf="testing">{{ testing.NoneBinaryFortyHourAWeek }}%</span></p> 
+                    
+                    </div>
+                    <div class="main__banner-item-body-item">
+                      <p class="main__banner-item-body-wrapper-p">Prefer Not To Respond:  <span  *ngIf="testing">{{ testing.preferNToSayFortyHourAweek }}%</span></p> 
+                    
                     </div>
                   </div>
                 </div>
@@ -131,13 +143,13 @@
               <div class="main__banner-wrapper">
                 <div class=" main__banner-item">
                   <header class="main__banner-item-header" >
-                    Means (probably)
+                    Means:
                   </header>
                 </div>
                 <div class="main__banner-item">
 
-                  <header>
-                    standard deviation (probably)
+                  <header class="main__banner-item-header" >
+                    Standard Deviation:
                   </header>
                 </div>
               </div>

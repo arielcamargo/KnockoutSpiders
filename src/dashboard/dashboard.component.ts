@@ -70,6 +70,18 @@ export class DashboardComponent implements OnInit
     let preferNotToRespondCounter = 0;
     let nonBinaryOrNonConfirmingCounter = 0;
 
+    let maleWorkMoreThanFortyHours = 0;
+    let femaleWorkMoreThanFortyHours = 0;
+    let transWorkMoreThanFortyHours = 0;
+    let noneBinaryWorkMoreThanFortyHours = 0;
+    let preferNottoSayWorkMoreThanFortyHours = 0;
+
+    let maleWorkMoreThanFortyHoursPercent = 0;
+    let femaleWorkMoreThanFortyHoursPercent = 0;
+    let transWorkMoreThanFortyHoursPercent = 0;
+    let noneBinaryWorkMoreThanFortyHoursPercent = 0;
+    let preferNotoSayWorkMoreThanFortyHoursPercent = 0;
+
     let malePercentage = 0;
     let femalePercentage = 0;
     let transPercentage= 0;
@@ -93,19 +105,35 @@ export class DashboardComponent implements OnInit
         this.ageArr[i] = (data.items[i].age);
         if(data.items[i].gender === "Man"){
             maleCounter++;
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              maleWorkMoreThanFortyHours++;
+            } 
         }
         else if(data.items[i].gender === "Woman") {
             femaleCounter++;
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              femaleWorkMoreThanFortyHours++;
+            } 
         }
         else if(data.items[i].gender === "Transgender") {
             transCounter++;
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              transWorkMoreThanFortyHours++;
+            } 
         }
         else if(data.items[i].gender === "NonBinaryOrNonConfirming") {
-            preferNotToRespondCounter++;
-        }
-       else if(data.items[i].gender === "PreferNotToRespond") {
             nonBinaryOrNonConfirmingCounter++;
-
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              noneBinaryWorkMoreThanFortyHours++;
+            } 
+        }
+        else if(data.items[i].gender === "PreferNotToRespond") {
+            preferNotToRespondCounter++;
+            if(data.items[i].avgHourseOfWorkPerWeek > 40){
+              preferNottoSayWorkMoreThanFortyHours;
+              console.log(data.items[i].gender);
+              
+            }
         }
       }
 
@@ -126,6 +154,16 @@ export class DashboardComponent implements OnInit
       transPercentage = Number(((transCounter/totalEmployeeCount) * 100).toFixed(2));
       nonBinaryOrNonConfirmingPercentage = Number(((nonBinaryOrNonConfirmingCounter/totalEmployeeCount) * 100).toFixed(2));
       preferNotToRespondPercentage = Number(((preferNotToRespondCounter/totalEmployeeCount) * 100).toFixed(2));
+
+      maleWorkMoreThanFortyHoursPercent = Number(((maleWorkMoreThanFortyHours/maleCounter) * 100).toFixed(2));
+      femaleWorkMoreThanFortyHoursPercent = Number(((femaleWorkMoreThanFortyHours/femaleCounter) * 100).toFixed(2));
+      transWorkMoreThanFortyHoursPercent = Number(((transWorkMoreThanFortyHours/transCounter) * 100).toFixed(2));
+      noneBinaryWorkMoreThanFortyHoursPercent = Number(((noneBinaryWorkMoreThanFortyHours/nonBinaryOrNonConfirmingCounter) * 100).toFixed(2));
+      preferNotoSayWorkMoreThanFortyHoursPercent = Number(((preferNottoSayWorkMoreThanFortyHours/preferNotToRespondCounter) * 100).toFixed(2));
+      console.log(preferNottoSayWorkMoreThanFortyHours );
+      
+      
+
       this.testing = {
         Age: averageAge,
         Weight: averageWeight,
@@ -143,6 +181,13 @@ export class DashboardComponent implements OnInit
         Transpercent: transPercentage,
         NonBinaryPerdent: nonBinaryOrNonConfirmingPercentage,
         preferNotToRespond: preferNotToRespondPercentage,
+
+        MaleFortyHourAWeek: maleWorkMoreThanFortyHoursPercent,
+        FemaleFortyHourAWeek: femaleWorkMoreThanFortyHoursPercent, 
+        TransFortyHoursAWeek: transWorkMoreThanFortyHoursPercent,
+        NoneBinaryFortyHourAWeek: noneBinaryWorkMoreThanFortyHoursPercent,
+        preferNToSayFortyHourAweek: preferNotoSayWorkMoreThanFortyHoursPercent,
+
 
       }
 
