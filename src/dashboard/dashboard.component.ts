@@ -55,9 +55,19 @@ export class DashboardComponent implements OnInit
   avgHeight;
   async ngOnInit()
   {
+<<<<<<< HEAD
+    this.testOutput = await this.customTesting();
+    // console.log(this.testOutput.items[0].age);
+    for(let i = 0; i < this.testOutput.items.length; i++)
+    {
+      this.ageArr.push(this.testOutput.items[i].age);
+    }
+
+=======
     this.data = await this.customTesting();
     this.dataInitialization()
     this.calculations()
+>>>>>>> f5a606edbf3caf127609b1d7c4d307721b93ad4d
     this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
 
     let totalAge = 0;
@@ -165,6 +175,11 @@ export class DashboardComponent implements OnInit
       averageBodyTemp = Number((totalBodyTemp/data.items.length).toFixed(2));
       averageRespirationRate = Number((totalRespirationRate/data.items.length).toFixed(2));
       totalEmployeeCount = Number((data.items.length).toFixed(2));
+      console.log(averageBloodPressure);
+      console.log(totalBloodPressure);
+      console.log(data.items.length);
+      
+      
       
       malePercentage = Number(((maleCounter/totalEmployeeCount) * 100).toFixed(2));
       femalePercentage = Number(((femaleCounter/totalEmployeeCount) * 100).toFixed(2));
@@ -208,8 +223,14 @@ export class DashboardComponent implements OnInit
 
       }
 
+<<<<<<< HEAD
+    })
+    averageAge = this.getAverage(this.ageArr);
+    // console.log(averageAge);
+=======
 
     }
+>>>>>>> f5a606edbf3caf127609b1d7c4d307721b93ad4d
   }
 
   async customTesting()
