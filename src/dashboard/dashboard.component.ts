@@ -30,7 +30,7 @@ export class DashboardComponent implements OnInit
   }
 
 
-  genderTypes: string[] = ['female', 'male', 'male', 'male', 'non-binary', 'female', 'non-binary', 'prefer not to answer'];
+  // genderTypes: string[] = ['female', 'male', 'male', 'male', 'non-binary', 'female', 'non-binary', 'prefer not to answer'];
 
   genders: any = [];
   data: any;
@@ -108,8 +108,9 @@ export class DashboardComponent implements OnInit
     let nonBinaryOrNonConfirmingPercentage = 0;
 
 
+
     this.customTesting().then(data => {
-       for(let i = 0;i < data.items.length;i++){
+      for(let i = 0;i < data.items.length;i++){
         totalAge += data.items[i].age!;
         totalWeight += data.items[i].weight!;
         totalHeight += data.items[i].height!;
@@ -121,7 +122,7 @@ export class DashboardComponent implements OnInit
         totalBodyTemp += data.items[i].bodyTemperature;
         totalRespirationRate += data.items[i].respirationRate;
         allGenders += data.items[i].gender;
-        this.ageArr[i] = (data.items[i].age);
+    
         if(data.items[i].gender === "Man"){
             maleCounter++;
             if(data.items[i].avgHourseOfWorkPerWeek > 40){
@@ -155,7 +156,6 @@ export class DashboardComponent implements OnInit
             }
         }
       }
-
       averageAge = Number((totalAge/data.items.length).toFixed(2));
       averageWeight = Number((totalWeight/data.items.length).toFixed());
       averageHeight = Number((totalHeight/data.items.length).toFixed(2));
@@ -179,7 +179,7 @@ export class DashboardComponent implements OnInit
       transWorkMoreThanFortyHoursPercent = Number(((transWorkMoreThanFortyHours/transCounter) * 100).toFixed(2));
       noneBinaryWorkMoreThanFortyHoursPercent = Number(((noneBinaryWorkMoreThanFortyHours/nonBinaryOrNonConfirmingCounter) * 100).toFixed(2));
       preferNotoSayWorkMoreThanFortyHoursPercent = Number(((preferNottoSayWorkMoreThanFortyHours/preferNotToRespondCounter) * 100).toFixed(2));
-      console.log(preferNottoSayWorkMoreThanFortyHours );
+    
       
       
 
@@ -198,22 +198,23 @@ export class DashboardComponent implements OnInit
         Mpercent: malePercentage,
         Fpercent: femalePercentage,
         Transpercent: transPercentage,
-        NonBinaryPerdent: nonBinaryOrNonConfirmingPercentage,
+        NonBinaryPercent: nonBinaryOrNonConfirmingPercentage,
         preferNotToRespond: preferNotToRespondPercentage,
-
+        
+        
         MaleFortyHourAWeek: maleWorkMoreThanFortyHoursPercent,
         FemaleFortyHourAWeek: femaleWorkMoreThanFortyHoursPercent, 
         TransFortyHoursAWeek: transWorkMoreThanFortyHoursPercent,
         NoneBinaryFortyHourAWeek: noneBinaryWorkMoreThanFortyHoursPercent,
-        preferNToSayFortyHourAweek: preferNotoSayWorkMoreThanFortyHoursPercent,
+        preferNToSayFortyHourAweek: preferNotoSayWorkMoreThanFortyHoursPercent, 
 
 
       }
 
 
     }
+    )
   }
-
   async customTesting()
   {
     // @ts-ignore
@@ -406,4 +407,5 @@ export class DashboardComponent implements OnInit
   {
     this.router.navigate(['table-display']).then();
   }
+  
 }

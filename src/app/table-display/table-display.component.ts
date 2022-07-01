@@ -69,9 +69,16 @@ export class TableDisplayComponent implements OnInit {
       this.ages.push(this.data.items[i].age);
     }
 
-    for(let i = 0; i < this.data.items.length; i++)
-    {
-      this.genders.push(this.data.items[i].gender);
+    for (let i = 0; i < this.data.items.length; i++) {
+      if (this.data.items[i].gender === "PreferNotToRespond") {
+        this.genders.push("No Response");
+      }
+      else if (this.data.items[i].gender === "NonBinaryOrNonConfirming") {
+        this.genders.push("Non Binary");
+      }
+       else {
+        this.genders.push(this.data.items[i].gender);
+      }
     }
 
     for(let i = 0; i < this.data.items.length; i++)
@@ -137,8 +144,9 @@ export class TableDisplayComponent implements OnInit {
 
   outputGender(index: number)
   {
-    return this.genders[index];
+    return this.genders[index]; 
   }
+
 
   outputHeight(index:number)
   {
@@ -184,7 +192,6 @@ export class TableDisplayComponent implements OnInit {
   {
     return this.workHours[index];
   }
-
   outputString(index: number)
   {
     return this.ids[index] + " " + this.fullNames[index] + " " + this.ages[index] + " " +
@@ -194,3 +201,4 @@ export class TableDisplayComponent implements OnInit {
   }
 
 }
+// here

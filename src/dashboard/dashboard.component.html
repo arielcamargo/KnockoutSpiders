@@ -15,13 +15,13 @@
             <div class="header--search-bar">
               <input type="text" placeholder="Type to search ..." class="search-bar--search-bar__input">
             </div>
-            <button class="nav-bar--search-icon">
+            <button id="search-btn" class="nav-bar--search-icon">
               Search
             </button>
             <div class="header--utility">
-              <button class="utility__all-btn"
+              <button id="all-btn" class="utility__all-btn"
               (click) = goToTable()>
-                <span class="utility__all-btn--all-text">ALL</span>
+                <span class="utility__all-btn--all-text">All</span>
                 <i class="fa-solid fa-all-from-square"></i>
               </button>
               <button id="create-new-btn" class="utility__create-new-btn"
@@ -187,7 +187,7 @@
                   <div class="employee-data__item-description">
                       Total number of all employees
                   </div>
-                  <h1 style="margin-left: 1em; margin-top: 0.2em;" *ngIf="testing">{{ testing.TotalEmployee }}</h1>
+                  <h1 class="h1-stats" *ngIf="testing">{{ testing.TotalEmployee }}</h1>
                 </div>
                 <div class="employee-data__item">
                   <header class="employee-data__item-header">
@@ -196,7 +196,7 @@
                   <div class="employee-data__item-description">
                     Average age of all employees
                   </div>
-                  <h1 style="margin-left: 1em; margin-top: 0.2em;" *ngIf="testing">{{ testing.Age }}</h1>
+                  <h1 class="h1-stats" *ngIf="testing">{{ testing.Age }}</h1>
                 </div>
                 <div class="employee-data__item">
                   <header class="employee-data__item-header">
@@ -208,31 +208,31 @@
 
                   <div style="padding:0; margin: 0; font-size: 16px;" >
                     <p style= "margin: 0 0 0 1em;">
-                      Male: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Mpercent }}</span>
+                      Male: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Mpercent }}%</span>
 
                     </p>
                   </div>
                   <div style="padding:0; margin: 0; font-size: 17px;">
                     <p style= "margin: 0 0 0 1em;">
-                      Female: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Fpercent }}</span>
+                      Female: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Fpercent }}%</span>
                     </p>
-                   </div>
-                   <div style="padding:0; margin: 0; font-size: 17px;">
+                  </div>
+                  <div style="padding:0; margin: 0; font-size: 17px;">
                     <p style= "margin: 0 0 0 1em;">
-                      Transgender: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Transpercent }}</span>
+                      Transgender: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Transpercent }}%</span>
                     </p>
-                   </div>
-                   <div style="padding:0; margin: 0; font-size: 17px;">
+                  </div>
+                  <div style="padding:0; margin: 0; font-size: 17px;">
                     <p style= "margin: 0 0 0 1em;">
-                      Non-binary/non-conforming: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.NonBinaryPercent }}</span>
+                      Non-binary: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.NonBinaryPercent }}%</span>
                     </p>
-                   </div>
-                   <div style="padding:0; margin: 0; font-size: 17px;">
+                  </div>
+                  <div style="padding:0; margin: 0; font-size: 17px;">
                     <p style= "margin: 0 0 0 1em; ">
-                      Prefer not to respond: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.preferNotToRespond }}</span>
+                      Prefer not to respond: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.preferNotToRespond }}%</span>
                     </p>
 
-                   </div>
+                  </div>
 
                 </div>
                 <div class="employee-data__item">
@@ -242,7 +242,7 @@
                   <div class="employee-data__item-description">
                     Average height of all employees
                   </div>
-                  <h1 style="margin-left: 1em; " *ngIf="testing">{{ testing.Height }}</h1>
+                  <h1 class="h1-stats" *ngIf="testing">{{ testing.Height }}</h1>
                 </div>
               </div>
               <div class="employee-data-group">
@@ -253,7 +253,7 @@
                   <div class="employee-data__item-description">
                       average temperature of all employees
                   </div>
-                  <h1 style="margin-left: 1em; "  *ngIf="testing">{{ testing.BodyTemp }}</h1>
+                  <h1 class="h1-stats"  *ngIf="testing">{{ testing.BodyTemp }}</h1>
                 </div>
                 <div class="employee-data__item">
                   <header class="employee-data__item-header">
@@ -262,7 +262,7 @@
                   <div class="employee-data__item-description">
                     average Pulse Rate of all employees
                   </div>
-                  <h1 style="margin-left: 1em; " *ngIf="testing">{{ testing.PulseRate }}</h1>
+                  <h1 class="h1-stats" *ngIf="testing">{{ testing.PulseRate }}</h1>
                 </div>
                 <div class="employee-data__item">
                   <header class="employee-data__item-header">
@@ -271,7 +271,7 @@
                   <div class="employee-data__item-description">
                     average  Blood Pressure of all employees
                   </div>
-                  <h1 style="margin-left: 1em; " *ngIf="testing">{{ testing.BloodPressure }}</h1>
+                  <h1 class="h1-stats" *ngIf="testing">{{ testing.BloodPressure }}</h1>
                 </div>
                 <div class="employee-data__item">
                   <header class="employee-data__item-header">
@@ -280,7 +280,7 @@
                   <div class="employee-data__item-description">
                     Average Respiration Rate  of all employees
                   </div>
-                  <h1 style="margin-left: 1em; " *ngIf="testing">{{ testing.RespirationRate }}</h1>
+                  <h1 class="h1-stats" *ngIf="testing">{{ testing.RespirationRate }}</h1>
                 </div>
               </div>
               <div class="employee-data-group">
@@ -292,7 +292,7 @@
                     Average weight of all employees
 
                   </div>
-                  <h1 style="margin-left: 1em; " *ngIf="testing">{{ testing.Weight }}</h1>
+                  <h1 class="h1-stats-weight" *ngIf="testing">{{ testing.Weight }}</h1>
                 </div>
                 <div class="employee-data__item">
                   <header class="employee-data__item-header">
@@ -301,7 +301,7 @@
                   <div class="employee-data__item-description">
                     Average Hours Exercise Per Week of all employees
                   </div>
-                  <h1 style="margin-left: 1em; margin-top: 0.2em;" *ngIf="testing">{{ testing.ExercisePerWeek }}</h1>
+                  <h1 class="h1-stats-weekly-exer" *ngIf="testing">{{ testing.ExercisePerWeek }}</h1>
                 </div>
                 <div class="employee-data__item">
                   <header class="employee-data__item-header">
@@ -310,7 +310,7 @@
                   <div class="employee-data__item-description">
                     Average Vacation Balance of all employees
                   </div>
-                  <h1 style="margin-left: 1em; margin-top: 0.2em;" *ngIf="testing">{{ testing.VacationBalance }}</h1>
+                  <h1 class="h1-stats" *ngIf="testing">{{ testing.VacationBalance }}</h1>
                 </div>
                 <div class="employee-data__item">
                   <header class="employee-data__item-header">
@@ -319,7 +319,7 @@
                   <div class="employee-data__item-description">
                     Average Hours Work Per Week of all employees
                   </div>
-                  <h1 style="margin-left: 1em; margin-top: 0.2em;" *ngIf="testing">{{ testing.WorkPerWeek }}</h1>
+                  <h1 class="h1-stats" *ngIf="testing">{{ testing.WorkPerWeek }}</h1>
                 </div>
               </div>
           </div>

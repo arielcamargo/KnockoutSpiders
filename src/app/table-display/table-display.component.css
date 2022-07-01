@@ -57,12 +57,13 @@ ul {
   margin-bottom: 0.2em;
   font-size: 3rem;
   border-bottom: 1px solid var(--border-color);
-  background-color: var(--secondary-color);
+  background-color: var(--background-main);
 }
 
 .header-title {
   display: flex;
   align-items: center;
+  color: var(--primary-color);
 }
 
 .header-add-new-btn {
@@ -115,7 +116,9 @@ ul {
 .employee-list-item-content {
   width: calc(100%/13);
   text-align: center;
+  font-size: 1.2rem;
   border-right: 1px solid var(--border-color);
+  margin: 0.5em 0;
 }
 
 .employee-list-item-content:first-child {
