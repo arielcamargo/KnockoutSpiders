@@ -10,10 +10,19 @@
         <div class="header-title">
           All Employees Stats:
         </div>
-        <button class="header-add-new-btn"
-        (click) = goToAddEmployee()>
-         +  Create Employee
-        </button>
+        <div class="btn-group-wrapper">
+          <button id="add-btn" class="btn"
+          (click) = goToAddEmployee()>
+            Add 
+          </button>
+          <button id="del-btn" class="btn">
+            Delete
+          </button>          
+          <button id="update-btn" class="btn">
+            Update 
+          </button>
+
+        </div>
       </header>
       <div class="main-wrapper__content">
         <div class="content__header">
