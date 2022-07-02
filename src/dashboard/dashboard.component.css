@@ -642,7 +642,7 @@ select {
   margin: 0.4em;
   width: calc(100% / 2);
   margin-top: 2em;
-  height: 420px;
+  height: 470px;
   border-radius: 1em;
   box-shadow: var(--box-shadow);
   background-color: var(--background-white);
@@ -684,15 +684,18 @@ select {
 
 .main__greeting-content {
   position: absolute;
-  width: 90%;
-  height: 90%;
-  top: 10%;
+  width: 95%;
+  height: 95%;
+  top: 5%;
   right: 5%;
 }
 
+
+
 .greeting-content-header {
   font-size: 2.4rem;
-  margin-top: 1.4em;
+  margin-left: 1em;
+  /* margin-top: 0; */
 }
 
 
@@ -723,6 +726,30 @@ select {
   }
 
   
+}
+
+.greeting-content-body {
+  margin-left: 1.85em;
+}
+
+.greeting-content-body-header {
+  margin-top: 0.6em;
+  font-size: 1.8rem;
+  margin-bottom: 0.4em;
+}
+
+.greeting-content-body-content {
+
+}
+
+
+.content-standardD {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  font-size: 1.2rem;
+  padding: 0;
+  max-width: 16em;
 }
 
 #greeting-img {
@@ -827,14 +854,18 @@ select {
   align-items: center;
 }
 .main__banner-wrapper {
+  /* display: flex;
+  flex-direction: column; */
   margin-top: 1.4em;
 }
 
 .main__banner-item {
+
+  flex:1;
   font-size: 1.4rem;
   width: 50%;
   text-align: left;
-  height: 14em;
+  height: 22em;
   flex: 1;
   max-width: 20em;
   color: black;
@@ -853,10 +884,27 @@ select {
 }
 
 
+.main__banner-item-body-wrapper {
+  /* margin-bottom: 2em; */
+}
+
+
+.main__banner-item-body-wrapper-item {
+}
+
+.main__banner-item-body-item {
+  display: flex;
+  justify-content: space-between;
+}
 
 .main__banner-item-header {
     font-weight: 600;
     font-size: 1.6rem;
+    margin-bottom: 2em;
+}
+
+#wrapper-1 {
+  margin-bottom: 3.5em;
 }
 
 .main__banner-item-body-wrapper-p {
@@ -975,6 +1023,7 @@ select {
 .employee-data__item-description {
   font-size: 1.2rem;
   line-height: 2.4rem;
+  text-transform: capitalize;
 }
 
 
@@ -983,6 +1032,18 @@ select {
   max-height: 2em;
   margin-left: 1em;
   font-weight: bold;
+}
+
+
+.gender-percentage {
+  display: flex;
+  font-size: 1.3rem;
+  margin-left: 0.2em;
+  justify-content: space-between;
+  margin-right: 0.6em;
+}
+.gender-percentage-span {
+  margin-right: 0.6em;
 }
 
 .h1-stats {
@@ -1053,6 +1114,10 @@ select {
   font-size: 1.8rem;
   line-height: 4.2rem;
 
+}
+
+.fa-brands {
+  margin: 0 0.2em;
 }
 
 
