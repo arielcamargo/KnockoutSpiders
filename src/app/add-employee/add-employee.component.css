@@ -77,7 +77,7 @@ select {
 #modal-add-new {
   display: flex;
   align-items: center;
-  /* position: fixed; */
+  position: fixed;
   inset: 0;
 }
 
