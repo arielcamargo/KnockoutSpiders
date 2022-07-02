@@ -29,20 +29,20 @@
         <div class="form__double-col ">
             <div class="form__double-col-item">
             <label style="font-size:1.6rem" class="form__double-col-item-label" >First name</label>
-            <input class="modal__inner-input" required="required" name="firstName" id="firstName" type="text"
-            [(ngModel)]="firstName">
+            <input class="modal__inner-input" required="required" placeholder="John" name="firstName" id="firstName" type="text"
+            >
             </div>
             <div class="form__double-col-item">
             <label style="font-size:1.6rem" class="form__double-col-item-label">Last Name</label>
-            <input class="modal__inner-input" required="required" id="lastName"  type="text"  name="lastName"
-            [(ngModel)]="lastName">
+            <input class="modal__inner-input" required="required" placeholder="Doe" id="lastName"  type="text"  name="lastName"
+            >
             </div>
         </div>
         <div class="form__double-col">
             <div class="form__double-col-item">
             <label style="font-size:1.6rem" class="form__double-col-item-label">Age</label>
-            <input class="modal__inner-input"  required="required" id="age" type="number" name="age"
-            [(ngModel)]="age">
+            <input class="modal__inner-input" placeholder="18"  required="required" id="age" type="text" name="age"
+            >
             </div>
             <div class="form__double-col-item">
             <label class="form__double-col-item-label">Gender:</label>
@@ -60,48 +60,48 @@
         <div class="form__single-col">
             <div class="form__single-col-item">
             <label style="font-size:1.6rem" class="form__single-col-item-label">Height(in inches)</label>
-            <input class="modal__inner-input" required="required" id="height"  type="number" name="height"
-            [(ngModel)]="height">
+            <input class="modal__inner-input" placeholder="70" required="required" id="height"  type="text" name="height"
+            >
             </div>
             <div  class="form__single-col-item">
             <label style="font-size:1.6rem" class="form__single-col-item-label">Body temp (in F)</label>
-            <input class="modal__inner-input" required="required"  id="bodyTemp"   type="number"  name="bodyTemp"
-            [(ngModel)]="bodyTemp">
+            <input class="modal__inner-input" required="required" placeholder="98"  id="bodyTemp"   type="text"  name="bodyTemp"
+            >
             </div>
         </div>
 
         <div class="form__info">
             <label style="font-size:1.6rem" class="form__info-label">Pulse Rate(beats per minute)</label>
-            <input class="modal__inner-input" required="required" id="pulseRate" type="number"  name="pulseRate"
-            [(ngModel)]="pulseRate">
+            <input class="modal__inner-input" required="required" placeholder="80" id="pulseRate" type="text"  name="pulseRate"
+            >
             <label style="font-size:1.6rem" class="form__info-label">Blood Pressure (number over number i.e. 120/80)</label>
-            <input class="modal__inner-input" required="required" id="bloodPressure"  type="text"  name="bloodPressure"
-            [(ngModel)]="bloodPressure">
+            <input class="modal__inner-input" required="required" id="bloodPressure" placeholder="(120 80)"  type="text"  name="bloodPressure"
+            >
             <label style="font-size:1.6rem" class="form__info-label">Respiration Rate (breaths per minute)</label>
-            <input class="modal__inner-input" required="required"  id="respirationRate"  type="number"  name="respirationRate"
-            [(ngModel)]="respirationRate">
+            <input class="modal__inner-input" required="required" placeholder="14"  id="respirationRate"  type="text"  name="respirationRate"
+            >
             <label style="font-size:1.6rem" class="form__info-label">Weight (in pounds)</label>
-            <input class="modal__inner-input" required="required"  id="weight"  type="number"  name="weight"
-            [(ngModel)]="weight">
+            <input class="modal__inner-input" required="required" placeholder="150"  id="weight"  type="text"  name="weight"
+            >
             <label style="font-size:1.6rem" class="form__info-label">Average Hours of Exercise Per Week</label>
-            <input class="modal__inner-input" required="required" id="avgHoursExercise"   type="number"  name="avgHoursExercise"
-            [(ngModel)]="avgHoursExercise">
+            <input class="modal__inner-input" required="required" id="avgHoursExercise" placeholder="4"   type="text"  name="avgHoursExercise"
+            >
             <label style="font-size:1.6rem" class="form__info-label">Vacation Balance (in hours)</label>
-            <input class="modal__inner-input" required="required"  id="vacationBalance"  type="number" name="vacationBalance"
-            [(ngModel)]="vacationBalance">
+            <input class="modal__inner-input" required="required"  id="vacationBalance" placeholder="24"  type="text" name="vacationBalance"
+            >
             <label style="font-size:1.6rem" class="form__info-label">Average Hours of work Per Week</label>
-            <input class="modal__inner-input" required="required"  id="avgHoursOfWo"  type="number"  name="avgHoursOfWo"
-            [(ngModel)]="avgHoursOfWo">
+            <input class="modal__inner-input" required="required"  id="avgHoursOfWo" placeholder="40"  type="text"  name="avgHoursOfWo"
+            >
         </div>
         </form>
         <!--Currently being disabled until valid  data entered -->
         <div class="add-btn-group">
-            <button class="add-emp-btn  float-right"
+            <button class="add-emp-btn" type="reset"
             (click) = goToDashboard()>
                 Back
             </button>
 
-            <button id="form-add-btn2" class="add-emp-btn  float-right"
+            <button id="form-add-btn2" class="add-emp-btn"type="reset"
             (click) = clickedAddButton()>
                 Add
             </button>

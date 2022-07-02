@@ -1,6 +1,7 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {createVendiaClient} from "@vendia/client";
 import { Router} from "@angular/router";
+import { Console } from 'console';
 
 
 //This should allow for the vendia client to work
@@ -183,9 +184,110 @@ export class DashboardComponent implements OnInit
       preferNotoSayWorkMoreThanFortyHoursPercent = Number(((preferNottoSayWorkMoreThanFortyHours/preferNotToRespondCounter) * 100).toFixed(2));
     
       
-      
+      let standardDeviationAge = 0.0;
+      for(let i = 0; i < this.ages.length; i++)
+      {
+        standardDeviationAge += Math.pow((this.ages[i] - averageAge), 2);
+      }
+      standardDeviationAge /= this.ages.length;
+      standardDeviationAge = Math.sqrt(standardDeviationAge);
+      standardDeviationAge = (Number(standardDeviationAge.toFixed(2)));
+      console.log(standardDeviationAge);
 
+      let standardDeviationHeight = 0.0;
+      for(let i = 0; i < this.heights.length; i++)
+      {
+        standardDeviationHeight += Math.pow((this.heights[i] - averageHeight), 2);
+      }
+      standardDeviationHeight /= this.heights.length;
+      standardDeviationHeight = Math.sqrt(standardDeviationHeight);
+      standardDeviationHeight = (Number(standardDeviationHeight.toFixed(2)));
+
+
+      let standardDeviationWeight = 0.0;
+      for(let i = 0; i < this.weights.length; i++)
+      {
+        standardDeviationWeight += Math.pow((this.weights[i] - averageWeight), 2);
+      }
+      standardDeviationWeight /= this.weights.length;
+      standardDeviationWeight = Math.sqrt(standardDeviationWeight);
+      standardDeviationWeight = (Number(standardDeviationWeight.toFixed(2)));
+
+      let standardDeviationBP = 0.0;
+      for(let i = 0; i < this.bloodPressures.length; i++)
+      {
+        standardDeviationBP += Math.pow((this.bloodPressures[i] - averageBloodPressure), 2);
+      }
+      standardDeviationBP /= this.bloodPressures.length;
+      standardDeviationBP = Math.sqrt(standardDeviationBP);
+      standardDeviationBP = (Number(standardDeviationBP.toFixed(2))); 
+      
+      let standardDeviationBT = 0.0;
+      for(let i = 0; i < this.temperatures.length; i++)
+      {
+        standardDeviationBT += Math.pow((this.temperatures[i] - averageBodyTemp), 2);
+      }
+      standardDeviationBT /= this.temperatures.length;
+      standardDeviationBT = Math.sqrt(standardDeviationBT);
+      standardDeviationBT = (Number(standardDeviationBT.toFixed(2)));
+      
+      let standardDeviationPulse = 0.0;
+      for(let i = 0; i < this.pulseRates.length; i++)
+      {
+        standardDeviationPulse += Math.pow((this.pulseRates[i] - averagePulseRate), 2);
+      }
+      standardDeviationPulse /= this.pulseRates.length;
+      standardDeviationPulse = Math.sqrt(standardDeviationPulse);
+      standardDeviationPulse = (Number(standardDeviationPulse.toFixed(2)));   
+      
+      let standardDeviationResp = 0.0;
+      for(let i = 0; i < this.respRates.length; i++)
+      {
+        standardDeviationResp += Math.pow((this.respRates[i] - averageRespirationRate), 2);
+      }
+      standardDeviationResp /= this.respRates.length;
+      standardDeviationResp = Math.sqrt(standardDeviationResp);
+      standardDeviationResp = (Number(standardDeviationResp.toFixed(2))); 
+      
+      let standardDeviationWklyE = 0.0;
+      for(let i = 0; i < this.exerciseHours.length; i++)
+      {
+        standardDeviationWklyE += Math.pow((this.exerciseHours[i] - averageHrExercisePerWeek), 2);
+      }
+      standardDeviationWklyE /= this.exerciseHours.length;
+      standardDeviationWklyE = Math.sqrt(standardDeviationWklyE);
+      standardDeviationWklyE = (Number(standardDeviationWklyE.toFixed(2))); 
+      
+      let standardDeviationVB = 0.0;
+      for(let i = 0; i < this.vacationHours.length; i++)
+      {
+        standardDeviationVB += Math.pow((this.vacationHours[i] - averageVacationBalance), 2);
+      }
+      standardDeviationVB /= this.vacationHours.length;
+      standardDeviationVB = Math.sqrt(standardDeviationVB);
+      standardDeviationVB = (Number(standardDeviationVB.toFixed(2)));
+      
+      let standardDeviationWH = 0.0;
+      for(let i = 0; i < this.workHours.length; i++)
+      {
+        standardDeviationWH += Math.pow((this.workHours[i] - averageHrWorkPerWeek), 2);
+      }
+      standardDeviationWH /= this.workHours.length;
+      standardDeviationWH = Math.sqrt(standardDeviationWH);
+      standardDeviationWH = (Number(standardDeviationWH.toFixed(2))); 
+      
       this.testing = {
+        StandardDeviationAge: standardDeviationAge,
+        StandardDeviationHeight: standardDeviationHeight,
+        StandardDeviationWeight: standardDeviationWeight,
+        StandardDeviationBP: standardDeviationBP,
+        StandardDeviationBT: standardDeviationBT,
+        StandardDeviationPulse: standardDeviationPulse,
+        StandardDeviationResp: standardDeviationResp,
+        StandardDeviationWklyE: standardDeviationWklyE,
+        StandardDeviationVB: standardDeviationVB,
+        StandardDeviationWH: standardDeviationWH,
+
         Age: averageAge,
         Weight: averageWeight,
         Height: averageHeight,
@@ -227,11 +329,11 @@ export class DashboardComponent implements OnInit
   //Author:Ariel Camargo
   calculations()
   {
-     this.malePercentage = this.getPercentage( 'Man', this.genders);
-     this.femalePercentage = this.getPercentage( 'Woman', this.genders);
-     this.transPercentage = this.getPercentage( 'Transgender', this.genders);
-     this.nonBinaryOrNonConfirmingPercentage = this.getPercentage('NonBinaryOrNonConfirming', this.genders);
-     this.preferNotToRespondPercentage = this.getPercentage('PreferNotToRespond', this.genders);
+    this.malePercentage = this.getPercentage( 'Man', this.genders);
+    this.femalePercentage = this.getPercentage( 'Woman', this.genders);
+    this.transPercentage = this.getPercentage( 'Transgender', this.genders);
+    this.nonBinaryOrNonConfirmingPercentage = this.getPercentage('NonBinaryOrNonConfirming', this.genders);
+    this.preferNotToRespondPercentage = this.getPercentage('PreferNotToRespond', this.genders);
   }
 
   dataInitialization()
@@ -311,6 +413,7 @@ export class DashboardComponent implements OnInit
     standardDeviation = Math.sqrt(standardDeviation);
     return standardDeviation;
   }
+
 
   //Author: Ariel Camargo
   //Given an array, the average is returned.
