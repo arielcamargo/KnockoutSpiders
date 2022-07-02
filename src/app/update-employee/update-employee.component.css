@@ -109,9 +109,53 @@ select {
 
 
 
-.header__tittle {
+
+.header__title {
+  text-align: center;
+}
+
+.header--search-bar {
+  /* border: solid 2px #dddddd; */
+  border-radius: 2em;
+  display: flex;
+  align-items: center;
+  margin-top: 0.6em;
+}
+
+.search-bar--search-bar__input:focus {
+  color: #bab7b7;
+}
+
+.nav-bar--search-btn {
+  cursor: pointer;
+  padding: .8rem 2rem;
+  font-family: var(--font-poppins);
+  border: none;
+  background: var(--bg-gradient-indigo);
+  font-size: 1.4rem;
+  line-height: 2.5rem;
+  /* margin: 0 1em; */
+  min-width: 7.7em;
+  text-align: center;
+  line-height: 17px;
+  height: 38px;
+  border-radius: 0 1em 1em 0 ;
+}
+
+.search-bar--search-bar__input {
+  width: 100%;
+  padding: 1rem 2rem;
+  color: var(--text-regular);
+  background-color: transparent;
+  outline: none;
+  font-size: 1.4rem;
+  line-height: 1.2rem;
+  border: none;
+  border: solid 1px #dddddd;
+  border-radius: 1em 0 0 1em;
 
 }
+
 
 .header__icon-wrapper {
   padding: 0 0.4em;
