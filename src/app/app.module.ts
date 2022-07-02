@@ -9,6 +9,8 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import {RouterModule} from "@angular/router";
 import { TableDisplayComponent } from './table-display/table-display.component';
 import {FormsModule} from "@angular/forms";
+import { UpdateEmployeeComponent } from './update-employee/update-employee.component';
+import { DeleteEmployeeComponent } from './delete-employee/delete-employee.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import {FormsModule} from "@angular/forms";
     DashboardComponent,
     TestingComponent,
     AddEmployeeComponent,
-    TableDisplayComponent
+    TableDisplayComponent,
+    UpdateEmployeeComponent,
+    DeleteEmployeeComponent
   ],
     imports: [
         BrowserModule,

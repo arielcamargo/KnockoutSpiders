@@ -30,7 +30,6 @@ export class DashboardComponent implements OnInit
   }
 
 
-  // genderTypes: string[] = ['female', 'male', 'male', 'male', 'non-binary', 'female', 'non-binary', 'prefer not to answer'];
 
   genders: any = [];
   data: any;
@@ -60,52 +59,55 @@ export class DashboardComponent implements OnInit
     this.calculations()
     this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
 
-    let totalAge = 0;
-    let averageAge = 0;
-    let totalWeight = 0;
-    let averageWeight = 0;
-    let totalHeight = 0;
-    let averageHeight = 0;
-    let totalBloodPressure = 0;
-    let averageBloodPressure = 0;
-    let totalPulseRate = 0;
-    let averagePulseRate = 0;
-    let totalHrExercisePerWeek = 0;
-    let averageHrExercisePerWeek = 0;
-    let totalVacationBalance = 0;
-    let averageVacationBalance = 0;
-    let totalHrWorkPerWeek = 0;
-    let averageHrWorkPerWeek = 0;
-    let totalBodyTemp = 0;
-    let averageBodyTemp = 0;
-    let totalRespirationRate = 0;
-    let averageRespirationRate = 0;
-    let totalEmployeeCount = 0;
-    let allGenders = '';
+    //---------------------------------Declare variables--------------------------------
+    const totalAge = 0;
+    const averageAge = 0;
+    const totalWeight = 0;
+    const averageWeight = 0;
+    const totalHeight = 0;
+    const averageHeight = 0;
+    const totalBloodPressure = 0;
+    const averageBloodPressure = 0;
+    const totalPulseRate = 0;
+    const averagePulseRate = 0;
+    const totalHrExercisePerWeek = 0;
+    const averageHrExercisePerWeek = 0;
+    const totalVacationBalance = 0;
+    const averageVacationBalance = 0;
+    const totalHrWorkPerWeek = 0;
+    const averageHrWorkPerWeek = 0;
+    const totalBodyTemp = 0;
+    const averageBodyTemp = 0;
+    const totalRespirationRate = 0;
+    const averageRespirationRate = 0;
+    const totalEmployeeCount = 0;
+    const allGenders = '';
 
-    let maleCounter = 0;
-    let femaleCounter = 0;
-    let transCounter= 0;
-    let preferNotToRespondCounter = 0;
-    let nonBinaryOrNonConfirmingCounter = 0;
+    const maleCounter = 0;
+    const femaleCounter = 0;
+    const transCounter= 0;
+    const preferNotToRespondCounter = 0;
+    const nonBinaryOrNonConfirmingCounter = 0;
 
-    let maleWorkMoreThanFortyHours = 0;
-    let femaleWorkMoreThanFortyHours = 0;
-    let transWorkMoreThanFortyHours = 0;
-    let noneBinaryWorkMoreThanFortyHours = 0;
-    let preferNottoSayWorkMoreThanFortyHours = 0;
+    const maleWorkMoreThanFortyHours = 0;
+    const femaleWorkMoreThanFortyHours = 0;
+    const transWorkMoreThanFortyHours = 0;
+    const noneBinaryWorkMoreThanFortyHours = 0;
+    const preferNottoSayWorkMoreThanFortyHours = 0;
 
-    let maleWorkMoreThanFortyHoursPercent = 0;
-    let femaleWorkMoreThanFortyHoursPercent = 0;
-    let transWorkMoreThanFortyHoursPercent = 0;
-    let noneBinaryWorkMoreThanFortyHoursPercent = 0;
-    let preferNotoSayWorkMoreThanFortyHoursPercent = 0;
+    const maleWorkMoreThanFortyHoursPercent = 0;
+    const femaleWorkMoreThanFortyHoursPercent = 0;
+    const transWorkMoreThanFortyHoursPercent = 0;
+    const noneBinaryWorkMoreThanFortyHoursPercent = 0;
+    const preferNotoSayWorkMoreThanFortyHoursPercent = 0;
 
-    let malePercentage = 0;
-    let femalePercentage = 0;
-    let transPercentage= 0;
-    let preferNotToRespondPercentage = 0;
-    let nonBinaryOrNonConfirmingPercentage = 0;
+    const malePercentage = 0;
+    const femalePercentage = 0;
+    const transPercentage= 0;
+    const preferNotToRespondPercentage = 0;
+    const nonBinaryOrNonConfirmingPercentage = 0;
+
+    //---------------------------------End of Declare variables--------------------------------
 
 
 

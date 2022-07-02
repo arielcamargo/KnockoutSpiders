@@ -18,6 +18,14 @@
   --alternate-primary: #17c214;
   --banner-background: rgb(243, 241, 246);
 
+    /*       Font family      */
+    --font-poppins: "Roboto","sans-serif";
+
+    /*       Gradient colors      */
+    --bg-gradient-indigo: linear-gradient(to right,#bda0f4 , #a175fa);
+    --bg-gradient-reverse:  linear-gradient(to right, #f77554,#fc9e87);
+    --bg-gradient-peach: linear-gradient(to right, #fff7f3,#fff7f3);
+  
 
 }
 
@@ -65,7 +73,7 @@ ul {
   align-items: center;
   color: var(--primary-color);
 }
-
+/* 
 .header-add-new-btn {
   display: flex;
   align-items: center;
@@ -76,11 +84,37 @@ ul {
   border-radius: 0.2em;
   background-color: #fff;
   color: black;
-}
+} */
+
+/* 
 
 .header-add-new-btn:hover {
   cursor: pointer;
   font-size: 1.7rem;
+} */
+
+
+.btn {
+  margin: 1em 0.6em;
+  width: 8em;
+  border: none;
+  cursor: pointer;
+  padding: .8rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font-poppins);
+  box-shadow: var(--box-shadow);
+  border: 0.5px solid #dddddd;
+  background: var(--bg-gradient-indigo);
+  float: right;
+  line-height: 2.5rem;
+  text-transform: capitalize;
+  font-size: 1.4rem;
+}
+
+#add-btn:hover,
+#del-btn:hover,
+#update-btn:hover {
+  color: white;
 }
 
 
