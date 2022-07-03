@@ -54,9 +54,13 @@
             "description": "Pulse Rate",
             "type": "number"
           },
-          "bloodPressure": {
-            "description": "Blood Pressure",
-            "type": "string"
+          "SystolicPressure": {
+            "description": "Systolic Pressure",
+            "type": "number"
+          },
+          "DiastolicPressure": {
+            "description": "Diastolic Pressure",
+            "type": "number"
           },
           "respirationRate": {
             "description": "Respiration Rate",

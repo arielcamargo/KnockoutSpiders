@@ -1,363 +1,394 @@
- <head>
-      <title>Dashboard</title>
-      <link rel="stylesheet" href="./dashboard.component.css">
+<head>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="./dashboard.component.css">
 </head>
 <body>
-      <div class="app">
-          <!-----------------Header section----------------->
-        <header class="header">
-          <div class="header--nav-bar">
-            <div class="nav-bar--logo">
-              <div class="header--logo-container">
-                <img class="logo--img" src="../assets/img/logo/vendia-logo.svg" alt="https://www.vendia.net/images/logo/white.svg">
-              </div>
-            </div>
-            <div class="header--search-bar">
-              <input type="text" placeholder="Type to search ..." class="search-bar--search-bar__input">
-              <button id="search-btn" class="nav-bar--search-btn">
-                Search
-              </button>
-            </div>
-            <div class="header--utility">
-              <button id="all-btn" class="utility__all-btn"
-              (click) = goToTable()>
-                <span class="utility__all-btn--all-text">All</span>
-                <i class="fa-solid fa-all-from-square"></i>
-              </button>
-              <!-- <button id="create-new-btn" class="utility__create-new-btn"
-              (click) = goToAddEmployee()>
-                <span class="create-text ">New</span>
-                <i class="fa-solid fa-plus"></i>
-              </button> -->
-              <div class="nav-bar--utility__avatar">
-                <div class="nav-bar--utility__avatar-panel">
-                  <div class="avatar-panel__wrapper ">
-                    <div class="avatar-panel__header">
-                      <header class="avatar-panel__header--header">
-                        John Doe
-                      </header>
-                    </div>
-                    <div class="avatar-panel__item  ">
-
-                      <div class="avatar-panel__item-title">
-                        settings & privacy
-                      </div>
-                    </div>
-                    <div class="avatar-panel__item  ">
-                      <div class="avatar-panel__item-icon">
-
-                      </div>
-                      <div class="avatar-panel__item-title">
-                        help & support
-                      </div>
-                    </div>
-                    <div class="avatar-panel__item  ">
-                      <div class="avatar-panel__item-icon">
-                      </div>
-                      <div class="avatar-panel__item-title">
-                        give feedback
-                      </div>
-                    </div>
-                    <div class="avatar-panel__item  ">
-                      <div class="avatar-panel__item-icon">
-
-                      </div>
-                      <div class="avatar-panel__item-title">
-                        log out
-                      </div>
-                    </div>
-                  </div>
-
-                </div>
-                <img id="avatar-img" class="utility--img" src="https://studyingbreakingbadcourse.files.wordpress.com/2016/02/walt-wearing-hat.jpg" alt="">
-              </div>
-            </div>
-          </div>
-        </header>
-          <!---------------End of Header section----------------->
-
-
-        <main class="main">
-          <!-------------------Banner section------------------->
-          <div class="main__header">
-
-                  <!-------------------Greeting section------------------->
-            <div class="main__greeting">
-              <div style="color: transparent" class="greeting-flag">
-              flag
-              </div>
-            </div>
-                  <!-------------------End of Greeting section------------------->
-
-
-                  <!-------------------Banner section------------------->
-            <div class="row--main__banner">
-              <div class="main__banner-wrapper">
-                <div class="main__banner-item ">
-                  <header class="main__banner-item-header" >
-                    Working out more than <span>3 hours a week</span> helps:
-                  </header>
-                  <div class="main__banner-item-body-wrapper">
-                    <div class="main__banner-item-body-wrapper-item">
-                    
-                      <p class= "main__banner-item-body-wrapper-p">Lower blood pressure</p>
-                    </div>
-                    <div class="main__banner-item-body-wrapper-item">
-                    
-                      <p class="main__banner-item-body-wrapper-p"> Higher respiratory rate</p>
-                    </div>
-
-                    <div class="main__banner-item-body-wrapper-item">
-                   
-                      <p class="main__banner-item-body-wrapper-p">Have ideal BMI</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="main__banner-item">
-                  <header class="main__banner-item-header">
-                    percentage of each gender  working more than <span>40</span> hours a week:
-                  </header>
-                  <div class="main__banner-item-body-wrapper">
-                    <div class="main__banner-item-body-item">
-                    
-                      <p class="main__banner-item-body-wrapper-p">Male:  <span  *ngIf="testing">{{ testing.MaleFortyHourAWeek }}%</span></p> 
-                    </div>
-                    <div class="main__banner-item-body-item">
-                      <p class="main__banner-item-body-wrapper-p">Female:  <span  *ngIf="testing">{{ testing.FemaleFortyHourAWeek }}%</span></p> 
-                    
-                    </div>
-                    <div class="main__banner-item-body-item">
-                      <p class="main__banner-item-body-wrapper-p">Transgender:  <span  *ngIf="testing">{{ testing.TransFortyHoursAWeek }}%</span></p> 
-                    
-                    </div>
-                    <div class="main__banner-item-body-item">
-                      <p class="main__banner-item-body-wrapper-p">Non-Binary/Non-Conforming:  <span  *ngIf="testing">{{ testing.NoneBinaryFortyHourAWeek }}%</span></p> 
-                    
-                    </div>
-                    <div class="main__banner-item-body-item">
-                      <p class="main__banner-item-body-wrapper-p">Prefer Not To Respond:  <span  *ngIf="testing">{{ testing.preferNToSayFortyHourAweek }}%</span></p> 
-                    
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="main__banner-wrapper">
-                <div class=" main__banner-item">
-                  <header class="main__banner-item-header" >
-                    Means:
-                  </header>
-                </div>
-                <div class="main__banner-item">
-
-                  <header class="main__banner-item-header" >
-                    Standard Deviation:
-                  </header>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-------------------End of Banner section----------------- -->
-
-          <!-------------------Filters section------------------->
-          <div class="filters-wrapper">
-            <div class="main__filters">
-              <div class="main__filters-item">Employee</div>
-              <div class="main__filters-item">Age</div>
-              <div class="main__filters-item">Gender</div>
-              <div class="main__filters-item">Height</div>
-              <div class="main__filters-item">Body Temp</div>
-              <div class="main__filters-item">Pulse Rate</div>
-              <div class="main__filters-item">Blood Pressure</div>
-              <div class="main__filters-item">Respiration Rate</div>
-              <div id="filters" class="main__filters-item ">
-                Filters
-              </div>
-            </div>
-          </div>
-           <!-------------------End of Filters section------------------->
-
-
-          <!---------------------Employee data section------------------- -->
-          <div class="main__employee-data">
-              <div class="employee-data-group">
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Employees
-                  </header>
-                  <div class="employee-data__item-description">
-                      Total number of all employees
-                  </div>
-                  <h1 class="h1-stats" *ngIf="testing">{{ testing.TotalEmployee }}</h1>
-                </div>
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Age
-                  </header>
-                  <div class="employee-data__item-description">
-                    Average age of all employees
-                  </div>
-                  <h1 class="h1-stats" *ngIf="testing">{{ testing.Age }}</h1>
-                </div>
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Gender
-                  </header>
-                  <div class="employee-data__item-description">
-
-                  </div>
-
-                  <div style="padding:0; margin: 0; font-size: 16px;" >
-                    <p style= "margin: 0 0 0 1em;">
-                      Male: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Mpercent }}%</span>
-
-                    </p>
-                  </div>
-                  <div style="padding:0; margin: 0; font-size: 17px;">
-                    <p style= "margin: 0 0 0 1em;">
-                      Female: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Fpercent }}%</span>
-                    </p>
-                  </div>
-                  <div style="padding:0; margin: 0; font-size: 17px;">
-                    <p style= "margin: 0 0 0 1em;">
-                      Transgender: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.Transpercent }}%</span>
-                    </p>
-                  </div>
-                  <div style="padding:0; margin: 0; font-size: 17px;">
-                    <p style= "margin: 0 0 0 1em;">
-                      Non-binary: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.NonBinaryPercent }}%</span>
-                    </p>
-                  </div>
-                  <div style="padding:0; margin: 0; font-size: 17px;">
-                    <p style= "margin: 0 0 0 1em; ">
-                      Prefer not to respond: <span style="margin-left: 1em;" *ngIf="testing">{{ testing.preferNotToRespond }}%</span>
-                    </p>
-
-                  </div>
-
-                </div>
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Height
-                  </header>
-                  <div class="employee-data__item-description">
-                    Average height of all employees
-                  </div>
-                  <h1 class="h1-stats" *ngIf="testing">{{ testing.Height }}</h1>
-                </div>
-              </div>
-              <div class="employee-data-group">
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Body Temperature
-                  </header>
-                  <div class="employee-data__item-description">
-                      average temperature of all employees
-                  </div>
-                  <h1 class="h1-stats"  *ngIf="testing">{{ testing.BodyTemp }}</h1>
-                </div>
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Pulse Rate
-                  </header>
-                  <div class="employee-data__item-description">
-                    average Pulse Rate of all employees
-                  </div>
-                  <h1 class="h1-stats" *ngIf="testing">{{ testing.PulseRate }}</h1>
-                </div>
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Blood Pressure
-                  </header>
-                  <div class="employee-data__item-description">
-                    average  Blood Pressure of all employees
-                  </div>
-                  <h1 class="h1-stats" *ngIf="testing">{{ testing.BloodPressure }}</h1>
-                </div>
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Respiration Rate
-                  </header>
-                  <div class="employee-data__item-description">
-                    Average Respiration Rate  of all employees
-                  </div>
-                  <h1 class="h1-stats" *ngIf="testing">{{ testing.RespirationRate }}</h1>
-                </div>
-              </div>
-              <div class="employee-data-group">
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Weight
-                  </header>
-                  <div class="employee-data__item-description">
-                    Average weight of all employees
-
-                  </div>
-                  <h1 class="h1-stats-weight" *ngIf="testing">{{ testing.Weight }}</h1>
-                </div>
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Weekly Exercise
-                  </header>
-                  <div class="employee-data__item-description">
-                    Average Hours Exercise Per Week of all employees
-                  </div>
-                  <h1 class="h1-stats-weekly-exer" *ngIf="testing">{{ testing.ExercisePerWeek }}</h1>
-                </div>
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Vacation Balance
-                  </header>
-                  <div class="employee-data__item-description">
-                    Average Vacation Balance of all employees
-                  </div>
-                  <h1 class="h1-stats" *ngIf="testing">{{ testing.VacationBalance }}</h1>
-                </div>
-                <div class="employee-data__item">
-                  <header class="employee-data__item-header">
-                    Work Hours
-                  </header>
-                  <div class="employee-data__item-description">
-                    Average Hours Work Per Week of all employees
-                  </div>
-                  <h1 class="h1-stats" *ngIf="testing">{{ testing.WorkPerWeek }}</h1>
-                </div>
-              </div>
-          </div>
-
-          <!---------------------End of Employee data section------------------- -->
-
-
-        </main>
-
-
-          <!---------------------FOOTER------------------- -->
-
-        <footer id="footer" class="footer">
-          <div class="footer__wrapper flex ">
-            <div class="wrapper-copyright text-capitalize text-m">
-              Knockout Spiders
-              <i class="fa-regular fa-copyright"></i>
-              2022
-            </div>
-            <div class="wrapper-social-medias text-xl flex ">
-              <i class="fa-brands fa-linkedin"></i>
-              <i class="fa-brands fa-github"></i>
-              <i class="fa-brands fa-facebook"></i>
-              <i class="fa-brands fa-instagram-square"></i>
-            </div>
-          </div>
-        </footer>
-          <!---------------------End of FOOTER------------------- -->
+<div class="app">
+  <!-----------------Header section----------------->
+  <header class="header">
+    <div class="header--nav-bar">
+      <div class="nav-bar--logo">
+        <a href="#" class="header--logo-container">
+          <img class="logo--img" src="../assets/img/logo/vendia-logo.svg" alt="https://www.vendia.net/images/logo/white.svg">
+        </a>
       </div>
+      <div class="header--search-bar">
+        <input type="text" placeholder="Type to search ..." class="search-bar--search-bar__input">
+        <button id="search-btn" class="nav-bar--search-btn">
+          Search
+        </button>
+      </div>
+      <div class="header--utility">
+        <button id="all-btn" class="utility__all-btn"
+                (click) = goToTable()>
+          <span class="utility__all-btn--all-text">All</span>
+          <i class="fa-solid fa-all-from-square"></i>
+        </button>
+        <!-- <button id="create-new-btn" class="utility__create-new-btn"
+        (click) = goToAddEmployee()>
+          <span class="create-text ">New</span>
+          <i class="fa-solid fa-plus"></i>
+        </button> -->
+        <div class="nav-bar--utility__avatar">
+          <div class="nav-bar--utility__avatar-panel">
+            <div class="avatar-panel__wrapper ">
+              <div class="avatar-panel__header">
+                <header class="avatar-panel__header--header">
+                  John Doe
+                </header>
+              </div>
+              <div class="avatar-panel__item  ">
 
-  </body>
+                <div class="avatar-panel__item-title">
+                  settings & privacy
+                </div>
+              </div>
+              <div class="avatar-panel__item  ">
+                <div class="avatar-panel__item-icon">
+
+                </div>
+                <div class="avatar-panel__item-title">
+                  help & support
+                </div>
+              </div>
+              <div class="avatar-panel__item  ">
+                <div class="avatar-panel__item-icon">
+                </div>
+                <div class="avatar-panel__item-title">
+                  give feedback
+                </div>
+              </div>
+              <div class="avatar-panel__item  ">
+                <div class="avatar-panel__item-icon">
+
+                </div>
+                <div class="avatar-panel__item-title">
+                  log out
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <img id="avatar-img" class="utility--img" src="https://studyingbreakingbadcourse.files.wordpress.com/2016/02/walt-wearing-hat.jpg" alt="">
+        </div>
+      </div>
+    </div>
+  </header>
+  <!---------------End of Header section----------------->
 
 
-  <script>
-  if(data.items[i].gender === "Man"){
-    maleCounter++;
-    if(data.items[i].hoursExercisePerWeek > 40){
-      maleWorkMoreThanFortyHours++;
-    }
-  }
-  </script>
+  <main class="main">
+    <!-------------------Banner section------------------->
+    <div class="main__header">
+
+      <!-------------------Greeting section------------------->
+      <div class="main__greeting">
+        <div style="color: transparent" class="greeting-flag">
+          flag <!--Dont touch this text please-->
+        </div>
+        <div class="main__greeting-content">
+          <header class="greeting-content-header">
+            Welcome to the
+            <p class="greeting-header-p">Employee Health Dashboard</p>
+          </header>
+          <div class="greeting-content-body">
+            <div class="greeting-content-body-header">
+              Standard Deviation:
+            </div>
+            <div class="greeting-content-body-content">
+              <p class="content-standardD" *ngIf="testing">Age:
+                <span>
+                {{ testing.StandardDeviationAge }}
+                </span>
+              </p>
+              <p class="content-standardD" *ngIf="testing">Height:
+                <span>
+                {{ testing.StandardDeviationHeight }}
+                </span>
+              </p>
+              <p class="content-standardD" *ngIf="testing">Weight:
+                <span>
+                {{ testing.StandardDeviationWeight }}
+                </span>
+              </p>
+              <p class="content-standardD" *ngIf="testing">Blood Pressure:
+                <span>
+                {{ testing.StandardDeviationBP }}
+                </span>
+              </p>
+              <p class="content-standardD" *ngIf="testing">Body Temp:
+                <span>
+                {{ testing.StandardDeviationBT }}
+                </span>
+              </p>
+              <p class="content-standardD" *ngIf="testing">Pulse Rate:
+                <span>
+                {{ testing.StandardDeviationPulse }}
+                </span>
+              </p>
+              <p class="content-standardD" *ngIf="testing">Respiration Rate:
+                <span>
+                {{ testing.StandardDeviationResp }}
+                </span>
+              </p>
+              <p class="content-standardD" *ngIf="testing">Weekly Exercise hours:
+                <span>
+                {{ testing.StandardDeviationWklyE }}
+                </span>
+              </p>
+              <p class="content-standardD" *ngIf="testing">Vacation Balance:
+                <span>
+                {{ testing.StandardDeviationVB }}
+                </span>
+              </p>
+              <p class="content-standardD" *ngIf="testing">Weekly working hours:
+                <span>
+                {{ testing.StandardDeviationWH }}
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-------------------End of Greeting section------------------->
+
+
+      <!-------------------Banner section------------------->
+      <div class="main__banner">
+        <div class="main__banner-wrapper">
+          <div class="main__banner-item ">
+            <header id="wrapper-1" class="main__banner-item-header" >
+              Working out more than <span>3 hours a week</span> helps:
+            </header>
+            <div  class="main__banner-item-body-wrapper">
+              <div class="main__banner-item-body-wrapper-item">
+                <p class= "main__banner-item-body-wrapper-p">Lower blood pressure</p>
+              </div>
+              <div class="main__banner-item-body-wrapper-item">
+                <p class="main__banner-item-body-wrapper-p"> Higher respiratory rate</p>
+              </div>
+              <div class="main__banner-item-body-wrapper-item">
+                <p class="main__banner-item-body-wrapper-p">Have ideal BMI</p>
+              </div>
+            </div>
+          </div>
+          <div class="main__banner-item">
+            <header class="main__banner-item-header">
+              percentage of each gender  working more than <span>40</span> hours a week:
+            </header>
+            <div class="main__banner-item-body-wrapper">
+              <div class="main__banner-item-body-item">
+                <div class="main__banner-item-body-wrapper-p">Male:  </div>
+                <div  *ngIf="testing">{{ testing.MaleFortyHourAWeek }}%</div>
+              </div>
+              <div class="main__banner-item-body-item">
+                <div class="main__banner-item-body-wrapper-p">Female:</div>
+                <div  *ngIf="testing">{{ testing.FemaleFortyHourAWeek }}%</div>
+              </div>
+              <div class="main__banner-item-body-item">
+                <div class="main__banner-item-body-wrapper-p">Transgender: </div>
+                <div  *ngIf="testing">{{ testing.TransFortyHoursAWeek }}%</div>
+              </div>
+              <div class="main__banner-item-body-item">
+                <div class="main__banner-item-body-wrapper-p">Non-Binary: </div>
+                <div  *ngIf="testing">{{ testing.NoneBinaryFortyHourAWeek }}%</div>
+              </div>
+              <div class="main__banner-item-body-item">
+                <div class="main__banner-item-body-wrapper-p">Prefer Not To Respond: </div>
+                <div  *ngIf="testing">{{ testing.preferNToSayFortyHourAweek }}%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-------------------Filters section------------------->
+    <div class="filters-wrapper">
+      <div class="main__filters">
+        <div class="main__filters-item">Employee</div>
+        <div class="main__filters-item">Age</div>
+        <div class="main__filters-item">Gender</div>
+        <div class="main__filters-item">Height</div>
+        <div class="main__filters-item">Body Temp</div>
+        <div class="main__filters-item">Pulse Rate</div>
+        <div class="main__filters-item">Blood Pressure</div>
+        <div class="main__filters-item">Respiration Rate</div>
+        <div id="filters" class="main__filters-item ">
+          Filters
+        </div>
+      </div>
+    </div>
+    <!-------------------End of Filters section------------------->
+
+
+    <!---------------------Employee data section------------------- -->
+    <div class="main__employee-data">
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Employees
+        </header>
+        <div class="employee-data__item-description">
+          Total number of all employees
+        </div>
+        <h1 class="h1-stats" *ngIf="testing">{{ testing.TotalEmployee }}</h1>
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Age
+        </header>
+        <div class="employee-data__item-description">
+          Average age of all employees
+        </div>
+        <h1 class="h1-stats" *ngIf="testing">{{ testing.Age }}</h1>
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Gender
+        </header>
+        <div class="employee-data__item-description">
+
+        </div>
+
+        <div style="padding:0; margin: 0; font-size: 16px;" >
+          <p class="gender-percentage" style= "margin: 0 0 0 1em;">
+            Male: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.Mpercent }}%</span>
+
+          </p>
+        </div>
+        <div style="padding:0; margin: 0; font-size: 17px;">
+          <p class="gender-percentage" style= "margin: 0 0 0 1em;">
+            Female: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.Fpercent }}%</span>
+          </p>
+        </div>
+        <div style="padding:0; margin: 0; font-size: 17px;">
+          <p class="gender-percentage" style= "margin: 0 0 0 1em;">
+            Transgender: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.Transpercent }}%</span>
+          </p>
+        </div>
+        <div style="padding:0; margin: 0; font-size: 17px;">
+          <p class="gender-percentage" style= "margin: 0 0 0 1em;">
+            Non-binary: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.NonBinaryPercent }}%</span>
+          </p>
+        </div>
+        <div style="padding:0; margin: 0; font-size: 17px;">
+          <p class="gender-percentage" style= "margin: 0 0 0 1em; ">
+            Prefer not to respond: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.preferNotToRespond }}%</span>
+          </p>
+
+        </div>
+
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Height
+        </header>
+        <div class="employee-data__item-description">
+          Average height of all employees
+        </div>
+        <h1 class="h1-stats" *ngIf="testing">{{ testing.Height }}</h1>
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Body Temperature
+        </header>
+        <div class="employee-data__item-description">
+          average temperature of all employees
+        </div>
+        <h1 class="h1-stats"  *ngIf="testing">{{ testing.BodyTemp }}</h1>
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Pulse Rate
+        </header>
+        <div class="employee-data__item-description">
+          average Pulse Rate of all employees
+        </div>
+        <h1 class="h1-stats" *ngIf="testing">{{ testing.PulseRate }}</h1>
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Blood Pressure
+        </header>
+        <div class="employee-data__item-description">
+          average  Blood Pressure of all employees
+        </div>
+        <h1 class="h1-stats" *ngIf="testing">{{ testing.BloodPressure }}</h1>
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Respiration Rate
+        </header>
+        <div class="employee-data__item-description">
+          Average Respiration Rate  of all employees
+        </div>
+        <h1 class="h1-stats" *ngIf="testing">{{ testing.RespirationRate }}</h1>
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Weight
+        </header>
+        <div class="employee-data__item-description">
+          Average weight of all employees
+
+        </div>
+        <h1 class="h1-stats-weight" *ngIf="testing">{{ testing.Weight }}</h1>
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Weekly Exercise
+        </header>
+        <div class="employee-data__item-description">
+          Average Hours Exercise Per Week of all employees
+        </div>
+        <h1 class="h1-stats-weekly-exer" *ngIf="testing">{{ testing.ExercisePerWeek }}</h1>
+      </div>
+      <div class="employee-data__item">
+        <header class="employee-data__item-header">
+          Vacation Balance
+        </header>
+        <div class="employee-data__item-description">
+          Average Vacation Balance of all employees
+        </div>
+        <h1 class="h1-stats" *ngIf="testing">{{ testing.VacationBalance }}</h1>
+      </div>
+      <div id="employee-data__item-last-child" class="employee-data__item">
+        <header class="employee-data__item-header">
+          Work Hours
+        </header>
+        <div class="employee-data__item-description">
+          Average Hours Work Per Week of all employees
+        </div>
+        <h1 class="h1-stats" *ngIf="testing">{{ testing.WorkPerWeek }}</h1>
+      </div>
+    </div>
+
+    <!---------------------End of Employee data section------------------- -->
+
+
+  </main>
+
+
+  <!---------------------FOOTER------------------- -->
+
+  <footer id="footer" class="footer">
+    <div class="footer__wrapper">
+      <div class="wrapper-copyright text-capitalize text-m">
+        Knockout Spiders Team
+        <i class="fa-regular fa-copyright"></i>
+        2022
+      </div>
+      <div class="wrapper-social-medias">
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-github"></i>
+        <i class="fa-brands fa-facebook"></i>
+        <i class="fa-brands fa-instagram-square"></i>
+      </div>
+    </div>
+  </footer>
+  <!---------------------End of FOOTER------------------- -->
+</div>
+
+</body>
+
+
+

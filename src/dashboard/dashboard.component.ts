@@ -7,9 +7,9 @@ import { Router} from "@angular/router";
 //in this component. Change apikey to correct one.
 const client = createVendiaClient({
 
-  apiUrl: `https://z2z10z6138.execute-api.us-west-1.amazonaws.com/graphql/`,
-  websocketUrl: `wss://ssope56ubl.execute-api.us-west-1.amazonaws.com/graphql`,
-  apiKey: `naUSK3QaBR8gPJcjj8N8diBaDNcuBdSe9UgDooCJciD`,
+  apiUrl: `https://yxqvgk2bt0.execute-api.us-west-2.amazonaws.com/graphql/`,
+  websocketUrl: `wss://q1gifqpt0f.execute-api.us-west-2.amazonaws.com/graphql`,
+  apiKey: `2EuFYSt12j8YMm6jATQ7dTbYEPBDobikJc64fxKcG26H`,
 });
 
 const {entities} = client;
@@ -43,7 +43,9 @@ export class DashboardComponent implements OnInit
   temperatures: number[] = [];
   pulseRates: number[] = [];
   exerciseHours: number[] = [];
-  bloodPressures: any = [];
+  diastolicPressure: number[] = [];
+  systolicPressure: number[] = [];
+  bloodPressure: any[] = [];
   workHours: number[] = [];
   respRates: number[] = [];
   malePercentage;
@@ -66,8 +68,10 @@ export class DashboardComponent implements OnInit
     let averageWeight = 0;
     let totalHeight = 0;
     let averageHeight = 0;
-    let totalBloodPressure = 0;
-    let averageBloodPressure = 0;
+    let totalDiastolicPressure = 0;
+    let averageDiastolicPressure = 0;
+    let totalSystolicPressure = 0;
+    let averageSystolicPressure = 0;
     let totalPulseRate = 0;
     let averagePulseRate = 0;
     let totalHrExercisePerWeek = 0;
@@ -111,10 +115,11 @@ export class DashboardComponent implements OnInit
 
     this.customTesting().then(data => {
       for(let i = 0;i < data.items.length;i++){
+        totalDiastolicPressure += data.items[i].SystolicPressure;
         totalAge += data.items[i].age!;
         totalWeight += data.items[i].weight!;
         totalHeight += data.items[i].height!;
-        totalBloodPressure += Number(data.items[i].bloodPressure);
+        totalSystolicPressure += data.items[i].DiastolicPressure;
         totalPulseRate += data.items[i].pulseRate;
         totalHrExercisePerWeek += data.items[i].avgHourseOfExercisePerWeek;
         totalVacationBalance += data.items[i].vacationBalance;
@@ -122,44 +127,44 @@ export class DashboardComponent implements OnInit
         totalBodyTemp += data.items[i].bodyTemperature;
         totalRespirationRate += data.items[i].respirationRate;
         allGenders += data.items[i].gender;
-    
         if(data.items[i].gender === "Man"){
             maleCounter++;
             if(data.items[i].avgHourseOfWorkPerWeek > 40){
               maleWorkMoreThanFortyHours++;
-            } 
+            }
         }
         else if(data.items[i].gender === "Woman") {
             femaleCounter++;
             if(data.items[i].avgHourseOfWorkPerWeek > 40){
               femaleWorkMoreThanFortyHours++;
-            } 
+            }
         }
         else if(data.items[i].gender === "Transgender") {
             transCounter++;
             if(data.items[i].avgHourseOfWorkPerWeek > 40){
               transWorkMoreThanFortyHours++;
-            } 
+            }
         }
         else if(data.items[i].gender === "NonBinaryOrNonConfirming") {
             nonBinaryOrNonConfirmingCounter++;
             if(data.items[i].avgHourseOfWorkPerWeek > 40){
               noneBinaryWorkMoreThanFortyHours++;
-            } 
+            }
         }
         else if(data.items[i].gender === "PreferNotToRespond") {
             preferNotToRespondCounter++;
             if(data.items[i].avgHourseOfWorkPerWeek > 40){
               preferNottoSayWorkMoreThanFortyHours;
               console.log(data.items[i].gender);
-              
+
             }
         }
       }
       averageAge = Number((totalAge/data.items.length).toFixed(2));
       averageWeight = Number((totalWeight/data.items.length).toFixed());
       averageHeight = Number((totalHeight/data.items.length).toFixed(2));
-      averageBloodPressure = Number((totalBloodPressure/data.items.length).toFixed(2));
+      averageDiastolicPressure = Number((totalDiastolicPressure/data.items.length).toFixed(2));
+      averageSystolicPressure = Number((totalSystolicPressure/data.items.length).toFixed(2));
       averagePulseRate = Number((totalPulseRate/data.items.length).toFixed(2));
       averageHrExercisePerWeek = Number((totalHrExercisePerWeek/data.items.length).toFixed(2));
       averageVacationBalance = Number((totalVacationBalance/data.items.length).toFixed(2));
@@ -179,16 +184,34 @@ export class DashboardComponent implements OnInit
       transWorkMoreThanFortyHoursPercent = Number(((transWorkMoreThanFortyHours/transCounter) * 100).toFixed(2));
       noneBinaryWorkMoreThanFortyHoursPercent = Number(((noneBinaryWorkMoreThanFortyHours/nonBinaryOrNonConfirmingCounter) * 100).toFixed(2));
       preferNotoSayWorkMoreThanFortyHoursPercent = Number(((preferNottoSayWorkMoreThanFortyHours/preferNotToRespondCounter) * 100).toFixed(2));
-    
-      
-      
+
+      if(femaleCounter == 0)
+      {
+        femaleWorkMoreThanFortyHoursPercent = 0.0;
+      }
+      if(maleCounter == 0)
+      {
+        maleWorkMoreThanFortyHoursPercent = 0.0;
+      }
+      if(transCounter == 0)
+      {
+        transWorkMoreThanFortyHoursPercent = 0.0;
+      }
+      if(nonBinaryOrNonConfirmingCounter == 0)
+      {
+        noneBinaryWorkMoreThanFortyHoursPercent = 0.0;
+      }
+      if(preferNotToRespondCounter == 0)
+      {
+        preferNotoSayWorkMoreThanFortyHoursPercent = 0.0
+      }
 
       this.testing = {
         Age: averageAge,
         Weight: averageWeight,
         Height: averageHeight,
         TotalEmployee: totalEmployeeCount,
-        BloodPressure: averageBloodPressure,
+        BloodPressure: averageDiastolicPressure + "/" + averageSystolicPressure,
         PulseRate: averagePulseRate,
         ExercisePerWeek: averageHrExercisePerWeek,
         VacationBalance: averageVacationBalance,
@@ -200,13 +223,13 @@ export class DashboardComponent implements OnInit
         Transpercent: transPercentage,
         NonBinaryPercent: nonBinaryOrNonConfirmingPercentage,
         preferNotToRespond: preferNotToRespondPercentage,
-        
-        
+
+
         MaleFortyHourAWeek: maleWorkMoreThanFortyHoursPercent,
-        FemaleFortyHourAWeek: femaleWorkMoreThanFortyHoursPercent, 
+        FemaleFortyHourAWeek: femaleWorkMoreThanFortyHoursPercent,
         TransFortyHoursAWeek: transWorkMoreThanFortyHoursPercent,
         NoneBinaryFortyHourAWeek: noneBinaryWorkMoreThanFortyHoursPercent,
-        preferNToSayFortyHourAweek: preferNotoSayWorkMoreThanFortyHoursPercent, 
+        preferNToSayFortyHourAweek: preferNotoSayWorkMoreThanFortyHoursPercent,
 
 
       }
@@ -228,7 +251,7 @@ export class DashboardComponent implements OnInit
      this.malePercentage = this.getPercentage( 'Man', this.genders);
      this.femalePercentage = this.getPercentage( 'Woman', this.genders);
      this.transPercentage = this.getPercentage( 'Transgender', this.genders);
-     this.nonBinaryOrNonConfirmingPercentage = this.getPercentage('NonBinaryOrNonConfirming', this.genders);
+     this.nonBinaryOrNonConfirmingPercentage = this.getPercentage('NonBinary', this.genders);
      this.preferNotToRespondPercentage = this.getPercentage('PreferNotToRespond', this.genders);
   }
 
@@ -271,7 +294,12 @@ export class DashboardComponent implements OnInit
 
     for(let i = 0; i < this.data.items.length; i++)
     {
-      this.bloodPressures.push(Number(this.data.items[i].bloodPressure));
+      this.diastolicPressure.push(Number(this.data.items[i].DiastolicPressure));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.systolicPressure.push(Number(this.data.items[i].SystolicPressure));
     }
 
     for(let i = 0; i < this.data.items.length; i++)
@@ -407,5 +435,5 @@ export class DashboardComponent implements OnInit
   {
     this.router.navigate(['table-display']).then();
   }
-  
+
 }
