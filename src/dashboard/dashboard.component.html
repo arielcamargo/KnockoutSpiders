@@ -21,7 +21,7 @@
       <div class="header--utility">
         <button id="all-btn" class="utility__all-btn"
         (click) = goToTable()>
-          <span class="utility__all-btn--all-text">All</span>
+          <span class="utility__all-btn--all-text">All Employees</span>
           <i class="fa-solid fa-all-from-square"></i>
         </button>
         <!-- <button id="create-new-btn" class="utility__create-new-btn"
@@ -87,8 +87,7 @@
           flag <!--Dont touch this text please-->
         </div>
         <div class="main__greeting-content">
-          <header class="greeting-content-header">
-            Welcome to the
+          <header class="greeting-content-header">Welcome to the
             <p class="greeting-header-p">Employee Health Dashboard</p>
           </header>
           <div class="greeting-content-body">
@@ -203,7 +202,7 @@
       </div>
     </div>
     <!-------------------Filters section------------------->
-    <div class="filters-wrapper">
+    <!-- <div class="filters-wrapper">
       <div class="main__filters">
         <div class="main__filters-item">Employee</div>
         <div class="main__filters-item">Age</div>
@@ -217,7 +216,7 @@
           Filters
         </div>
       </div>
-    </div>
+    </div> -->
     <!-------------------End of Filters section------------------->
 
 
@@ -231,6 +230,7 @@
             Total number of all employees
         </div>
         <h1 class="h1-stats" *ngIf="testing">{{ testing.TotalEmployee }}</h1>
+
       </div>
       <div class="employee-data__item">
         <header class="employee-data__item-header">
@@ -251,28 +251,28 @@
 
         <div style="padding:0; margin: 0; font-size: 16px;" >
           <p class="gender-percentage" style= "margin: 0 0 0 1em;">
-            Male: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.Mpercent }}%</span>
+            Male: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.Mpercent }}</span>
 
           </p>
         </div>
         <div style="padding:0; margin: 0; font-size: 17px;">
           <p class="gender-percentage" style= "margin: 0 0 0 1em;">
-            Female: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.Fpercent }}%</span>
+            Female: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.Fpercent }}</span>
           </p>
         </div>
         <div style="padding:0; margin: 0; font-size: 17px;">
           <p class="gender-percentage" style= "margin: 0 0 0 1em;">
-            Transgender: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.Transpercent }}%</span>
+            Transgender: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.Transpercent }}</span>
           </p>
         </div>
         <div style="padding:0; margin: 0; font-size: 17px;">
           <p class="gender-percentage" style= "margin: 0 0 0 1em;">
-            Non-binary: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.NonBinaryPercent }}%</span>
+            Non-binary: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.NonBinaryPercent }}</span>
           </p>
         </div>
         <div style="padding:0; margin: 0; font-size: 17px;">
           <p class="gender-percentage" style= "margin: 0 0 0 1em; ">
-            Prefer not to respond: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.preferNotToRespond }}%</span>
+            Prefer not to respond: <span class="gender-percentage-span" style="margin-left: 1em;" *ngIf="testing">{{ testing.preferNotToRespond }}</span>
           </p>
 
         </div>
@@ -312,7 +312,7 @@
         <div class="employee-data__item-description">
           average  Blood Pressure of all employees
         </div>
-        <h1 class="h1-stats" *ngIf="testing">{{ testing.BloodPressure }}</h1>
+        <h1 id="blood-pressure" class="h1-stats" *ngIf="testing">{{ testing.BloodPressure }}</h1>
       </div>
       <div class="employee-data__item">
         <header class="employee-data__item-header">
