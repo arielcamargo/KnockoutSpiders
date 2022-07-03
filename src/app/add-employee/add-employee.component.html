@@ -30,11 +30,13 @@
             <div class="form__double-col-item">
             <label style="font-size:1.6rem" class="form__double-col-item-label" >First name</label>
             <input class="modal__inner-input" required="required" name="firstName" id="firstName" type="text"
+                   placeholder="John"
             [(ngModel)]="firstName">
             </div>
             <div class="form__double-col-item">
             <label style="font-size:1.6rem" class="form__double-col-item-label">Last Name</label>
             <input class="modal__inner-input" required="required" id="lastName"  type="text"  name="lastName"
+                   placeholder="Doe"
             [(ngModel)]="lastName">
             </div>
         </div>
@@ -42,6 +44,7 @@
             <div class="form__double-col-item">
             <label style="font-size:1.6rem" class="form__double-col-item-label">Age</label>
             <input class="modal__inner-input"  required="required" id="age" type="number" name="age"
+                   placeholder="21"
             [(ngModel)]="age">
             </div>
             <div class="form__double-col-item">
@@ -61,11 +64,13 @@
             <div class="form__single-col-item">
             <label style="font-size:1.6rem" class="form__single-col-item-label">Height(in inches)</label>
             <input class="modal__inner-input" required="required" id="height"  type="number" name="height"
+                   placeholder="70"
             [(ngModel)]="height">
             </div>
             <div  class="form__single-col-item">
             <label style="font-size:1.6rem" class="form__single-col-item-label">Body temp (in F)</label>
             <input class="modal__inner-input" required="required"  id="bodyTemp"   type="number"  name="bodyTemp"
+                   placeholder="98"
             [(ngModel)]="bodyTemp">
             </div>
         </div>
@@ -73,27 +78,35 @@
         <div class="form__info">
             <label style="font-size:1.6rem" class="form__info-label">Pulse Rate(beats per minute)</label>
             <input class="modal__inner-input" required="required" id="pulseRate" type="number"  name="pulseRate"
+                   placeholder="80"
             [(ngModel)]="pulseRate">
             <label style="font-size:1.6rem" class="form__info-label">Diastolic Pressure</label>
             <input class="modal__inner-input" required="required" id="DiastolicPressure"  type="number"  name="DiastolicPressure"
+                   placeholder="100"
             [(ngModel)]="DiastolicPressure">
           <label style="font-size:1.6rem" class="form__info-label">Systolic Pressure</label>
             <input class="modal__inner-input" required="required" id="SystolicPressure"  type="number"  name="SystolicPressure"
+                   placeholder="80"
             [(ngModel)]="SystolicPressure">
             <label style="font-size:1.6rem" class="form__info-label">Respiration Rate (breaths per minute)</label>
             <input class="modal__inner-input" required="required"  id="respirationRate"  type="number"  name="respirationRate"
+                   placeholder="12"
             [(ngModel)]="respirationRate">
             <label style="font-size:1.6rem" class="form__info-label">Weight (in pounds)</label>
             <input class="modal__inner-input" required="required"  id="weight"  type="number"  name="weight"
+                   placeholder="110"
             [(ngModel)]="weight">
             <label style="font-size:1.6rem" class="form__info-label">Average Hours of Exercise Per Week</label>
             <input class="modal__inner-input" required="required" id="avgHoursExercise"   type="number"  name="avgHoursExercise"
+                   placeholder="4"
             [(ngModel)]="avgHoursExercise">
             <label style="font-size:1.6rem" class="form__info-label">Vacation Balance (in hours)</label>
             <input class="modal__inner-input" required="required"  id="vacationBalance"  type="number" name="vacationBalance"
+                   placeholder="8"
             [(ngModel)]="vacationBalance">
             <label style="font-size:1.6rem" class="form__info-label">Average Hours of work Per Week</label>
             <input class="modal__inner-input" required="required"  id="avgHoursOfWo"  type="number"  name="avgHoursOfWo"
+                   placeholder="40"
             [(ngModel)]="avgHoursOfWo">
         </div>
         </form>

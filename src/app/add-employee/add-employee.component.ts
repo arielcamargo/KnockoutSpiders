@@ -23,19 +23,19 @@ export class AddEmployeeComponent implements OnInit {
   {
   }
   gender = 0;
-  firstName: string = 'John';
-  lastName: string = 'Doe';
-  age: number = 18;
-  height: number = 70;
-  bodyTemp: number = 98;
-  pulseRate: number = 80;
-  DiastolicPressure: number = 100;
-  SystolicPressure: number = 80;
-  respirationRate: number = 12;
-  weight: number = 110;
-  avgHoursExercise: number = 4;
-  vacationBalance: number = 8;
-  avgHoursOfWo: number = 40;
+  firstName: string = '';
+  lastName: string = '';
+  age: number;
+  height: number;
+  bodyTemp: number;
+  pulseRate: number;
+  DiastolicPressure: number;
+  SystolicPressure: number;
+  respirationRate: number;
+  weight: number;
+  avgHoursExercise: number;
+  vacationBalance: number;
+  avgHoursOfWo: number;
 
 
 
@@ -155,6 +155,24 @@ export class AddEmployeeComponent implements OnInit {
         weight: this.weight,
       });
     }
+    this.emptyForm();
+  }
+
+  emptyForm()
+  {
+    this.firstName = '';
+    this.lastName = '';
+    this.age = null;
+    this.height = null;
+    this.bodyTemp = null;
+    this.pulseRate = null;
+    this.DiastolicPressure = null;
+    this.SystolicPressure = null;
+    this.respirationRate = null;
+    this.weight = null;
+    this.avgHoursExercise = null;
+    this.vacationBalance = null;
+    this.avgHoursOfWo = null;
   }
 
 
