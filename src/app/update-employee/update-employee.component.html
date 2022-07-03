@@ -1,1 +1,118 @@
-<p>update-employee works!</p>
+
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Update New</title>
+<link rel="stylesheet" href="update-employee.component.css">
+</head>
+<body>
+
+</body>
+<div id="modal-update-new" class="modal">
+<div style="font-size: 1.6rem; overflow-x: hidden; overflow-y: auto; " class="modal__body">
+    <div class="modal__inner">
+    <div class="modal__inner-header ">
+        <div class="header__icon-wrapper">
+        <i class="fa-solid fa-people-group"></i>
+        </div>
+        <div >
+            <header style="  font-size: 3rem;
+            text-transform: capitalize;
+            color: var(--primary-color);" class="header__title" >
+                update new employee
+            </header>
+            <div class="header--search-bar">
+                <input type="text" placeholder="Enter employee ID here..." class="search-bar--search-bar__input">
+                <button id="search-btn" class="nav-bar--search-btn">
+                    Search
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="modal__inner-form-wrapper">
+        <form id="#modal-update-new-form" action="#" >
+        <div class="form__double-col ">
+            <div class="form__double-col-item">
+            <label style="font-size:1.6rem" class="form__double-col-item-label" >First name</label>
+            <input class="modal__inner-input" required="required" name="firstName" id="firstName" type="text"
+           >
+            </div>
+            <div class="form__double-col-item">
+            <label style="font-size:1.6rem" class="form__double-col-item-label">Last Name</label>
+            <input class="modal__inner-input" required="required" id="lastName"  type="text"  name="lastName"
+           >
+            </div>
+        </div>
+        <div class="form__double-col">
+            <div class="form__double-col-item">
+            <label style="font-size:1.6rem" class="form__double-col-item-label">Age</label>
+            <input class="modal__inner-input"  required="required" id="age" type="number" name="age"
+           >
+            </div>
+            <div class="form__double-col-item">
+            <label class="form__double-col-item-label">Gender:</label>
+            <select #gender class="form__double-col-item-selection-select"
+            >
+                <option id="Man">Male</option>
+                <option id="Woman">Female</option>
+                <option id="Transgender">Transgender</option>
+                <option id="Non-binary">NonBinaryOrNonConfirming</option>
+                <option id="Prefer">PreferNotToRespond</option>
+            </select>
+            </div>
+        </div>
+
+        <div class="form__single-col">
+            <div class="form__single-col-item">
+            <label style="font-size:1.6rem" class="form__single-col-item-label">Height(in inches)</label>
+            <input class="modal__inner-input" required="required" id="height"  type="number" name="height"
+            >
+            </div>
+            <div  class="form__single-col-item">
+            <label style="font-size:1.6rem" class="form__single-col-item-label">Body temp (in F)</label>
+            <input class="modal__inner-input" required="required"  id="bodyTemp"   type="number"  name="bodyTemp"
+            >
+            </div>
+        </div>
+
+        <div class="form__info">
+            <label style="font-size:1.6rem" class="form__info-label">Pulse Rate(beats per minute)</label>
+            <input class="modal__inner-input" required="required" id="pulseRate" type="number"  name="pulseRate"
+            >
+            <label style="font-size:1.6rem" class="form__info-label">Blood Pressure (number over number i.e. 120/80)</label>
+            <input class="modal__inner-input" required="required" id="bloodPressure"  type="text"  name="bloodPressure"
+            >
+            <label style="font-size:1.6rem" class="form__info-label">Respiration Rate (breaths per minute)</label>
+            <input class="modal__inner-input" required="required"  id="respirationRate"  type="number"  name="respirationRate"
+            >
+            <label style="font-size:1.6rem" class="form__info-label">Weight (in pounds)</label>
+            <input class="modal__inner-input" required="required"  id="weight"  type="number"  name="weight"
+            >
+            <label style="font-size:1.6rem" class="form__info-label">Average Hours of Exercise Per Week</label>
+            <input class="modal__inner-input" required="required" id="avgHoursExercise"   type="number"  name="avgHoursExercise"
+            >
+            <label style="font-size:1.6rem" class="form__info-label">Vacation Balance (in hours)</label>
+            <input class="modal__inner-input" required="required"  id="vacationBalance"  type="number" name="vacationBalance"
+            >
+            <label style="font-size:1.6rem" class="form__info-label">Average Hours of work Per Week</label>
+            <input class="modal__inner-input" required="required"  id="avgHoursOfWo"  type="number"  name="avgHoursOfWo"
+            >
+        </div>
+        </form>
+        <!--Currently being disabled until valid  data entered -->
+        <div class="update-btn-group">
+            <button class="update-emp-btn  float-right"
+            >
+                Back
+            </button>
+            <button id="form-update-btn2" class="update-emp-btn  float-right">
+                Update
+            </button>
+        </div>
+
+    </div>
+    </div>
+</div>
+</div>
