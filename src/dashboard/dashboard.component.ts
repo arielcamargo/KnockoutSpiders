@@ -48,8 +48,8 @@ export class DashboardComponent implements OnInit
   bloodPressure: any[] = [];
   workHours: number[] = [];
   respRates: number[] = [];
-  malePercentage;
-  femalePercentage;
+  malePercentage: any;
+  femalePercentage: any;
   employeeBoxClasses;
   transPercentage: any;
   nonBinaryOrNonConfirmingPercentage: any;
@@ -62,30 +62,18 @@ export class DashboardComponent implements OnInit
     this.calculations()
     this.employeeBoxClasses = ['col', 'col-9', 'main__filters-item', 'btn'];
 
-    let totalAge = 0;
-    let averageAge = 0;
-    let totalWeight = 0;
-    let averageWeight = 0;
-    let totalHeight = 0;
-    let averageHeight = 0;
-    let totalDiastolicPressure = 0;
-    let averageDiastolicPressure = 0;
-    let totalSystolicPressure = 0;
-    let averageSystolicPressure = 0;
-    let totalPulseRate = 0;
-    let averagePulseRate = 0;
-    let totalHrExercisePerWeek = 0;
-    let averageHrExercisePerWeek = 0;
-    let totalVacationBalance = 0;
-    let averageVacationBalance = 0;
-    let totalHrWorkPerWeek = 0;
-    let averageHrWorkPerWeek = 0;
-    let totalBodyTemp = 0;
-    let averageBodyTemp = 0;
-    let totalRespirationRate = 0;
-    let averageRespirationRate = 0;
+    let averageAge = this.getAverage(this.ages).toFixed(2);
+    let averageWeight = this.getAverage(this.weights).toFixed(2);
+    let averageHeight = this.getAverage(this.heights).toFixed(2);
+    let averageDiastolicPressure = this.getAverage(this.diastolicPressure).toFixed(2);
+    let averageSystolicPressure = this.getAverage(this.systolicPressure).toFixed(2);
+    let averagePulseRate = this.getAverage(this.pulseRates).toFixed(2);
+    let averageHrExercisePerWeek = this.getAverage(this.exerciseHours).toFixed(2);
+    let averageVacationBalance = this.getAverage(this.vacationHours).toFixed(2);
+    let averageHrWorkPerWeek = this.getAverage(this.workHours).toFixed(2);
+    let averageBodyTemp = this.getAverage(this.temperatures).toFixed(2);
+    let averageRespirationRate = this.getAverage(this.respRates).toFixed(2);
     let totalEmployeeCount = 0;
-    let allGenders = '';
 
     let maleCounter = 0;
     let femaleCounter = 0;
@@ -105,28 +93,8 @@ export class DashboardComponent implements OnInit
     let noneBinaryWorkMoreThanFortyHoursPercent = 0;
     let preferNotoSayWorkMoreThanFortyHoursPercent = 0;
 
-    let malePercentage = 0;
-    let femalePercentage = 0;
-    let transPercentage= 0;
-    let preferNotToRespondPercentage = 0;
-    let nonBinaryOrNonConfirmingPercentage = 0;
-
-
-
     this.customTesting().then(data => {
       for(let i = 0;i < data.items.length;i++){
-        totalDiastolicPressure += data.items[i].SystolicPressure;
-        totalAge += data.items[i].age!;
-        totalWeight += data.items[i].weight!;
-        totalHeight += data.items[i].height!;
-        totalSystolicPressure += data.items[i].DiastolicPressure;
-        totalPulseRate += data.items[i].pulseRate;
-        totalHrExercisePerWeek += data.items[i].avgHourseOfExercisePerWeek;
-        totalVacationBalance += data.items[i].vacationBalance;
-        totalHrWorkPerWeek += data.items[i].avgHourseOfWorkPerWeek;
-        totalBodyTemp += data.items[i].bodyTemperature;
-        totalRespirationRate += data.items[i].respirationRate;
-        allGenders += data.items[i].gender;
         if(data.items[i].gender === "Man"){
             maleCounter++;
             if(data.items[i].avgHourseOfWorkPerWeek > 40){
@@ -154,36 +122,31 @@ export class DashboardComponent implements OnInit
         else if(data.items[i].gender === "PreferNotToRespond") {
             preferNotToRespondCounter++;
             if(data.items[i].avgHourseOfWorkPerWeek > 40){
-              preferNottoSayWorkMoreThanFortyHours;
-              console.log(data.items[i].gender);
-
+              preferNottoSayWorkMoreThanFortyHours++;
             }
         }
       }
-      averageAge = Number((totalAge/data.items.length).toFixed(2));
-      averageWeight = Number((totalWeight/data.items.length).toFixed());
-      averageHeight = Number((totalHeight/data.items.length).toFixed(2));
-      averageDiastolicPressure = Number((totalDiastolicPressure/data.items.length).toFixed(2));
-      averageSystolicPressure = Number((totalSystolicPressure/data.items.length).toFixed(2));
-      averagePulseRate = Number((totalPulseRate/data.items.length).toFixed(2));
-      averageHrExercisePerWeek = Number((totalHrExercisePerWeek/data.items.length).toFixed(2));
-      averageVacationBalance = Number((totalVacationBalance/data.items.length).toFixed(2));
-      averageHrWorkPerWeek = Number((totalHrWorkPerWeek/data.items.length).toFixed(2));
-      averageBodyTemp = Number((totalBodyTemp/data.items.length).toFixed(2));
-      averageRespirationRate = Number((totalRespirationRate/data.items.length).toFixed(2));
-      totalEmployeeCount = Number((data.items.length).toFixed(2));
 
-      malePercentage = Number(((maleCounter/totalEmployeeCount) * 100).toFixed(2));
-      femalePercentage = Number(((femaleCounter/totalEmployeeCount) * 100).toFixed(2));
-      transPercentage = Number(((transCounter/totalEmployeeCount) * 100).toFixed(2));
-      nonBinaryOrNonConfirmingPercentage = Number(((nonBinaryOrNonConfirmingCounter/totalEmployeeCount) * 100).toFixed(2));
-      preferNotToRespondPercentage = Number(((preferNotToRespondCounter/totalEmployeeCount) * 100).toFixed(2));
+      totalEmployeeCount = Number((data.items.length).toFixed(2));
 
       maleWorkMoreThanFortyHoursPercent = Number(((maleWorkMoreThanFortyHours/maleCounter) * 100).toFixed(2));
       femaleWorkMoreThanFortyHoursPercent = Number(((femaleWorkMoreThanFortyHours/femaleCounter) * 100).toFixed(2));
       transWorkMoreThanFortyHoursPercent = Number(((transWorkMoreThanFortyHours/transCounter) * 100).toFixed(2));
       noneBinaryWorkMoreThanFortyHoursPercent = Number(((noneBinaryWorkMoreThanFortyHours/nonBinaryOrNonConfirmingCounter) * 100).toFixed(2));
       preferNotoSayWorkMoreThanFortyHoursPercent = Number(((preferNottoSayWorkMoreThanFortyHours/preferNotToRespondCounter) * 100).toFixed(2));
+
+      let standardDeviationAge = this.getStandardDeviation(this.ages).toFixed(2);
+      let standardDeviationHeight = this.getStandardDeviation(this.heights).toFixed(2);
+      let standardDeviationWeight = this.getStandardDeviation(this.weights).toFixed(2);
+      let standardDeviationSP = this.getStandardDeviation(this.systolicPressure).toFixed(2);
+      let standardDeviationDP = this.getStandardDeviation(this.diastolicPressure).toFixed(2);
+      let standardDeviationBP = `${standardDeviationSP}/${standardDeviationDP}`
+      let standardDeviationBT = this.getStandardDeviation(this.temperatures).toFixed(2);
+      let standardDeviationPulse = this.getStandardDeviation(this.pulseRates).toFixed(2);
+      let standardDeviationResp = this.getStandardDeviation(this.respRates).toFixed(2);
+      let standardDeviationWklyE = this.getStandardDeviation(this.exerciseHours).toFixed(2);
+      let standardDeviationVB = this.getStandardDeviation(this.vacationHours).toFixed(2);
+      let standardDeviationWH = this.getStandardDeviation(this.workHours).toFixed(2);
 
       if(femaleCounter == 0)
       {
@@ -203,10 +166,22 @@ export class DashboardComponent implements OnInit
       }
       if(preferNotToRespondCounter == 0)
       {
-        preferNotoSayWorkMoreThanFortyHoursPercent = 0.0
+        preferNotoSayWorkMoreThanFortyHoursPercent = 0.0;
       }
 
       this.testing = {
+
+        StandardDeviationAge: standardDeviationAge,
+        StandardDeviationHeight: standardDeviationHeight,
+        StandardDeviationWeight: standardDeviationWeight,
+        StandardDeviationBP: standardDeviationBP,
+        StandardDeviationBT: standardDeviationBT,
+        StandardDeviationPulse: standardDeviationPulse,
+        StandardDeviationResp: standardDeviationResp,
+        StandardDeviationWklyE: standardDeviationWklyE,
+        StandardDeviationVB: standardDeviationVB,
+        StandardDeviationWH: standardDeviationWH,
+
         Age: averageAge,
         Weight: averageWeight,
         Height: averageHeight,
@@ -218,11 +193,11 @@ export class DashboardComponent implements OnInit
         WorkPerWeek: averageHrWorkPerWeek,
         BodyTemp: averageBodyTemp,
         RespirationRate: averageRespirationRate,
-        Mpercent: malePercentage,
-        Fpercent: femalePercentage,
-        Transpercent: transPercentage,
-        NonBinaryPercent: nonBinaryOrNonConfirmingPercentage,
-        preferNotToRespond: preferNotToRespondPercentage,
+        Mpercent: this.malePercentage,
+        Fpercent: this.femalePercentage,
+        Transpercent: this.transPercentage,
+        NonBinaryPercent: this.nonBinaryOrNonConfirmingPercentage,
+        preferNotToRespond: this.preferNotToRespondPercentage,
 
 
         MaleFortyHourAWeek: maleWorkMoreThanFortyHoursPercent,
@@ -231,9 +206,7 @@ export class DashboardComponent implements OnInit
         NoneBinaryFortyHourAWeek: noneBinaryWorkMoreThanFortyHoursPercent,
         preferNToSayFortyHourAweek: preferNotoSayWorkMoreThanFortyHoursPercent,
 
-
       }
-
 
     }
     )
@@ -251,7 +224,7 @@ export class DashboardComponent implements OnInit
      this.malePercentage = this.getPercentage( 'Man', this.genders);
      this.femalePercentage = this.getPercentage( 'Woman', this.genders);
      this.transPercentage = this.getPercentage( 'Transgender', this.genders);
-     this.nonBinaryOrNonConfirmingPercentage = this.getPercentage('NonBinary', this.genders);
+     this.nonBinaryOrNonConfirmingPercentage = this.getPercentage('NonBinaryOrNonConfirming', this.genders);
      this.preferNotToRespondPercentage = this.getPercentage('PreferNotToRespond', this.genders);
   }
 
