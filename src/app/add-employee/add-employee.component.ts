@@ -4,9 +4,9 @@ import {createVendiaClient} from "@vendia/client";
 
 const client = createVendiaClient({
 
-  apiUrl: `https://z2z10z6138.execute-api.us-west-1.amazonaws.com/graphql/`,
-  websocketUrl: `wss://ssope56ubl.execute-api.us-west-1.amazonaws.com/graphql`,
-  apiKey: `naUSK3QaBR8gPJcjj8N8diBaDNcuBdSe9UgDooCJciD`,
+  apiUrl: `https://yxqvgk2bt0.execute-api.us-west-2.amazonaws.com/graphql/`,
+  websocketUrl: `wss://q1gifqpt0f.execute-api.us-west-2.amazonaws.com/graphql`,
+  apiKey: `2EuFYSt12j8YMm6jATQ7dTbYEPBDobikJc64fxKcG26H`,
 });
 
 const {entities} = client;
@@ -23,18 +23,19 @@ export class AddEmployeeComponent implements OnInit {
   {
   }
   gender = 0;
-  firstName: string = 'John';
-  lastName: string = 'Doe';
-  age: number = 18;
-  height: number = 70;
-  bodyTemp: number = 98;
-  pulseRate: number = 80;
-  bloodPressure: string = '(120 80)';
-  respirationRate: number = 12;
-  weight: number = 110;
-  avgHoursExercise: number = 4;
-  vacationBalance: number = 8;
-  avgHoursOfWo: number = 40;
+  firstName: string = '';
+  lastName: string = '';
+  age: number;
+  height: number;
+  bodyTemp: number;
+  pulseRate: number;
+  DiastolicPressure: number;
+  SystolicPressure: number;
+  respirationRate: number;
+  weight: number;
+  avgHoursExercise: number;
+  vacationBalance: number;
+  avgHoursOfWo: number;
 
 
 
@@ -62,10 +63,11 @@ export class AddEmployeeComponent implements OnInit {
     if (this.gender === 0)
     {
       const employeeResponse = await entities.employee.add({
+        DiastolicPressure: this.DiastolicPressure,
+        SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
-        bloodPressure: this.bloodPressure,
         bodyTemperature: this.bodyTemp,
         firstName: this.firstName,
         gender: 'Man',
@@ -80,10 +82,11 @@ export class AddEmployeeComponent implements OnInit {
     else if (this.gender === 1)
     {
       const employeeResponse = await entities.employee.add({
+        DiastolicPressure: this.DiastolicPressure,
+        SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
-        bloodPressure: this.bloodPressure,
         bodyTemperature: this.bodyTemp,
         firstName: this.firstName,
         gender: 'Woman',
@@ -98,10 +101,11 @@ export class AddEmployeeComponent implements OnInit {
     else if (this.gender === 2)
     {
       const employeeResponse = await entities.employee.add({
+        DiastolicPressure: this.DiastolicPressure,
+        SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
-        bloodPressure: this.bloodPressure,
         bodyTemperature: this.bodyTemp,
         firstName: this.firstName,
         gender: 'Transgender',
@@ -116,10 +120,11 @@ export class AddEmployeeComponent implements OnInit {
     else if (this.gender === 3)
     {
       const employeeResponse = await entities.employee.add({
+        DiastolicPressure: this.DiastolicPressure,
+        SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
-        bloodPressure: this.bloodPressure,
         bodyTemperature: this.bodyTemp,
         firstName: this.firstName,
         gender: 'NonBinaryOrNonConfirming',
@@ -134,10 +139,11 @@ export class AddEmployeeComponent implements OnInit {
     else if (this.gender === 4)
     {
       const employeeResponse = await entities.employee.add({
+        DiastolicPressure: this.DiastolicPressure,
+        SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
-        bloodPressure: this.bloodPressure,
         bodyTemperature: this.bodyTemp,
         firstName: this.firstName,
         gender: 'PreferNotToRespond',
@@ -149,6 +155,24 @@ export class AddEmployeeComponent implements OnInit {
         weight: this.weight,
       });
     }
+    this.emptyForm();
+  }
+
+  emptyForm()
+  {
+    this.firstName = '';
+    this.lastName = '';
+    this.age = null;
+    this.height = null;
+    this.bodyTemp = null;
+    this.pulseRate = null;
+    this.DiastolicPressure = null;
+    this.SystolicPressure = null;
+    this.respirationRate = null;
+    this.weight = null;
+    this.avgHoursExercise = null;
+    this.vacationBalance = null;
+    this.avgHoursOfWo = null;
   }
 
 
@@ -166,7 +190,7 @@ export class AddEmployeeComponent implements OnInit {
     {
       this.gender = 2;
     }
-    else if('NonBinaryOrNonConfirming' == value)
+    else if('Non-Binary' == value)
     {
       this.gender = 3;
     }

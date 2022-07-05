@@ -7,9 +7,9 @@ import { Router} from "@angular/router";
 //in this component. Change apikey to correct one.
 const client = createVendiaClient({
 
-  apiUrl: `https://z2z10z6138.execute-api.us-west-1.amazonaws.com/graphql/`,
-  websocketUrl: `wss://ssope56ubl.execute-api.us-west-1.amazonaws.com/graphql`,
-  apiKey: `naUSK3QaBR8gPJcjj8N8diBaDNcuBdSe9UgDooCJciD`,
+  apiUrl: `https://yxqvgk2bt0.execute-api.us-west-2.amazonaws.com/graphql/`,
+  websocketUrl: `wss://q1gifqpt0f.execute-api.us-west-2.amazonaws.com/graphql`,
+  apiKey: `2EuFYSt12j8YMm6jATQ7dTbYEPBDobikJc64fxKcG26H`,
 });
 
 const {entities} = client;
@@ -29,7 +29,9 @@ export class TableDisplayComponent implements OnInit {
   heights: number[] = [];
   temperatures: number[] = [];
   pulseRates: number[] = [];
-  bloodPressures: number[] = [];
+  diastolicPressure: number[] = [];
+  systolicPressure: number[] = [];
+  bloodPressure: string[] = [];
   respRates: number[] = [];
   weights: number[] = [];
   exerciseHours: number[] = [];
@@ -103,7 +105,12 @@ export class TableDisplayComponent implements OnInit {
 
     for(let i = 0; i < this.data.items.length; i++)
     {
-      this.bloodPressures.push(Number(this.data.items[i].bloodPressure));
+      this.diastolicPressure.push(Number(this.data.items[i].DiastolicPressure));
+    }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.systolicPressure.push(Number(this.data.items[i].SystolicPressure));
     }
 
     for(let i = 0; i < this.data.items.length; i++)
@@ -125,6 +132,11 @@ export class TableDisplayComponent implements OnInit {
     {
       this.workHours.push(Number(this.data.items[i].avgHourseOfWorkPerWeek));
     }
+
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      this.bloodPressure.push(this.systolicPressure[i] + "/" + this.diastolicPressure[i]);
+    }
   }
 
   goToAddEmployee()
@@ -144,7 +156,7 @@ export class TableDisplayComponent implements OnInit {
 
   outputGender(index: number)
   {
-    return this.genders[index]; 
+    return this.genders[index];
   }
 
 
@@ -165,7 +177,7 @@ export class TableDisplayComponent implements OnInit {
 
   outputPressure(index:number)
   {
-    return this.bloodPressures[index];
+    return this.bloodPressure[index];
   }
 
   outputResp(index:number)

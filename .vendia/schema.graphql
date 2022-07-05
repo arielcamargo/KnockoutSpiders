@@ -195,10 +195,11 @@ enum Vendia_SyncMode {
 }
 
 input Self_Employee_ConditionInput_ {
+  DiastolicPressure: Vendia_ModelFloatInput_
+  SystolicPressure: Vendia_ModelFloatInput_
   age: Vendia_ModelFloatInput_
   avgHourseOfExercisePerWeek: Vendia_ModelFloatInput_
   avgHourseOfWorkPerWeek: Vendia_ModelFloatInput_
-  bloodPressure: Vendia_ModelStringInput_
   bodyTemperature: Vendia_ModelFloatInput_
   firstName: Vendia_ModelStringInput_
   gender: Vendia_ModelStringInput_
@@ -215,10 +216,11 @@ input Self_Employee_ConditionInput_ {
 
 input Self_Employee_FilterInput_ {
   _id: Vendia_ModelIDInput_
+  DiastolicPressure: Vendia_ModelFloatInput_
+  SystolicPressure: Vendia_ModelFloatInput_
   age: Vendia_ModelFloatInput_
   avgHourseOfExercisePerWeek: Vendia_ModelFloatInput_
   avgHourseOfWorkPerWeek: Vendia_ModelFloatInput_
-  bloodPressure: Vendia_ModelStringInput_
   bodyTemperature: Vendia_ModelFloatInput_
   firstName: Vendia_ModelStringInput_
   gender: Vendia_ModelStringInput_
@@ -235,10 +237,11 @@ input Self_Employee_FilterInput_ {
 
 type Self_Employee {
   _id: ID!
+  DiastolicPressure: Float
+  SystolicPressure: Float
   age: Float
   avgHourseOfExercisePerWeek: Float
   avgHourseOfWorkPerWeek: Float
-  bloodPressure: String
   bodyTemperature: Float
   firstName: String
   gender: Self_Employee_genderEnum
@@ -254,10 +257,11 @@ type Self_Employee {
 
 type Self_Employee_Partial_ {
   _id: ID!
+  DiastolicPressure: Float
+  SystolicPressure: Float
   age: Float
   avgHourseOfExercisePerWeek: Float
   avgHourseOfWorkPerWeek: Float
-  bloodPressure: String
   bodyTemperature: Float
   firstName: String
   gender: Self_Employee_genderEnum
@@ -293,10 +297,11 @@ type Self_Employee_Connection_ {
 }
 
 input Self_Employee_Input_ {
+  DiastolicPressure: Float
+  SystolicPressure: Float
   age: Float
   avgHourseOfExercisePerWeek: Float
   avgHourseOfWorkPerWeek: Float
-  bloodPressure: String
   bodyTemperature: Float
   firstName: String
   gender: Self_Employee_genderEnum
@@ -309,10 +314,11 @@ input Self_Employee_Input_ {
 }
 
 input Self_Employee_UpdateInput_ {
+  DiastolicPressure: Float
+  SystolicPressure: Float
   age: Float
   avgHourseOfExercisePerWeek: Float
   avgHourseOfWorkPerWeek: Float
-  bloodPressure: String
   bodyTemperature: Float
   firstName: String
   gender: Self_Employee_genderEnum
@@ -325,10 +331,11 @@ input Self_Employee_UpdateInput_ {
 }
 
 input Self_Employee_PartialInput_ {
+  DiastolicPressure: Float
+  SystolicPressure: Float
   age: Float
   avgHourseOfExercisePerWeek: Float
   avgHourseOfWorkPerWeek: Float
-  bloodPressure: String
   bodyTemperature: Float
   firstName: String
   gender: Self_Employee_genderEnum
