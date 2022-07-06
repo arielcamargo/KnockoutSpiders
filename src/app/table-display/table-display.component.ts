@@ -277,9 +277,15 @@ export class TableDisplayComponent implements OnInit {
     }
   }
 
-  goToUpdateEmployee()
+  goToDeleteEmployee()
   {
     this.router.navigate(['delete-employee']).then();
   }
+
+  goToUpdateEmployee()
+  {
+    this.router.navigate(['update-employee']).then();
+  }
+
 }
 // here
