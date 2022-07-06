@@ -38,6 +38,12 @@ export class TableDisplayComponent implements OnInit {
   vacationHours: number[] = [];
   workHours: number[] = [];
   stringOutput;
+  allIds: number[] = [];
+  maleIds: number[] = [];
+  femaleIds: number[] = [];
+  transIds: number[] = [];
+  nonBIds: number[] = [];
+  noRIds: number[] = [];
 
   constructor(private router: Router) { }
 
@@ -45,6 +51,7 @@ export class TableDisplayComponent implements OnInit {
   {
     this.data = await this.customTesting();
     this.dataInitialization();
+    this.idInitialization();
   }
 
   async customTesting()
@@ -58,7 +65,8 @@ export class TableDisplayComponent implements OnInit {
   {
     for(let i = 0; i < this.data.items.length; i++)
     {
-      this.ids.push(i + 1);
+      this.ids.push(i);
+      this.allIds.push(i);
     }
 
     for(let i = 0; i < this.data.items.length; i++)
@@ -77,6 +85,14 @@ export class TableDisplayComponent implements OnInit {
       }
       else if (this.data.items[i].gender === "NonBinaryOrNonConfirming") {
         this.genders.push("Non Binary");
+      }
+      else if(this.data.items[i].gender === "Man")
+      {
+        this.genders.push("Male");
+      }
+      else if(this.data.items[i].gender === "Woman")
+      {
+        this.genders.push("Female");
       }
        else {
         this.genders.push(this.data.items[i].gender);
@@ -136,6 +152,23 @@ export class TableDisplayComponent implements OnInit {
     for(let i = 0; i < this.data.items.length; i++)
     {
       this.bloodPressure.push(this.systolicPressure[i] + "/" + this.diastolicPressure[i]);
+    }
+  }
+
+  idInitialization()
+  {
+    for(let i = 0; i < this.data.items.length; i++)
+    {
+      if(this.genders[i] == 'Male')
+        this.maleIds.push(i);
+      else if(this.genders[i] == 'Female')
+        this.femaleIds.push(i);
+      else if(this.genders[i] == 'Transgender')
+        this.transIds.push(i);
+      else if(this.genders[i] == 'Non Binary')
+        this.nonBIds.push(i);
+      else
+        this.noRIds.push(i);
     }
   }
 
@@ -212,5 +245,41 @@ export class TableDisplayComponent implements OnInit {
       this.exerciseHours[index] + " " + this.vacationHours[index] + " " + this.workHours[index];
   }
 
+  onSelected(value: string)
+  {
+    if('All' == value)
+    {
+      this.ids = this.allIds;
+    }
+    if('Male' == value)
+    {
+      this.ids = this.maleIds;
+    }
+    else if('Female' == value)
+    {
+      this.ids = this.femaleIds;
+    }
+    else if('Transgender' == value)
+    {
+      this.ids = this.transIds;
+    }
+    else if('Non-Binary' == value)
+    {
+      this.ids = this.nonBIds;
+    }
+    else if('PreferNotToRespond' == value)
+    {
+      this.ids = this.noRIds;
+    }
+    else
+    {
+      this.ids = this.allIds;
+    }
+  }
+
+  goToUpdateEmployee()
+  {
+    this.router.navigate(['delete-employee']).then();
+  }
 }
 // here
