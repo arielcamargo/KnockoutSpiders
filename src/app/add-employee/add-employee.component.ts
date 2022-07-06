@@ -42,6 +42,7 @@ export class AddEmployeeComponent implements OnInit {
 
   ngOnInit()
   {
+    this.emptyForm();
   }
 
   clickedAddButton()
@@ -157,6 +158,7 @@ export class AddEmployeeComponent implements OnInit {
     }
     this.emptyForm();
   }
+
 
   emptyForm()
   {

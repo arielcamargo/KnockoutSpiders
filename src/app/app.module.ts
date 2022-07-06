@@ -28,6 +28,8 @@ import { DeleteEmployeeComponent } from './delete-employee/delete-employee.compo
                 {path: 'add-employee', component: AddEmployeeComponent},
                 {path: '', component: DashboardComponent},
                 {path: 'table-display', component: TableDisplayComponent},
+                {path: 'delete-employee', component: DeleteEmployeeComponent},
+                {path: 'update-employee', component: UpdateEmployeeComponent},
             ]
         ),
         FormsModule

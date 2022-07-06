@@ -13,15 +13,28 @@
         <div class="btn-group-wrapper">
           <button id="add-btn" class="btn"
           (click) = goToAddEmployee()>
-            Add 
+            Add
           </button>
-          <button id="del-btn" class="btn">
+          <button id="del-btn" class="btn"
+                  (click) = goToDeleteEmployee()>
             Delete
-          </button>          
-          <button id="update-btn" class="btn">
-            Update 
           </button>
-
+          <button id="update-btn" class="btn"
+          (click) = goToUpdateEmployee()>
+            Update
+          </button>
+          <div>
+            Gender Select:
+            <select #gender class="form__double-col-item-selection-select"
+                    (change) = "onSelected(gender.value)">
+              <option id="All" name="All">All</option>
+              <option id="Man">Male</option>
+              <option id="Woman" name="Woman">Female</option>
+              <option id="Transgender">Transgender</option>
+              <option id="Non-binary">Non-Binary</option>
+              <option id="Prefer">PreferNotToRespond</option>
+            </select>
+          </div>
         </div>
       </header>
       <div class="main-wrapper__content">
@@ -69,19 +82,19 @@
         <div class="content__employee-list">
           <div *ngFor="let item of ids; let i = index">
             <div class="employee-list-item">
-              <div class="employee-list-item-content">{{i + 1}}</div>
-              <div class="employee-list-item-content">{{outputFullName(i)}}</div>
-              <div class="employee-list-item-content">{{outputAge(i)}}</div>
-              <div class="employee-list-item-content">{{outputGender(i)}}</div>
-              <div class="employee-list-item-content">{{outputHeight(i)}}</div>
-              <div class="employee-list-item-content">{{outputTemp(i)}}</div>
-              <div class="employee-list-item-content">{{outputPulse(i)}}</div>
-              <div class="employee-list-item-content">{{outputPressure(i)}}</div>
-              <div class="employee-list-item-content">{{outputResp(i)}}</div>
-              <div class="employee-list-item-content">{{outputWeight(i)}}</div>
-              <div class="employee-list-item-content">{{outputExercise(i)}}</div>
-              <div class="employee-list-item-content">{{outputVacation(i)}}</div>
-              <div class="employee-list-item-content">{{outputWorkHours(i)}}</div>
+              <div class="employee-list-item-content">{{ids[i] + 1}}</div>
+              <div class="employee-list-item-content">{{outputFullName(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputAge(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputGender(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputHeight(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputTemp(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputPulse(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputPressure(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputResp(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputWeight(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputExercise(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputVacation(ids[i])}}</div>
+              <div class="employee-list-item-content">{{outputWorkHours(ids[i])}}</div>
             </div>
           </div>
 
