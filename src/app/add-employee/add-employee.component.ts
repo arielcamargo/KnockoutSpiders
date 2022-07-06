@@ -64,8 +64,8 @@ export class AddEmployeeComponent implements OnInit {
     if (this.gender === 0)
     {
       const employeeResponse = await entities.employee.add({
-        DiastolicPressure: this.DiastolicPressure,
-        SystolicPressure: this.SystolicPressure,
+        // DiastolicPressure: this.DiastolicPressure,
+        // SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
@@ -83,8 +83,8 @@ export class AddEmployeeComponent implements OnInit {
     else if (this.gender === 1)
     {
       const employeeResponse = await entities.employee.add({
-        DiastolicPressure: this.DiastolicPressure,
-        SystolicPressure: this.SystolicPressure,
+        // DiastolicPressure: this.DiastolicPressure,
+        // SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
@@ -102,8 +102,8 @@ export class AddEmployeeComponent implements OnInit {
     else if (this.gender === 2)
     {
       const employeeResponse = await entities.employee.add({
-        DiastolicPressure: this.DiastolicPressure,
-        SystolicPressure: this.SystolicPressure,
+        // DiastolicPressure: this.DiastolicPressure,
+        // SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
@@ -121,8 +121,8 @@ export class AddEmployeeComponent implements OnInit {
     else if (this.gender === 3)
     {
       const employeeResponse = await entities.employee.add({
-        DiastolicPressure: this.DiastolicPressure,
-        SystolicPressure: this.SystolicPressure,
+        // DiastolicPressure: this.DiastolicPressure,
+        // SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
@@ -140,8 +140,8 @@ export class AddEmployeeComponent implements OnInit {
     else if (this.gender === 4)
     {
       const employeeResponse = await entities.employee.add({
-        DiastolicPressure: this.DiastolicPressure,
-        SystolicPressure: this.SystolicPressure,
+        // DiastolicPressure: this.DiastolicPressure,
+        // SystolicPressure: this.SystolicPressure,
         age: this.age,
         avgHourseOfExercisePerWeek: this.avgHoursExercise,
         avgHourseOfWorkPerWeek: this.avgHoursOfWo,
